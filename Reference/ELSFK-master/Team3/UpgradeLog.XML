@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Tetris2">
+</Property><Property Name="解决方案文件" Value="D:\WorkSpace\C#\Mine\Tetris2\Tetris2.sln">
+</Property><Property Name="用户选项文件" Value="D:\WorkSpace\C#\Mine\Tetris2\Tetris2.suo">
+</Property><Property Name="Date" Value="2006年3月21日">
+</Property><Property Name="Time" Value="13:42 下午">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Tetris2.sln" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Tetris2.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Tetris2.suo" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Tetris2.suo">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Tetris2.csproj" Description="项目文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Tetris2.csproj">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Tetris2.csproj.user" Description="项目用户文件成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Tetris2.csproj.user">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="AllShapes.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\AllShapes.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="AssemblyInfo.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Block.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Block.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="ClassMain.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\ClassMain.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormLoad.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormLoad.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormMain.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormMain.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormSave.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormSave.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormSet.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormSet.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Game.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Game.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="GirdPoint.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\GirdPoint.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Globals.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Globals.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="SaveOrOpen.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\SaveOrOpen.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Shape.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Shape.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Sound.cs" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Sound.cs">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="About.txt" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\About.txt">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="App.ico" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Block.resx" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\Block.resx">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormLoad.resx" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormLoad.resx">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormMain.resx" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormMain.resx">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormSave.resx" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormSave.resx">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="FormSet.resx" Description="文件已成功备份为 D:\WorkSpace\C#\Mine\Tetris2\Backup\FormSet.resx">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Tetris2.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Tetris2" Source="Tetris2.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Tetris2.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="Tetris2.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Tetris2" Source="Tetris2.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

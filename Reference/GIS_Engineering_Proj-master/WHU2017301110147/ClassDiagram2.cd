@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WHU2017301110147.AttributeForm">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAABAACBAAACAAggAAABAAAAAAARIAA=</HashCode>
+      <FileName>Forms\AttributeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.MainForm">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ixZY7BSaKDAECkBv1IyJAQIGCAWqIGAQEmUAEQFEFCE=</HashCode>
+      <FileName>Forms\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Classes.DAO">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Classes.FixedZoomIn">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQACgCAAAAAAACAgAABAAAA=</HashCode>
+      <FileName>Classes\FixedZoomIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Classes.Pan">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAQACgDAAAAAQICAgAABCAAA=</HashCode>
+      <FileName>Classes\Pan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Forms.RouteForm">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQQAACAAABMgIACACAASEMAYAAAAEGAMAAAAAAA=</HashCode>
+      <FileName>Forms\RouteForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Forms.SpatialQueryResaultTable">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAAAAAAAACAAAACAAggAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Forms\SpatialQueryResaultTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHU2017301110147.Forms.AttrQueryForm" Collapsed="true">
+    <Position X="3" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wIAIjUcCDShQAJUAAQKAhEIaAQIKACoBQHwK0BAAUAA=</HashCode>
+      <FileName>Forms\AttrQueryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
