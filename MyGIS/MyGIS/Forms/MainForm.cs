@@ -165,5 +165,11 @@ namespace MyGIS.Forms
             }
         }
 
+        private void 地层界线点ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataCollect dataCollect = new DataCollect();
+            dataCollect.Show();
+        }
+
     }
 }
