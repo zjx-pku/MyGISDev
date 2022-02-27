@@ -1,0 +1,10 @@
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.exe
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.pdb
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csprojResolveAssemblyReference.cache
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.CollectData.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Properties.Resources.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csproj.GenerateResource.Cache
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.exe
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.pdb
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.MainForm.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.FormTable.resources
