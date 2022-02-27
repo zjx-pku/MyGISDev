@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace MyGIS.Forms
 {
-    public partial class FormTable : Form
+    public partial class AttributeTable : Form
     {
         ILayer mLayer;
 
-        public FormTable(ILayer pFeatureLayer)
+        public AttributeTable(ILayer pFeatureLayer)
         {
             InitializeComponent();
             mLayer = pFeatureLayer;

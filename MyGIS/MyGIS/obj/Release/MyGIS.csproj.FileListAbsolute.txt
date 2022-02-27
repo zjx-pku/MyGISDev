@@ -1,0 +1,8 @@
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Release\MyGIS.exe
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Release\MyGIS.pdb
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.MainForm.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.AttributeTable.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Properties.Resources.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.csproj.GenerateResource.Cache
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.exe
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.pdb

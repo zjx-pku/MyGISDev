@@ -1,6 +1,6 @@
 ﻿namespace MyGIS.Forms
 {
-    partial class FormTable
+    partial class AttributeTable
     {
         /// <summary>
         /// Required designer variable.
