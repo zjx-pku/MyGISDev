@@ -30,78 +30,78 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.peopleDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.routeDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.geoboundarypointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.faultpointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.foldpointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.placepointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.samplepointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.fossilpointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.mapDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.attitudeDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.sketchDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.pictureDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.dataGridView13 = new System.Windows.Forms.DataGridView();
+            this.waveDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.aviDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.geoboundaryDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.faultDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.straDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.dataGridView14 = new System.Windows.Forms.DataGridView();
-            this.dataGridView15 = new System.Windows.Forms.DataGridView();
-            this.dataGridView16 = new System.Windows.Forms.DataGridView();
-            this.dataGridView17 = new System.Windows.Forms.DataGridView();
-            this.dataGridView18 = new System.Windows.Forms.DataGridView();
+            this.textDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routeDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.geoboundarypointDataGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultpointDataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foldpointDataGridView)).BeginInit();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placepointDataGridView)).BeginInit();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplepointDataGridView)).BeginInit();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fossilpointDataGridView)).BeginInit();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapDataGridView)).BeginInit();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attitudeDataGridView)).BeginInit();
             this.tabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sketchDataGridView)).BeginInit();
             this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDataGridView)).BeginInit();
             this.tabPage13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waveDataGridView)).BeginInit();
             this.tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aviDataGridView)).BeginInit();
             this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.geoboundaryDataGridView)).BeginInit();
             this.tabPage16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.faultDataGridView)).BeginInit();
             this.tabPage17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.straDataGridView)).BeginInit();
             this.tabPage18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -136,7 +136,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.peopleDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 52);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -145,18 +145,18 @@
             this.tabPage1.Text = "采集人员";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // peopleDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(890, 517);
-            this.dataGridView1.TabIndex = 0;
+            this.peopleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.peopleDataGridView.Location = new System.Drawing.Point(6, 3);
+            this.peopleDataGridView.Name = "peopleDataGridView";
+            this.peopleDataGridView.RowTemplate.Height = 30;
+            this.peopleDataGridView.Size = new System.Drawing.Size(890, 517);
+            this.peopleDataGridView.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.routeDataGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 52);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -165,18 +165,18 @@
             this.tabPage2.Text = "地质路线";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // routeDataGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 30;
-            this.dataGridView2.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView2.TabIndex = 0;
+            this.routeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.routeDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.routeDataGridView.Name = "routeDataGridView";
+            this.routeDataGridView.RowTemplate.Height = 30;
+            this.routeDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.routeDataGridView.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.geoboundarypointDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 52);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -185,18 +185,18 @@
             this.tabPage3.Text = "地层界限点";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // geoboundarypointDataGridView
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 30;
-            this.dataGridView3.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView3.TabIndex = 1;
+            this.geoboundarypointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.geoboundarypointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.geoboundarypointDataGridView.Name = "geoboundarypointDataGridView";
+            this.geoboundarypointDataGridView.RowTemplate.Height = 30;
+            this.geoboundarypointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.geoboundarypointDataGridView.TabIndex = 1;
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Controls.Add(this.faultpointDataGridView);
             this.tabPage4.Location = new System.Drawing.Point(4, 52);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -205,18 +205,18 @@
             this.tabPage4.Text = "断层采集点";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // faultpointDataGridView
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowTemplate.Height = 30;
-            this.dataGridView4.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView4.TabIndex = 1;
+            this.faultpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.faultpointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.faultpointDataGridView.Name = "faultpointDataGridView";
+            this.faultpointDataGridView.RowTemplate.Height = 30;
+            this.faultpointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.faultpointDataGridView.TabIndex = 1;
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.dataGridView5);
+            this.tabPage5.Controls.Add(this.foldpointDataGridView);
             this.tabPage5.Location = new System.Drawing.Point(4, 52);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -225,18 +225,18 @@
             this.tabPage5.Text = "褶皱采集点";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView5
+            // foldpointDataGridView
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowTemplate.Height = 30;
-            this.dataGridView5.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView5.TabIndex = 1;
+            this.foldpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.foldpointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.foldpointDataGridView.Name = "foldpointDataGridView";
+            this.foldpointDataGridView.RowTemplate.Height = 30;
+            this.foldpointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.foldpointDataGridView.TabIndex = 1;
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.dataGridView6);
+            this.tabPage6.Controls.Add(this.placepointDataGridView);
             this.tabPage6.Location = new System.Drawing.Point(4, 52);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -245,18 +245,18 @@
             this.tabPage6.Text = "矿产采集点";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // dataGridView6
+            // placepointDataGridView
             // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.RowTemplate.Height = 30;
-            this.dataGridView6.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView6.TabIndex = 1;
+            this.placepointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.placepointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.placepointDataGridView.Name = "placepointDataGridView";
+            this.placepointDataGridView.RowTemplate.Height = 30;
+            this.placepointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.placepointDataGridView.TabIndex = 1;
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.dataGridView7);
+            this.tabPage7.Controls.Add(this.samplepointDataGridView);
             this.tabPage7.Location = new System.Drawing.Point(4, 52);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -265,18 +265,18 @@
             this.tabPage7.Text = "样品采集点";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // dataGridView7
+            // samplepointDataGridView
             // 
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.RowTemplate.Height = 30;
-            this.dataGridView7.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView7.TabIndex = 1;
+            this.samplepointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.samplepointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.samplepointDataGridView.Name = "samplepointDataGridView";
+            this.samplepointDataGridView.RowTemplate.Height = 30;
+            this.samplepointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.samplepointDataGridView.TabIndex = 1;
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.dataGridView8);
+            this.tabPage8.Controls.Add(this.fossilpointDataGridView);
             this.tabPage8.Location = new System.Drawing.Point(4, 52);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
@@ -285,18 +285,18 @@
             this.tabPage8.Text = "化石采集点";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // dataGridView8
+            // fossilpointDataGridView
             // 
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.RowTemplate.Height = 30;
-            this.dataGridView8.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView8.TabIndex = 1;
+            this.fossilpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.fossilpointDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.fossilpointDataGridView.Name = "fossilpointDataGridView";
+            this.fossilpointDataGridView.RowTemplate.Height = 30;
+            this.fossilpointDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.fossilpointDataGridView.TabIndex = 1;
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.dataGridView9);
+            this.tabPage9.Controls.Add(this.mapDataGridView);
             this.tabPage9.Location = new System.Drawing.Point(4, 52);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -305,18 +305,18 @@
             this.tabPage9.Text = "图幅信息数据";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // dataGridView9
+            // mapDataGridView
             // 
-            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.RowTemplate.Height = 30;
-            this.dataGridView9.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView9.TabIndex = 1;
+            this.mapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mapDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.mapDataGridView.Name = "mapDataGridView";
+            this.mapDataGridView.RowTemplate.Height = 30;
+            this.mapDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.mapDataGridView.TabIndex = 1;
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.dataGridView10);
+            this.tabPage10.Controls.Add(this.attitudeDataGridView);
             this.tabPage10.Location = new System.Drawing.Point(4, 52);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
@@ -325,18 +325,18 @@
             this.tabPage10.Text = "产状测量库";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // dataGridView10
+            // attitudeDataGridView
             // 
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.RowTemplate.Height = 30;
-            this.dataGridView10.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView10.TabIndex = 1;
+            this.attitudeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.attitudeDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.attitudeDataGridView.Name = "attitudeDataGridView";
+            this.attitudeDataGridView.RowTemplate.Height = 30;
+            this.attitudeDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.attitudeDataGridView.TabIndex = 1;
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.dataGridView11);
+            this.tabPage11.Controls.Add(this.sketchDataGridView);
             this.tabPage11.Location = new System.Drawing.Point(4, 52);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -345,18 +345,18 @@
             this.tabPage11.Text = "素描图库";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // dataGridView11
+            // sketchDataGridView
             // 
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.RowTemplate.Height = 30;
-            this.dataGridView11.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView11.TabIndex = 1;
+            this.sketchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sketchDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.sketchDataGridView.Name = "sketchDataGridView";
+            this.sketchDataGridView.RowTemplate.Height = 30;
+            this.sketchDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.sketchDataGridView.TabIndex = 1;
             // 
             // tabPage12
             // 
-            this.tabPage12.Controls.Add(this.dataGridView12);
+            this.tabPage12.Controls.Add(this.pictureDataGridView);
             this.tabPage12.Location = new System.Drawing.Point(4, 52);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
@@ -365,18 +365,18 @@
             this.tabPage12.Text = "图片库";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // dataGridView12
+            // pictureDataGridView
             // 
-            this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView12.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView12.Name = "dataGridView12";
-            this.dataGridView12.RowTemplate.Height = 30;
-            this.dataGridView12.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView12.TabIndex = 1;
+            this.pictureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pictureDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.pictureDataGridView.Name = "pictureDataGridView";
+            this.pictureDataGridView.RowTemplate.Height = 30;
+            this.pictureDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.pictureDataGridView.TabIndex = 1;
             // 
             // tabPage13
             // 
-            this.tabPage13.Controls.Add(this.dataGridView13);
+            this.tabPage13.Controls.Add(this.waveDataGridView);
             this.tabPage13.Location = new System.Drawing.Point(4, 52);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
@@ -385,18 +385,18 @@
             this.tabPage13.Text = "录音库";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // dataGridView13
+            // waveDataGridView
             // 
-            this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView13.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView13.Name = "dataGridView13";
-            this.dataGridView13.RowTemplate.Height = 30;
-            this.dataGridView13.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView13.TabIndex = 1;
+            this.waveDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.waveDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.waveDataGridView.Name = "waveDataGridView";
+            this.waveDataGridView.RowTemplate.Height = 30;
+            this.waveDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.waveDataGridView.TabIndex = 1;
             // 
             // tabPage14
             // 
-            this.tabPage14.Controls.Add(this.dataGridView14);
+            this.tabPage14.Controls.Add(this.aviDataGridView);
             this.tabPage14.Location = new System.Drawing.Point(4, 52);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -405,9 +405,18 @@
             this.tabPage14.Text = "视频库";
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
+            // aviDataGridView
+            // 
+            this.aviDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.aviDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.aviDataGridView.Name = "aviDataGridView";
+            this.aviDataGridView.RowTemplate.Height = 30;
+            this.aviDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.aviDataGridView.TabIndex = 1;
+            // 
             // tabPage15
             // 
-            this.tabPage15.Controls.Add(this.dataGridView15);
+            this.tabPage15.Controls.Add(this.geoboundaryDataGridView);
             this.tabPage15.Location = new System.Drawing.Point(4, 52);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
@@ -416,9 +425,18 @@
             this.tabPage15.Text = "地层界线";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
+            // geoboundaryDataGridView
+            // 
+            this.geoboundaryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.geoboundaryDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.geoboundaryDataGridView.Name = "geoboundaryDataGridView";
+            this.geoboundaryDataGridView.RowTemplate.Height = 30;
+            this.geoboundaryDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.geoboundaryDataGridView.TabIndex = 1;
+            // 
             // tabPage16
             // 
-            this.tabPage16.Controls.Add(this.dataGridView16);
+            this.tabPage16.Controls.Add(this.faultDataGridView);
             this.tabPage16.Location = new System.Drawing.Point(4, 52);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
@@ -427,9 +445,18 @@
             this.tabPage16.Text = "断层";
             this.tabPage16.UseVisualStyleBackColor = true;
             // 
+            // faultDataGridView
+            // 
+            this.faultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.faultDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.faultDataGridView.Name = "faultDataGridView";
+            this.faultDataGridView.RowTemplate.Height = 30;
+            this.faultDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.faultDataGridView.TabIndex = 1;
+            // 
             // tabPage17
             // 
-            this.tabPage17.Controls.Add(this.dataGridView17);
+            this.tabPage17.Controls.Add(this.straDataGridView);
             this.tabPage17.Location = new System.Drawing.Point(4, 52);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
@@ -438,9 +465,18 @@
             this.tabPage17.Text = "地质体";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
+            // straDataGridView
+            // 
+            this.straDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.straDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.straDataGridView.Name = "straDataGridView";
+            this.straDataGridView.RowTemplate.Height = 30;
+            this.straDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.straDataGridView.TabIndex = 1;
+            // 
             // tabPage18
             // 
-            this.tabPage18.Controls.Add(this.dataGridView18);
+            this.tabPage18.Controls.Add(this.textDataGridView);
             this.tabPage18.Location = new System.Drawing.Point(4, 52);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
@@ -449,50 +485,14 @@
             this.tabPage18.Text = "文本";
             this.tabPage18.UseVisualStyleBackColor = true;
             // 
-            // dataGridView14
+            // textDataGridView
             // 
-            this.dataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView14.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView14.Name = "dataGridView14";
-            this.dataGridView14.RowTemplate.Height = 30;
-            this.dataGridView14.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView14.TabIndex = 1;
-            // 
-            // dataGridView15
-            // 
-            this.dataGridView15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView15.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView15.Name = "dataGridView15";
-            this.dataGridView15.RowTemplate.Height = 30;
-            this.dataGridView15.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView15.TabIndex = 1;
-            // 
-            // dataGridView16
-            // 
-            this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView16.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView16.Name = "dataGridView16";
-            this.dataGridView16.RowTemplate.Height = 30;
-            this.dataGridView16.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView16.TabIndex = 1;
-            // 
-            // dataGridView17
-            // 
-            this.dataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView17.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView17.Name = "dataGridView17";
-            this.dataGridView17.RowTemplate.Height = 30;
-            this.dataGridView17.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView17.TabIndex = 1;
-            // 
-            // dataGridView18
-            // 
-            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView18.Location = new System.Drawing.Point(8, 8);
-            this.dataGridView18.Name = "dataGridView18";
-            this.dataGridView18.RowTemplate.Height = 30;
-            this.dataGridView18.Size = new System.Drawing.Size(902, 516);
-            this.dataGridView18.TabIndex = 1;
+            this.textDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.textDataGridView.Location = new System.Drawing.Point(8, 8);
+            this.textDataGridView.Name = "textDataGridView";
+            this.textDataGridView.RowTemplate.Height = 30;
+            this.textDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.textDataGridView.TabIndex = 1;
             // 
             // DataCollect
             // 
@@ -504,41 +504,41 @@
             this.Text = "DataCollect";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routeDataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.geoboundarypointDataGridView)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultpointDataGridView)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foldpointDataGridView)).EndInit();
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placepointDataGridView)).EndInit();
             this.tabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplepointDataGridView)).EndInit();
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fossilpointDataGridView)).EndInit();
             this.tabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapDataGridView)).EndInit();
             this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attitudeDataGridView)).EndInit();
             this.tabPage11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sketchDataGridView)).EndInit();
             this.tabPage12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDataGridView)).EndInit();
             this.tabPage13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waveDataGridView)).EndInit();
             this.tabPage14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.aviDataGridView)).EndInit();
             this.tabPage15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.geoboundaryDataGridView)).EndInit();
             this.tabPage16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.faultDataGridView)).EndInit();
             this.tabPage17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.straDataGridView)).EndInit();
             this.tabPage18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,23 +564,23 @@
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.TabPage tabPage18;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.DataGridView dataGridView7;
-        private System.Windows.Forms.DataGridView dataGridView8;
-        private System.Windows.Forms.DataGridView dataGridView9;
-        private System.Windows.Forms.DataGridView dataGridView10;
-        private System.Windows.Forms.DataGridView dataGridView11;
-        private System.Windows.Forms.DataGridView dataGridView12;
-        private System.Windows.Forms.DataGridView dataGridView13;
-        private System.Windows.Forms.DataGridView dataGridView14;
-        private System.Windows.Forms.DataGridView dataGridView15;
-        private System.Windows.Forms.DataGridView dataGridView16;
-        private System.Windows.Forms.DataGridView dataGridView17;
-        private System.Windows.Forms.DataGridView dataGridView18;
+        private System.Windows.Forms.DataGridView peopleDataGridView;
+        private System.Windows.Forms.DataGridView routeDataGridView;
+        private System.Windows.Forms.DataGridView geoboundarypointDataGridView;
+        private System.Windows.Forms.DataGridView faultpointDataGridView;
+        private System.Windows.Forms.DataGridView foldpointDataGridView;
+        private System.Windows.Forms.DataGridView placepointDataGridView;
+        private System.Windows.Forms.DataGridView samplepointDataGridView;
+        private System.Windows.Forms.DataGridView fossilpointDataGridView;
+        private System.Windows.Forms.DataGridView mapDataGridView;
+        private System.Windows.Forms.DataGridView attitudeDataGridView;
+        private System.Windows.Forms.DataGridView sketchDataGridView;
+        private System.Windows.Forms.DataGridView pictureDataGridView;
+        private System.Windows.Forms.DataGridView waveDataGridView;
+        private System.Windows.Forms.DataGridView aviDataGridView;
+        private System.Windows.Forms.DataGridView geoboundaryDataGridView;
+        private System.Windows.Forms.DataGridView faultDataGridView;
+        private System.Windows.Forms.DataGridView straDataGridView;
+        private System.Windows.Forms.DataGridView textDataGridView;
     }
 }
