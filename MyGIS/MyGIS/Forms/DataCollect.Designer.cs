@@ -65,6 +65,8 @@
             this.straDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.textDataGridView = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).BeginInit();
@@ -127,11 +129,11 @@
             this.tabControl1.Controls.Add(this.tabPage16);
             this.tabControl1.Controls.Add(this.tabPage17);
             this.tabControl1.Controls.Add(this.tabPage18);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(910, 572);
+            this.tabControl1.Size = new System.Drawing.Size(910, 586);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -147,6 +149,9 @@
             // 
             // peopleDataGridView
             // 
+            this.peopleDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.peopleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.peopleDataGridView.Location = new System.Drawing.Point(6, 3);
             this.peopleDataGridView.Name = "peopleDataGridView";
@@ -167,6 +172,9 @@
             // 
             // routeDataGridView
             // 
+            this.routeDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.routeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.routeDataGridView.Location = new System.Drawing.Point(0, 0);
             this.routeDataGridView.Name = "routeDataGridView";
@@ -187,6 +195,9 @@
             // 
             // geoboundarypointDataGridView
             // 
+            this.geoboundarypointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.geoboundarypointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.geoboundarypointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.geoboundarypointDataGridView.Name = "geoboundarypointDataGridView";
@@ -207,6 +218,9 @@
             // 
             // faultpointDataGridView
             // 
+            this.faultpointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.faultpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.faultpointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.faultpointDataGridView.Name = "faultpointDataGridView";
@@ -227,6 +241,9 @@
             // 
             // foldpointDataGridView
             // 
+            this.foldpointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.foldpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.foldpointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.foldpointDataGridView.Name = "foldpointDataGridView";
@@ -247,6 +264,9 @@
             // 
             // placepointDataGridView
             // 
+            this.placepointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.placepointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.placepointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.placepointDataGridView.Name = "placepointDataGridView";
@@ -267,6 +287,9 @@
             // 
             // samplepointDataGridView
             // 
+            this.samplepointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.samplepointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.samplepointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.samplepointDataGridView.Name = "samplepointDataGridView";
@@ -287,6 +310,9 @@
             // 
             // fossilpointDataGridView
             // 
+            this.fossilpointDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fossilpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fossilpointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.fossilpointDataGridView.Name = "fossilpointDataGridView";
@@ -307,6 +333,9 @@
             // 
             // mapDataGridView
             // 
+            this.mapDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mapDataGridView.Location = new System.Drawing.Point(8, 8);
             this.mapDataGridView.Name = "mapDataGridView";
@@ -327,6 +356,9 @@
             // 
             // attitudeDataGridView
             // 
+            this.attitudeDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.attitudeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.attitudeDataGridView.Location = new System.Drawing.Point(8, 8);
             this.attitudeDataGridView.Name = "attitudeDataGridView";
@@ -347,6 +379,9 @@
             // 
             // sketchDataGridView
             // 
+            this.sketchDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sketchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sketchDataGridView.Location = new System.Drawing.Point(8, 8);
             this.sketchDataGridView.Name = "sketchDataGridView";
@@ -367,6 +402,9 @@
             // 
             // pictureDataGridView
             // 
+            this.pictureDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pictureDataGridView.Location = new System.Drawing.Point(8, 8);
             this.pictureDataGridView.Name = "pictureDataGridView";
@@ -387,6 +425,9 @@
             // 
             // waveDataGridView
             // 
+            this.waveDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.waveDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.waveDataGridView.Location = new System.Drawing.Point(8, 8);
             this.waveDataGridView.Name = "waveDataGridView";
@@ -407,6 +448,9 @@
             // 
             // aviDataGridView
             // 
+            this.aviDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.aviDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.aviDataGridView.Location = new System.Drawing.Point(8, 8);
             this.aviDataGridView.Name = "aviDataGridView";
@@ -427,6 +471,9 @@
             // 
             // geoboundaryDataGridView
             // 
+            this.geoboundaryDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.geoboundaryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.geoboundaryDataGridView.Location = new System.Drawing.Point(8, 8);
             this.geoboundaryDataGridView.Name = "geoboundaryDataGridView";
@@ -447,6 +494,9 @@
             // 
             // faultDataGridView
             // 
+            this.faultDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.faultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.faultDataGridView.Location = new System.Drawing.Point(8, 8);
             this.faultDataGridView.Name = "faultDataGridView";
@@ -467,6 +517,9 @@
             // 
             // straDataGridView
             // 
+            this.straDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.straDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.straDataGridView.Location = new System.Drawing.Point(8, 8);
             this.straDataGridView.Name = "straDataGridView";
@@ -480,25 +533,50 @@
             this.tabPage18.Location = new System.Drawing.Point(4, 52);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(902, 516);
+            this.tabPage18.Size = new System.Drawing.Size(902, 530);
             this.tabPage18.TabIndex = 17;
             this.tabPage18.Text = "文本";
             this.tabPage18.UseVisualStyleBackColor = true;
             // 
             // textDataGridView
             // 
+            this.textDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.textDataGridView.Location = new System.Drawing.Point(8, 8);
             this.textDataGridView.Name = "textDataGridView";
             this.textDataGridView.RowTemplate.Height = 30;
-            this.textDataGridView.Size = new System.Drawing.Size(902, 516);
+            this.textDataGridView.Size = new System.Drawing.Size(902, 530);
             this.textDataGridView.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.Location = new System.Drawing.Point(207, 604);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 35);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "删除所选";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.Location = new System.Drawing.Point(569, 604);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 35);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "编辑所选";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // DataCollect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 629);
+            this.ClientSize = new System.Drawing.Size(935, 643);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "DataCollect";
             this.Text = "DataCollect";
@@ -582,5 +660,7 @@
         private System.Windows.Forms.DataGridView faultDataGridView;
         private System.Windows.Forms.DataGridView straDataGridView;
         private System.Windows.Forms.DataGridView textDataGridView;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
