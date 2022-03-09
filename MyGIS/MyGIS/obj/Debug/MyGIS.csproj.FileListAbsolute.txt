@@ -9,3 +9,4 @@ E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.MainForm.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.AttributeTable.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.exe.config
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.DataCollect.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.test.resources
