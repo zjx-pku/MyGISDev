@@ -102,11 +102,17 @@
     <Compile Include="Forms\AttributeTable.Designer.cs">
       <DependentUpon>AttributeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\test.cs">
+    <Compile Include="Forms\GeoBoundaryPoint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="Forms\GeoBoundaryPoint.Designer.cs">
+      <DependentUpon>GeoBoundaryPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchFeature.Designer.cs">
+      <DependentUpon>SearchFeature.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,8 +125,11 @@
     <EmbeddedResource Include="Forms\AttributeTable.resx">
       <DependentUpon>AttributeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\test.resx">
-      <DependentUpon>test.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GeoBoundaryPoint.resx">
+      <DependentUpon>GeoBoundaryPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchFeature.resx">
+      <DependentUpon>SearchFeature.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

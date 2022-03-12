@@ -67,6 +67,7 @@
             this.textDataGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).BeginInit();
@@ -142,7 +143,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 52);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(902, 516);
+            this.tabPage1.Size = new System.Drawing.Size(902, 530);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "采集人员";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -165,7 +166,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 52);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(902, 516);
+            this.tabPage2.Size = new System.Drawing.Size(902, 530);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "地质路线";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -188,7 +189,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 52);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(902, 516);
+            this.tabPage3.Size = new System.Drawing.Size(902, 530);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "地层界限点";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -211,7 +212,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 52);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(902, 516);
+            this.tabPage4.Size = new System.Drawing.Size(902, 530);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "断层采集点";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -234,7 +235,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 52);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(902, 516);
+            this.tabPage5.Size = new System.Drawing.Size(902, 530);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "褶皱采集点";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -257,7 +258,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 52);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(902, 516);
+            this.tabPage6.Size = new System.Drawing.Size(902, 530);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "矿产采集点";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -280,7 +281,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 52);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(902, 516);
+            this.tabPage7.Size = new System.Drawing.Size(902, 530);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "样品采集点";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -303,7 +304,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 52);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(902, 516);
+            this.tabPage8.Size = new System.Drawing.Size(902, 530);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "化石采集点";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -326,7 +327,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 52);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(902, 516);
+            this.tabPage9.Size = new System.Drawing.Size(902, 530);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "图幅信息数据";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -349,7 +350,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 52);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(902, 516);
+            this.tabPage10.Size = new System.Drawing.Size(902, 530);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "产状测量库";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -372,7 +373,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 52);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(902, 516);
+            this.tabPage11.Size = new System.Drawing.Size(902, 530);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "素描图库";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -395,7 +396,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 52);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(902, 516);
+            this.tabPage12.Size = new System.Drawing.Size(902, 530);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "图片库";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -418,7 +419,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 52);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(902, 516);
+            this.tabPage13.Size = new System.Drawing.Size(902, 530);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "录音库";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -441,7 +442,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 52);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(902, 516);
+            this.tabPage14.Size = new System.Drawing.Size(902, 530);
             this.tabPage14.TabIndex = 13;
             this.tabPage14.Text = "视频库";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -464,7 +465,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 52);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(902, 516);
+            this.tabPage15.Size = new System.Drawing.Size(902, 530);
             this.tabPage15.TabIndex = 14;
             this.tabPage15.Text = "地层界线";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -487,7 +488,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 52);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(902, 516);
+            this.tabPage16.Size = new System.Drawing.Size(902, 530);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "断层";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -510,7 +511,7 @@
             this.tabPage17.Location = new System.Drawing.Point(4, 52);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(902, 516);
+            this.tabPage17.Size = new System.Drawing.Size(902, 530);
             this.tabPage17.TabIndex = 16;
             this.tabPage17.Text = "地质体";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -553,7 +554,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(207, 604);
+            this.button1.Location = new System.Drawing.Point(106, 604);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 35);
             this.button1.TabIndex = 1;
@@ -563,23 +564,34 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(569, 604);
+            this.button2.Location = new System.Drawing.Point(382, 604);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 35);
             this.button2.TabIndex = 2;
             this.button2.Text = "编辑所选";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button3.Location = new System.Drawing.Point(634, 604);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 35);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "生成图层文件";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // DataCollect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 643);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "DataCollect";
-            this.Text = "DataCollect";
+            this.Text = "数据管理";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).EndInit();
@@ -662,5 +674,6 @@
         private System.Windows.Forms.DataGridView textDataGridView;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
