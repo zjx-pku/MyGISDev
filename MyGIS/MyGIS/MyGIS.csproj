@@ -90,6 +90,12 @@
     <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AttributeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AttributeTable.Designer.cs">
+      <DependentUpon>AttributeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DataCollect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,12 +126,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AttributeTable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AttributeTable.Designer.cs">
-      <DependentUpon>AttributeTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\GeoBoundaryPoint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +146,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AttributeTable.resx">
+      <DependentUpon>AttributeTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DataCollect.resx">
       <DependentUpon>DataCollect.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AttributeTable.resx">
-      <DependentUpon>AttributeTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GeoBoundaryPoint.resx">
       <DependentUpon>GeoBoundaryPoint.cs</DependentUpon>

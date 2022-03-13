@@ -1,6 +1,5 @@
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.exe
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.pdb
-E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csprojResolveAssemblyReference.cache
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Properties.Resources.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csproj.GenerateResource.Cache
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.exe
@@ -14,3 +13,4 @@ E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.Map.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.FaultPoint.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.FoldPoint.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.Route.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csprojResolveAssemblyReference.cache
