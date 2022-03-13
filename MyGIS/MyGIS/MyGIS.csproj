@@ -84,6 +84,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DataCollect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="Forms\FoldPoint.Designer.cs">
       <DependentUpon>FoldPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -126,12 +138,6 @@
     <Compile Include="Forms\Map.Designer.cs">
       <DependentUpon>Map.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\People.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\People.Designer.cs">
-      <DependentUpon>People.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Route.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
     <EmbeddedResource Include="Forms\DataCollect.resx">
       <DependentUpon>DataCollect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FaultPoint.resx">
+      <DependentUpon>FaultPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FoldPoint.resx">
+      <DependentUpon>FoldPoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GeoBoundaryPoint.resx">
       <DependentUpon>GeoBoundaryPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Route.resx">
+      <DependentUpon>Route.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

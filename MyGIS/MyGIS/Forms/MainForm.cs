@@ -174,11 +174,6 @@ namespace MyGIS.Forms
             }
         }
 
-        private void 数据管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataCollect dataCollect = new DataCollect();
-            dataCollect.Show();
-        }
 
         //定义一个Operation枚举
         enum Operation
@@ -205,8 +200,6 @@ namespace MyGIS.Forms
 
         }
 
-
-        #region 添加图形绘制的单击事件
         private void 点ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             oprFlag = Operation.ConstructionPoint;
@@ -224,7 +217,6 @@ namespace MyGIS.Forms
         {
             oprFlag = Operation.ConstructionPolygon;
         }
-        #endregion
 
         /// <summary>
         /// axMapContol控件的鼠标单击事件
@@ -453,13 +445,7 @@ namespace MyGIS.Forms
             }
         }
 
-
-        private void 填图人员录入ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            People people = new People();
-            people.Show();
-        }
-
+        #region 菜单选项
         private void 图幅数据录入ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Map map = new Map();
@@ -489,5 +475,24 @@ namespace MyGIS.Forms
             FoldPoint foldPoint = new FoldPoint();
             foldPoint.Show();
         }
+
+        private void 数据管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataCollect dataCollect = new DataCollect();
+            dataCollect.Show();
+        }
+
+        private void 帮助主题ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help help = new Help();
+            help.Show();
+        }
+
+        private void 关于软件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
+        #endregion
     }
 }

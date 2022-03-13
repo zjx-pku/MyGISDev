@@ -40,7 +40,6 @@
             this.移除图层ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.数据采集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.填图人员录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图幅数据录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.地质路线录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.地层界线点数据ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -167,7 +166,6 @@
             // 数据采集ToolStripMenuItem
             // 
             this.数据采集ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.填图人员录入ToolStripMenuItem,
             this.图幅数据录入ToolStripMenuItem,
             this.地质路线录入ToolStripMenuItem,
             this.地层界线点数据ToolStripMenuItem1,
@@ -176,13 +174,6 @@
             this.数据采集ToolStripMenuItem.Name = "数据采集ToolStripMenuItem";
             this.数据采集ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.数据采集ToolStripMenuItem.Text = "数据采集";
-            // 
-            // 填图人员录入ToolStripMenuItem
-            // 
-            this.填图人员录入ToolStripMenuItem.Name = "填图人员录入ToolStripMenuItem";
-            this.填图人员录入ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
-            this.填图人员录入ToolStripMenuItem.Text = "填图人员录入";
-            this.填图人员录入ToolStripMenuItem.Click += new System.EventHandler(this.填图人员录入ToolStripMenuItem_Click);
             // 
             // 图幅数据录入ToolStripMenuItem
             // 
@@ -278,19 +269,19 @@
             // 点ToolStripMenuItem1
             // 
             this.点ToolStripMenuItem1.Name = "点ToolStripMenuItem1";
-            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
             this.点ToolStripMenuItem1.Text = "点";
             // 
             // 线ToolStripMenuItem1
             // 
             this.线ToolStripMenuItem1.Name = "线ToolStripMenuItem1";
-            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
             this.线ToolStripMenuItem1.Text = "线";
             // 
             // 面ToolStripMenuItem
             // 
             this.面ToolStripMenuItem.Name = "面ToolStripMenuItem";
-            this.面ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.面ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
             this.面ToolStripMenuItem.Text = "面";
             // 
             // 空间分析ToolStripMenuItem
@@ -328,12 +319,14 @@
             this.帮助主题ToolStripMenuItem.Name = "帮助主题ToolStripMenuItem";
             this.帮助主题ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.帮助主题ToolStripMenuItem.Text = "帮助主题";
+            this.帮助主题ToolStripMenuItem.Click += new System.EventHandler(this.帮助主题ToolStripMenuItem_Click);
             // 
             // 关于软件ToolStripMenuItem
             // 
             this.关于软件ToolStripMenuItem.Name = "关于软件ToolStripMenuItem";
             this.关于软件ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.关于软件ToolStripMenuItem.Text = "关于软件";
+            this.关于软件ToolStripMenuItem.Click += new System.EventHandler(this.关于软件ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -395,7 +388,6 @@
         private System.Windows.Forms.ToolStripMenuItem 数据采集ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 空间分析ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 填图人员录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助主题ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于软件ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;

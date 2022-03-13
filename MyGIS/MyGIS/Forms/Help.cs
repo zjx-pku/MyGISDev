@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MyGIS.Forms
 {
-    public partial class People : Form
+    public partial class Help : Form
     {
-        public People()
+        public Help()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace MyGIS.Forms
 {
-    partial class People
+    partial class Help
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "People";
+            this.Text = "Help";
         }
 
         #endregion
