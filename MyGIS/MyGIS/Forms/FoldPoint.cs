@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MyGIS.Forms
 {
-    public partial class SearchFeature : Form
+    public partial class FoldPoint : Form
     {
-        public SearchFeature()
+        public FoldPoint()
         {
             InitializeComponent();
         }

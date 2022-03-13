@@ -39,37 +39,31 @@
             this.属性表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移除图层ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建工作空间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打开工作空间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存工作空间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据采集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.地层界线点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.填图人员录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图幅数据录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.地质路线录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.地层界线点数据ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.断层采集点数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.褶皱采集点数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑成图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制地层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制断层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制标注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制一般图形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.点ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.线ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.空间分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图查属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.属性查图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助主题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.标注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.一般图形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.点ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.线ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.图查属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.属性查图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.地质路线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.地层界线点ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.断层采集点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.褶皱采集点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.矿产采集点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.样品采集点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.化石采集点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -159,7 +153,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
             this.数据采集ToolStripMenuItem,
             this.数据管理ToolStripMenuItem,
             this.编辑成图ToolStripMenuItem,
@@ -171,80 +164,134 @@
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip2";
             // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建工作空间ToolStripMenuItem,
-            this.打开工作空间ToolStripMenuItem,
-            this.保存工作空间ToolStripMenuItem});
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(58, 28);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 新建工作空间ToolStripMenuItem
-            // 
-            this.新建工作空间ToolStripMenuItem.Name = "新建工作空间ToolStripMenuItem";
-            this.新建工作空间ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.新建工作空间ToolStripMenuItem.Text = "新建工作空间";
-            // 
-            // 打开工作空间ToolStripMenuItem
-            // 
-            this.打开工作空间ToolStripMenuItem.Name = "打开工作空间ToolStripMenuItem";
-            this.打开工作空间ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.打开工作空间ToolStripMenuItem.Text = "打开工作空间";
-            // 
-            // 保存工作空间ToolStripMenuItem
-            // 
-            this.保存工作空间ToolStripMenuItem.Name = "保存工作空间ToolStripMenuItem";
-            this.保存工作空间ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.保存工作空间ToolStripMenuItem.Text = "保存工作空间";
-            // 
             // 数据采集ToolStripMenuItem
             // 
             this.数据采集ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.地层界线点ToolStripMenuItem,
-            this.地质路线ToolStripMenuItem,
-            this.地层界线点ToolStripMenuItem1,
-            this.断层采集点ToolStripMenuItem,
-            this.褶皱采集点ToolStripMenuItem,
-            this.矿产采集点ToolStripMenuItem,
-            this.样品采集点ToolStripMenuItem,
-            this.化石采集点ToolStripMenuItem});
+            this.填图人员录入ToolStripMenuItem,
+            this.图幅数据录入ToolStripMenuItem,
+            this.地质路线录入ToolStripMenuItem,
+            this.地层界线点数据ToolStripMenuItem1,
+            this.断层采集点数据ToolStripMenuItem,
+            this.褶皱采集点数据ToolStripMenuItem});
             this.数据采集ToolStripMenuItem.Name = "数据采集ToolStripMenuItem";
             this.数据采集ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.数据采集ToolStripMenuItem.Text = "数据采集";
             // 
-            // 地层界线点ToolStripMenuItem
+            // 填图人员录入ToolStripMenuItem
             // 
-            this.地层界线点ToolStripMenuItem.Name = "地层界线点ToolStripMenuItem";
-            this.地层界线点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.地层界线点ToolStripMenuItem.Text = "填图人员";
-            this.地层界线点ToolStripMenuItem.Click += new System.EventHandler(this.地层界线点ToolStripMenuItem_Click);
+            this.填图人员录入ToolStripMenuItem.Name = "填图人员录入ToolStripMenuItem";
+            this.填图人员录入ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
+            this.填图人员录入ToolStripMenuItem.Text = "填图人员录入";
+            this.填图人员录入ToolStripMenuItem.Click += new System.EventHandler(this.填图人员录入ToolStripMenuItem_Click);
+            // 
+            // 图幅数据录入ToolStripMenuItem
+            // 
+            this.图幅数据录入ToolStripMenuItem.Name = "图幅数据录入ToolStripMenuItem";
+            this.图幅数据录入ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
+            this.图幅数据录入ToolStripMenuItem.Text = "图幅数据录入";
+            this.图幅数据录入ToolStripMenuItem.Click += new System.EventHandler(this.图幅数据录入ToolStripMenuItem_Click);
+            // 
+            // 地质路线录入ToolStripMenuItem
+            // 
+            this.地质路线录入ToolStripMenuItem.Name = "地质路线录入ToolStripMenuItem";
+            this.地质路线录入ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
+            this.地质路线录入ToolStripMenuItem.Text = "地质路线录入";
+            this.地质路线录入ToolStripMenuItem.Click += new System.EventHandler(this.地质路线录入ToolStripMenuItem_Click);
+            // 
+            // 地层界线点数据ToolStripMenuItem1
+            // 
+            this.地层界线点数据ToolStripMenuItem1.Name = "地层界线点数据ToolStripMenuItem1";
+            this.地层界线点数据ToolStripMenuItem1.Size = new System.Drawing.Size(206, 28);
+            this.地层界线点数据ToolStripMenuItem1.Text = "地层界线点数据";
+            this.地层界线点数据ToolStripMenuItem1.Click += new System.EventHandler(this.地层界线点数据ToolStripMenuItem1_Click);
+            // 
+            // 断层采集点数据ToolStripMenuItem
+            // 
+            this.断层采集点数据ToolStripMenuItem.Name = "断层采集点数据ToolStripMenuItem";
+            this.断层采集点数据ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
+            this.断层采集点数据ToolStripMenuItem.Text = "断层采集点数据";
+            this.断层采集点数据ToolStripMenuItem.Click += new System.EventHandler(this.断层采集点数据ToolStripMenuItem_Click);
+            // 
+            // 褶皱采集点数据ToolStripMenuItem
+            // 
+            this.褶皱采集点数据ToolStripMenuItem.Name = "褶皱采集点数据ToolStripMenuItem";
+            this.褶皱采集点数据ToolStripMenuItem.Size = new System.Drawing.Size(206, 28);
+            this.褶皱采集点数据ToolStripMenuItem.Text = "褶皱采集点数据";
+            this.褶皱采集点数据ToolStripMenuItem.Click += new System.EventHandler(this.褶皱采集点数据ToolStripMenuItem_Click);
+            // 
+            // 数据管理ToolStripMenuItem
+            // 
+            this.数据管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.数据管理ToolStripMenuItem1});
+            this.数据管理ToolStripMenuItem.Name = "数据管理ToolStripMenuItem";
+            this.数据管理ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
+            this.数据管理ToolStripMenuItem.Text = "数据管理";
+            // 
+            // 数据管理ToolStripMenuItem1
+            // 
+            this.数据管理ToolStripMenuItem1.Name = "数据管理ToolStripMenuItem1";
+            this.数据管理ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.数据管理ToolStripMenuItem1.Text = "数据管理";
+            this.数据管理ToolStripMenuItem1.Click += new System.EventHandler(this.数据管理ToolStripMenuItem_Click);
             // 
             // 编辑成图ToolStripMenuItem
             // 
             this.编辑成图ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.点ToolStripMenuItem,
-            this.线ToolStripMenuItem,
-            this.标注ToolStripMenuItem,
-            this.一般图形ToolStripMenuItem});
+            this.绘制地层线ToolStripMenuItem,
+            this.绘制断层线ToolStripMenuItem,
+            this.绘制标注ToolStripMenuItem,
+            this.绘制一般图形ToolStripMenuItem});
             this.编辑成图ToolStripMenuItem.Name = "编辑成图ToolStripMenuItem";
             this.编辑成图ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.编辑成图ToolStripMenuItem.Text = "编辑成图";
             // 
-            // 点ToolStripMenuItem
+            // 绘制地层线ToolStripMenuItem
             // 
-            this.点ToolStripMenuItem.Name = "点ToolStripMenuItem";
-            this.点ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.点ToolStripMenuItem.Text = "地层线";
-            this.点ToolStripMenuItem.Click += new System.EventHandler(this.点ToolStripMenuItem_Click);
+            this.绘制地层线ToolStripMenuItem.Name = "绘制地层线ToolStripMenuItem";
+            this.绘制地层线ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.绘制地层线ToolStripMenuItem.Text = "绘制地层线";
+            this.绘制地层线ToolStripMenuItem.Click += new System.EventHandler(this.点ToolStripMenuItem_Click);
             // 
-            // 线ToolStripMenuItem
+            // 绘制断层线ToolStripMenuItem
             // 
-            this.线ToolStripMenuItem.Name = "线ToolStripMenuItem";
-            this.线ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.线ToolStripMenuItem.Text = "断层线";
-            this.线ToolStripMenuItem.Click += new System.EventHandler(this.折线ToolStripMenuItem_Click);
+            this.绘制断层线ToolStripMenuItem.Name = "绘制断层线ToolStripMenuItem";
+            this.绘制断层线ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.绘制断层线ToolStripMenuItem.Text = "绘制断层线";
+            this.绘制断层线ToolStripMenuItem.Click += new System.EventHandler(this.折线ToolStripMenuItem_Click);
+            // 
+            // 绘制标注ToolStripMenuItem
+            // 
+            this.绘制标注ToolStripMenuItem.Name = "绘制标注ToolStripMenuItem";
+            this.绘制标注ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.绘制标注ToolStripMenuItem.Text = "绘制标注";
+            // 
+            // 绘制一般图形ToolStripMenuItem
+            // 
+            this.绘制一般图形ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.点ToolStripMenuItem1,
+            this.线ToolStripMenuItem1,
+            this.面ToolStripMenuItem});
+            this.绘制一般图形ToolStripMenuItem.Name = "绘制一般图形ToolStripMenuItem";
+            this.绘制一般图形ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.绘制一般图形ToolStripMenuItem.Text = "绘制一般图形";
+            // 
+            // 点ToolStripMenuItem1
+            // 
+            this.点ToolStripMenuItem1.Name = "点ToolStripMenuItem1";
+            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.点ToolStripMenuItem1.Text = "点";
+            // 
+            // 线ToolStripMenuItem1
+            // 
+            this.线ToolStripMenuItem1.Name = "线ToolStripMenuItem1";
+            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.线ToolStripMenuItem1.Text = "线";
+            // 
+            // 面ToolStripMenuItem
+            // 
+            this.面ToolStripMenuItem.Name = "面ToolStripMenuItem";
+            this.面ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.面ToolStripMenuItem.Text = "面";
             // 
             // 空间分析ToolStripMenuItem
             // 
@@ -254,6 +301,18 @@
             this.空间分析ToolStripMenuItem.Name = "空间分析ToolStripMenuItem";
             this.空间分析ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.空间分析ToolStripMenuItem.Text = "空间分析";
+            // 
+            // 图查属性ToolStripMenuItem
+            // 
+            this.图查属性ToolStripMenuItem.Name = "图查属性ToolStripMenuItem";
+            this.图查属性ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.图查属性ToolStripMenuItem.Text = "图查属性";
+            // 
+            // 属性查图ToolStripMenuItem
+            // 
+            this.属性查图ToolStripMenuItem.Name = "属性查图ToolStripMenuItem";
+            this.属性查图ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.属性查图ToolStripMenuItem.Text = "属性查图";
             // 
             // 关于ToolStripMenuItem
             // 
@@ -291,110 +350,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 24);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // 标注ToolStripMenuItem
-            // 
-            this.标注ToolStripMenuItem.Name = "标注ToolStripMenuItem";
-            this.标注ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.标注ToolStripMenuItem.Text = "标注";
-            // 
-            // 一般图形ToolStripMenuItem
-            // 
-            this.一般图形ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.点ToolStripMenuItem1,
-            this.线ToolStripMenuItem1,
-            this.面ToolStripMenuItem});
-            this.一般图形ToolStripMenuItem.Name = "一般图形ToolStripMenuItem";
-            this.一般图形ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.一般图形ToolStripMenuItem.Text = "一般图形";
-            // 
-            // 点ToolStripMenuItem1
-            // 
-            this.点ToolStripMenuItem1.Name = "点ToolStripMenuItem1";
-            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
-            this.点ToolStripMenuItem1.Text = "点";
-            // 
-            // 线ToolStripMenuItem1
-            // 
-            this.线ToolStripMenuItem1.Name = "线ToolStripMenuItem1";
-            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
-            this.线ToolStripMenuItem1.Text = "线";
-            // 
-            // 面ToolStripMenuItem
-            // 
-            this.面ToolStripMenuItem.Name = "面ToolStripMenuItem";
-            this.面ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.面ToolStripMenuItem.Text = "面";
-            // 
-            // 图查属性ToolStripMenuItem
-            // 
-            this.图查属性ToolStripMenuItem.Name = "图查属性ToolStripMenuItem";
-            this.图查属性ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.图查属性ToolStripMenuItem.Text = "图查属性";
-            // 
-            // 属性查图ToolStripMenuItem
-            // 
-            this.属性查图ToolStripMenuItem.Name = "属性查图ToolStripMenuItem";
-            this.属性查图ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.属性查图ToolStripMenuItem.Text = "属性查图";
-            // 
-            // 地质路线ToolStripMenuItem
-            // 
-            this.地质路线ToolStripMenuItem.Name = "地质路线ToolStripMenuItem";
-            this.地质路线ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.地质路线ToolStripMenuItem.Text = "地质路线";
-            // 
-            // 地层界线点ToolStripMenuItem1
-            // 
-            this.地层界线点ToolStripMenuItem1.Name = "地层界线点ToolStripMenuItem1";
-            this.地层界线点ToolStripMenuItem1.Size = new System.Drawing.Size(170, 28);
-            this.地层界线点ToolStripMenuItem1.Text = "地层界线点";
-            this.地层界线点ToolStripMenuItem1.Click += new System.EventHandler(this.地层界线点ToolStripMenuItem1_Click);
-            // 
-            // 断层采集点ToolStripMenuItem
-            // 
-            this.断层采集点ToolStripMenuItem.Name = "断层采集点ToolStripMenuItem";
-            this.断层采集点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.断层采集点ToolStripMenuItem.Text = "断层采集点";
-            // 
-            // 褶皱采集点ToolStripMenuItem
-            // 
-            this.褶皱采集点ToolStripMenuItem.Name = "褶皱采集点ToolStripMenuItem";
-            this.褶皱采集点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.褶皱采集点ToolStripMenuItem.Text = "褶皱采集点";
-            // 
-            // 矿产采集点ToolStripMenuItem
-            // 
-            this.矿产采集点ToolStripMenuItem.Name = "矿产采集点ToolStripMenuItem";
-            this.矿产采集点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.矿产采集点ToolStripMenuItem.Text = "矿产采集点";
-            // 
-            // 样品采集点ToolStripMenuItem
-            // 
-            this.样品采集点ToolStripMenuItem.Name = "样品采集点ToolStripMenuItem";
-            this.样品采集点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.样品采集点ToolStripMenuItem.Text = "样品采集点";
-            // 
-            // 化石采集点ToolStripMenuItem
-            // 
-            this.化石采集点ToolStripMenuItem.Name = "化石采集点ToolStripMenuItem";
-            this.化石采集点ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.化石采集点ToolStripMenuItem.Text = "化石采集点";
-            // 
-            // 数据管理ToolStripMenuItem
-            // 
-            this.数据管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.数据管理ToolStripMenuItem1});
-            this.数据管理ToolStripMenuItem.Name = "数据管理ToolStripMenuItem";
-            this.数据管理ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
-            this.数据管理ToolStripMenuItem.Text = "数据管理";
-            // 
-            // 数据管理ToolStripMenuItem1
-            // 
-            this.数据管理ToolStripMenuItem1.Name = "数据管理ToolStripMenuItem1";
-            this.数据管理ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
-            this.数据管理ToolStripMenuItem1.Text = "数据管理";
-            this.数据管理ToolStripMenuItem1.Click += new System.EventHandler(this.地层界线点ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -437,37 +392,31 @@
         private System.Windows.Forms.ToolStripMenuItem 属性表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 移除图层ToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据采集ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 空间分析ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新建工作空间ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打开工作空间ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存工作空间ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 地层界线点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 填图人员录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助主题ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于软件ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem 编辑成图ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 线ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 标注ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 一般图形ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制地层线ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制断层线ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制标注ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制一般图形ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 点ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 线ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 面ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 地质路线ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 地层界线点ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 断层采集点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 褶皱采集点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 矿产采集点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 样品采集点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 化石采集点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 地质路线录入ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 地层界线点数据ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 断层采集点数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 褶皱采集点数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 图查属性ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 属性查图ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据管理ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 图幅数据录入ToolStripMenuItem;
 
 
     }

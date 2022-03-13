@@ -174,7 +174,7 @@ namespace MyGIS.Forms
             }
         }
 
-        private void 地层界线点ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 数据管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataCollect dataCollect = new DataCollect();
             dataCollect.Show();
@@ -453,10 +453,41 @@ namespace MyGIS.Forms
             }
         }
 
-        private void 地层界线点ToolStripMenuItem1_Click(object sender, EventArgs e)
+
+        private void 填图人员录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            People people = new People();
+            people.Show();
+        }
+
+        private void 图幅数据录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map map = new Map();
+            map.Show();
+        }
+
+        private void 地质路线录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Route route = new Route();
+            route.Show();
+        }
+
+        private void 地层界线点数据ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GeoBoundaryPoint geoBoundaryPoint = new GeoBoundaryPoint();
             geoBoundaryPoint.Show();
+        }
+
+        private void 断层采集点数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FaultPoint faultPoint = new FaultPoint();
+            faultPoint.Show();
+        }
+
+        private void 褶皱采集点数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FoldPoint foldPoint = new FoldPoint();
+            foldPoint.Show();
         }
     }
 }
