@@ -313,6 +313,7 @@
             this.MapID.Name = "MapID";
             this.MapID.Size = new System.Drawing.Size(121, 26);
             this.MapID.TabIndex = 8;
+            this.MapID.TextChanged += new System.EventHandler(this.MapID_TextChanged);
             // 
             // RouteName
             // 

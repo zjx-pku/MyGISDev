@@ -221,7 +221,7 @@ namespace MyGIS.Forms
             }
 
             /// <summary>
-            /// 连接数据库，将数据写入数据库
+            /// 3.连接数据库，将数据写入数据库
             /// </summary>
             try
             {
@@ -243,7 +243,7 @@ namespace MyGIS.Forms
             }
 
             /// <summary>
-            /// 提交成功
+            /// 4.提交成功
             /// </summary>
             MessageBox.Show("提交成功！");
 
@@ -254,6 +254,34 @@ namespace MyGIS.Forms
         private void 取消_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MapID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                mySqlConnection.Open();
+
+                string commandText = "select MapName from map where MapID = " + MapID.Text;
+                MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    for (int i = 0; i < mySqlDataReader.FieldCount; ++i)
+                    {
+                        MapName.Text = mySqlDataReader[i].ToString();
+                    }
+                }
+
+                mySqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
