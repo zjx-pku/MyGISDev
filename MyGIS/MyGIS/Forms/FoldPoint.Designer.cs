@@ -28,72 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.确定提交 = new System.Windows.Forms.Button();
+            this.RouteID = new System.Windows.Forms.ComboBox();
+            this.MapID = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.MapName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.FoldType = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.FoldAge = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.FoldAxRegDip = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FoldAxRegAng = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.FoldAxTrend = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.FoldName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.FoldID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.PointID = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.获取经纬度和高程 = new System.Windows.Forms.Button();
+            this.Altitude = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.Latitude = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.Longitude = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Remark = new System.Windows.Forms.RichTextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.取消 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // 确定提交
             // 
-            this.button1.Location = new System.Drawing.Point(247, 457);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 44);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "确定提交";
-            this.button1.UseVisualStyleBackColor = true;
+            this.确定提交.Location = new System.Drawing.Point(247, 457);
+            this.确定提交.Name = "确定提交";
+            this.确定提交.Size = new System.Drawing.Size(134, 44);
+            this.确定提交.TabIndex = 17;
+            this.确定提交.Text = "确定提交";
+            this.确定提交.UseVisualStyleBackColor = true;
+            this.确定提交.Click += new System.EventHandler(this.确定提交_Click);
             // 
-            // comboBox2
+            // RouteID
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(524, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 26);
-            this.comboBox2.TabIndex = 9;
+            this.RouteID.FormattingEnabled = true;
+            this.RouteID.Location = new System.Drawing.Point(524, 25);
+            this.RouteID.Name = "RouteID";
+            this.RouteID.Size = new System.Drawing.Size(121, 26);
+            this.RouteID.TabIndex = 9;
             // 
-            // comboBox1
+            // MapID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(94, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 8;
+            this.MapID.FormattingEnabled = true;
+            this.MapID.Location = new System.Drawing.Point(94, 25);
+            this.MapID.Name = "MapID";
+            this.MapID.Size = new System.Drawing.Size(121, 26);
+            this.MapID.TabIndex = 8;
+            this.MapID.TextChanged += new System.EventHandler(this.MapID_TextChanged);
             // 
             // label4
             // 
@@ -113,56 +117,74 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "路线号：";
             // 
-            // textBox2
+            // MapName
             // 
-            this.textBox2.Location = new System.Drawing.Point(319, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 28);
-            this.textBox2.TabIndex = 3;
+            this.MapName.Location = new System.Drawing.Point(319, 25);
+            this.MapName.Name = "MapName";
+            this.MapName.Size = new System.Drawing.Size(100, 28);
+            this.MapName.TabIndex = 3;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.FoldType);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.FoldAge);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.FoldAxRegDip);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.FoldAxRegAng);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.FoldAxTrend);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.FoldName);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.FoldID);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(22, 114);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(495, 147);
+            this.groupBox2.Size = new System.Drawing.Size(495, 185);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2.基本信息";
             // 
-            // textBox9
+            // FoldType
             // 
-            this.textBox9.Location = new System.Drawing.Point(333, 100);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 28);
-            this.textBox9.TabIndex = 11;
+            this.FoldType.Location = new System.Drawing.Point(332, 62);
+            this.FoldType.Name = "FoldType";
+            this.FoldType.Size = new System.Drawing.Size(100, 28);
+            this.FoldType.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(226, 65);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 18);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "褶皱类型：";
+            // 
+            // FoldAge
+            // 
+            this.FoldAge.Location = new System.Drawing.Point(116, 138);
+            this.FoldAge.Name = "FoldAge";
+            this.FoldAge.Size = new System.Drawing.Size(100, 28);
+            this.FoldAge.TabIndex = 11;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(226, 103);
+            this.label9.Location = new System.Drawing.Point(9, 141);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 18);
             this.label9.TabIndex = 10;
             this.label9.Text = "形成时代：";
             // 
-            // textBox10
+            // FoldAxRegDip
             // 
-            this.textBox10.Location = new System.Drawing.Point(116, 100);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 28);
-            this.textBox10.TabIndex = 9;
+            this.FoldAxRegDip.Location = new System.Drawing.Point(116, 100);
+            this.FoldAxRegDip.Name = "FoldAxRegDip";
+            this.FoldAxRegDip.Size = new System.Drawing.Size(100, 28);
+            this.FoldAxRegDip.TabIndex = 9;
             // 
             // label10
             // 
@@ -173,28 +195,28 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "轴面倾向：";
             // 
-            // textBox5
+            // FoldAxRegAng
             // 
-            this.textBox5.Location = new System.Drawing.Point(333, 62);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 28);
-            this.textBox5.TabIndex = 7;
+            this.FoldAxRegAng.Location = new System.Drawing.Point(332, 103);
+            this.FoldAxRegAng.Name = "FoldAxRegAng";
+            this.FoldAxRegAng.Size = new System.Drawing.Size(100, 28);
+            this.FoldAxRegAng.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(226, 65);
+            this.label5.Location = new System.Drawing.Point(226, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "轴面倾角：";
             // 
-            // textBox6
+            // FoldAxTrend
             // 
-            this.textBox6.Location = new System.Drawing.Point(115, 62);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 28);
-            this.textBox6.TabIndex = 5;
+            this.FoldAxTrend.Location = new System.Drawing.Point(115, 62);
+            this.FoldAxTrend.Name = "FoldAxTrend";
+            this.FoldAxTrend.Size = new System.Drawing.Size(100, 28);
+            this.FoldAxTrend.TabIndex = 5;
             // 
             // label6
             // 
@@ -205,12 +227,12 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "褶皱轴向：";
             // 
-            // textBox7
+            // FoldName
             // 
-            this.textBox7.Location = new System.Drawing.Point(332, 25);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 28);
-            this.textBox7.TabIndex = 3;
+            this.FoldName.Location = new System.Drawing.Point(332, 25);
+            this.FoldName.Name = "FoldName";
+            this.FoldName.Size = new System.Drawing.Size(100, 28);
+            this.FoldName.TabIndex = 3;
             // 
             // label7
             // 
@@ -221,12 +243,12 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "褶皱名称：";
             // 
-            // textBox8
+            // FoldID
             // 
-            this.textBox8.Location = new System.Drawing.Point(116, 25);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 28);
-            this.textBox8.TabIndex = 1;
+            this.FoldID.Location = new System.Drawing.Point(116, 25);
+            this.FoldID.Name = "FoldID";
+            this.FoldID.Size = new System.Drawing.Size(100, 28);
+            this.FoldID.TabIndex = 1;
             // 
             // label8
             // 
@@ -248,12 +270,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.PointID);
+            this.groupBox1.Controls.Add(this.RouteID);
+            this.groupBox1.Controls.Add(this.MapID);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.MapName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 13);
@@ -263,13 +285,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1.采集点信息";
             // 
-            // comboBox3
+            // PointID
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(759, 25);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 26);
-            this.comboBox3.TabIndex = 10;
+            this.PointID.FormattingEnabled = true;
+            this.PointID.Location = new System.Drawing.Point(759, 25);
+            this.PointID.Name = "PointID";
+            this.PointID.Size = new System.Drawing.Size(121, 26);
+            this.PointID.TabIndex = 10;
             // 
             // label2
             // 
@@ -282,36 +304,37 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.textBox19);
+            this.groupBox3.Controls.Add(this.获取经纬度和高程);
+            this.groupBox3.Controls.Add(this.Altitude);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox15);
+            this.groupBox3.Controls.Add(this.Latitude);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.textBox16);
+            this.groupBox3.Controls.Add(this.Longitude);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(23, 277);
+            this.groupBox3.Location = new System.Drawing.Point(23, 305);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 174);
+            this.groupBox3.Size = new System.Drawing.Size(495, 146);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3.经纬度与高程";
             // 
-            // button3
+            // 获取经纬度和高程
             // 
-            this.button3.Location = new System.Drawing.Point(233, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(215, 102);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "获取经纬度和高程";
-            this.button3.UseVisualStyleBackColor = true;
+            this.获取经纬度和高程.Location = new System.Drawing.Point(233, 27);
+            this.获取经纬度和高程.Name = "获取经纬度和高程";
+            this.获取经纬度和高程.Size = new System.Drawing.Size(215, 102);
+            this.获取经纬度和高程.TabIndex = 16;
+            this.获取经纬度和高程.Text = "获取经纬度和高程";
+            this.获取经纬度和高程.UseVisualStyleBackColor = true;
+            this.获取经纬度和高程.Click += new System.EventHandler(this.获取经纬度和高程_Click);
             // 
-            // textBox19
+            // Altitude
             // 
-            this.textBox19.Location = new System.Drawing.Point(113, 101);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 28);
-            this.textBox19.TabIndex = 15;
+            this.Altitude.Location = new System.Drawing.Point(113, 101);
+            this.Altitude.Name = "Altitude";
+            this.Altitude.Size = new System.Drawing.Size(100, 28);
+            this.Altitude.TabIndex = 15;
             // 
             // label12
             // 
@@ -322,12 +345,12 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "高程：";
             // 
-            // textBox15
+            // Latitude
             // 
-            this.textBox15.Location = new System.Drawing.Point(113, 62);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 28);
-            this.textBox15.TabIndex = 11;
+            this.Latitude.Location = new System.Drawing.Point(113, 62);
+            this.Latitude.Name = "Latitude";
+            this.Latitude.Size = new System.Drawing.Size(100, 28);
+            this.Latitude.TabIndex = 11;
             // 
             // label11
             // 
@@ -346,12 +369,12 @@
             this.label14.Size = new System.Drawing.Size(0, 18);
             this.label14.TabIndex = 4;
             // 
-            // textBox16
+            // Longitude
             // 
-            this.textBox16.Location = new System.Drawing.Point(112, 25);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 28);
-            this.textBox16.TabIndex = 1;
+            this.Longitude.Location = new System.Drawing.Point(112, 25);
+            this.Longitude.Name = "Longitude";
+            this.Longitude.Size = new System.Drawing.Size(100, 28);
+            this.Longitude.TabIndex = 1;
             // 
             // label16
             // 
@@ -364,7 +387,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.richTextBox1);
+            this.groupBox4.Controls.Add(this.Remark);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Location = new System.Drawing.Point(536, 114);
             this.groupBox4.Name = "groupBox4";
@@ -373,14 +396,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "4.备注信息";
             // 
-            // richTextBox1
+            // Remark
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(11, 28);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(356, 299);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.Remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Remark.Location = new System.Drawing.Point(11, 28);
+            this.Remark.Name = "Remark";
+            this.Remark.Size = new System.Drawing.Size(356, 299);
+            this.Remark.TabIndex = 5;
+            this.Remark.Text = "";
             // 
             // label17
             // 
@@ -390,26 +413,27 @@
             this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 4;
             // 
-            // button2
+            // 取消
             // 
-            this.button2.Location = new System.Drawing.Point(560, 457);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 44);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "取消";
-            this.button2.UseVisualStyleBackColor = true;
+            this.取消.Location = new System.Drawing.Point(560, 457);
+            this.取消.Name = "取消";
+            this.取消.Size = new System.Drawing.Size(134, 44);
+            this.取消.TabIndex = 18;
+            this.取消.Text = "取消";
+            this.取消.UseVisualStyleBackColor = true;
+            this.取消.Click += new System.EventHandler(this.取消_Click);
             // 
             // FoldPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 510);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.确定提交);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.取消);
             this.Name = "FoldPoint";
             this.Text = "褶皱采集点信息表";
             this.groupBox2.ResumeLayout(false);
@@ -426,41 +450,43 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button 确定提交;
+        private System.Windows.Forms.ComboBox RouteID;
+        private System.Windows.Forms.ComboBox MapID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox MapName;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox FoldAge;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox FoldAxRegDip;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FoldAxRegAng;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox FoldAxTrend;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox FoldName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox FoldID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox PointID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.Button 获取经纬度和高程;
+        private System.Windows.Forms.TextBox Altitude;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox Latitude;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox Longitude;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Remark;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button 取消;
+        private System.Windows.Forms.TextBox FoldType;
+        private System.Windows.Forms.Label label13;
     }
 }

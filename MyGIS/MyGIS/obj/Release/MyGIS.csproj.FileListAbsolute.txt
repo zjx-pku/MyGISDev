@@ -6,3 +6,10 @@ E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Properties.Resources.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.csproj.GenerateResource.Cache
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.exe
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.pdb
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Release\MyGIS.exe.config
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.DataCollect.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.FaultPoint.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.FoldPoint.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.GeoBoundaryPoint.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.Map.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Release\MyGIS.Forms.Route.resources

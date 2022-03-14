@@ -1,5 +1,4 @@
 #######目前打算设计的表单#######
-填图人员-people
 地质路线-route
 地层界限点-geoboundarypoint
 断层采集点-faultpoint
@@ -7,6 +6,7 @@
 图幅信息数据结构-map
 
 #######暂不设计的表单#######
+填图人员-people
 矿产采集点-placepoint
 样品采集点-samplepoint
 化石采集点-fossilpoint

@@ -140,27 +140,6 @@ namespace MyGIS.Forms
             }
         }
 
-
-        private void 属性表ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AttributeTable formTable = new AttributeTable(pGlobalFeatureLayer);
-            formTable.Text = "属性表：" + pGlobalFeatureLayer.Name;
-            formTable.ShowDialog();
-        }
-
-        private void 移除图层ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < axMapControl1.LayerCount; ++i)
-            {
-                if (axMapControl1.get_Layer(i) == pGlobalFeatureLayer)
-                {
-                    axMapControl1.DeleteLayer(i);
-                    break;
-                }
-            }
-            axMapControl1.ActiveView.Refresh();
-        }
-
         private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
             if (this.Width <= 828)
@@ -492,6 +471,26 @@ namespace MyGIS.Forms
         {
             About about = new About();
             about.Show();
+        }
+
+        private void 属性表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AttributeTable formTable = new AttributeTable(pGlobalFeatureLayer);
+            formTable.Text = "属性表：" + pGlobalFeatureLayer.Name;
+            formTable.ShowDialog();
+        }
+
+        private void 移除图层ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < axMapControl1.LayerCount; ++i)
+            {
+                if (axMapControl1.get_Layer(i) == pGlobalFeatureLayer)
+                {
+                    axMapControl1.DeleteLayer(i);
+                    break;
+                }
+            }
+            axMapControl1.ActiveView.Refresh();
         }
         #endregion
     }

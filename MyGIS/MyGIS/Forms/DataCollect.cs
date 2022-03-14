@@ -96,11 +96,11 @@ namespace MyGIS.Forms
 
         private DataGridView GetDataGridView(String tableName)
         {
-            if (tableName == "people")
-            {
-                return this.peopleDataGridView;
-            }
-            else if (tableName == "route")
+            //if (tableName == "people")
+            //{
+            //    return this.peopleDataGridView;
+            //}
+            if (tableName == "route")
             {
                 return this.routeDataGridView;
             }
@@ -172,6 +172,138 @@ namespace MyGIS.Forms
             {
                 return null;
             }
+        }
+
+        private void 删除所选_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = tabControl.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                foreach(DataGridViewRow row in routeDataGridView.SelectedRows)
+                {
+                    try
+                    {
+                        string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                        MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                        mySqlConnection.Open();
+
+                        string commandText = "delete from route where RouteID = " + row.Cells[2].Value.ToString();
+                        MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                    }
+                }
+
+                TableConnetcDB();
+            }
+            else if (selectedIndex == 1)
+            {
+                foreach (DataGridViewRow row in geoboundarypointDataGridView.SelectedRows)
+                {
+                    try
+                    {
+                        string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                        MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                        mySqlConnection.Open();
+
+                        string commandText = "delete from geoboundarypoint where PointID = " + row.Cells[3].Value.ToString();
+                        MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                    }
+                }
+                TableConnetcDB();
+            }
+            else if (selectedIndex == 2)
+            {
+                foreach (DataGridViewRow row in faultpointDataGridView.SelectedRows)
+                {
+                    try
+                    {
+                        string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                        MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                        mySqlConnection.Open();
+
+                        string commandText = "delete from faultpoint where FaultID = " + row.Cells[4].Value.ToString();
+                        MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                    }
+                }
+                TableConnetcDB();
+            }
+            else if (selectedIndex == 3)
+            {
+                foreach (DataGridViewRow row in foldpointDataGridView.SelectedRows)
+                {
+                    try
+                    {
+                        string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                        MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                        mySqlConnection.Open();
+
+                        string commandText = "delete from foldpoint where FoldID = " + row.Cells[4].Value.ToString();
+                        MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                    }
+                }
+                TableConnetcDB();
+            }
+            else if (selectedIndex == 4)
+            {
+                foreach (DataGridViewRow row in mapDataGridView.SelectedRows)
+                {
+                    try
+                    {
+                        string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                        MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                        mySqlConnection.Open();
+
+                        string commandText = "delete from map where MapID = " + row.Cells[0].Value.ToString();
+                        MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                    }
+                }
+                TableConnetcDB();
+            }
+        }
+
+        private void 编辑所选_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 生成图层文件_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

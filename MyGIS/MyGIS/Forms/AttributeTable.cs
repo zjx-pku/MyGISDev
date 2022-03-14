@@ -16,7 +16,7 @@ namespace MyGIS.Forms
             mLayer = pFeatureLayer;
         }
 
-        private void FormTable_Load(object sender, System.EventArgs e)
+        private void AttributeTable_Load(object sender, System.EventArgs e)
         {
             IFeatureLayer pFeatureLayer = mLayer as IFeatureLayer;
             IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;

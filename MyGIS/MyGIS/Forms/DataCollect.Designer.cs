@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.删除所选 = new System.Windows.Forms.Button();
+            this.编辑所选 = new System.Windows.Forms.Button();
+            this.生成图层文件 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.mapDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -41,9 +41,7 @@
             this.geoboundarypointDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.routeDataGridView = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.peopleDataGridView = new System.Windows.Forms.DataGridView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapDataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
@@ -54,40 +52,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.geoboundarypointDataGridView)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.routeDataGridView)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // 删除所选
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(106, 604);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "删除所选";
-            this.button1.UseVisualStyleBackColor = true;
+            this.删除所选.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.删除所选.Location = new System.Drawing.Point(106, 604);
+            this.删除所选.Name = "删除所选";
+            this.删除所选.Size = new System.Drawing.Size(150, 35);
+            this.删除所选.TabIndex = 1;
+            this.删除所选.Text = "删除所选";
+            this.删除所选.UseVisualStyleBackColor = true;
+            this.删除所选.Click += new System.EventHandler(this.删除所选_Click);
             // 
-            // button2
+            // 编辑所选
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(382, 604);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "编辑所选";
-            this.button2.UseVisualStyleBackColor = true;
+            this.编辑所选.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.编辑所选.Location = new System.Drawing.Point(382, 604);
+            this.编辑所选.Name = "编辑所选";
+            this.编辑所选.Size = new System.Drawing.Size(150, 35);
+            this.编辑所选.TabIndex = 2;
+            this.编辑所选.Text = "编辑所选";
+            this.编辑所选.UseVisualStyleBackColor = true;
+            this.编辑所选.Click += new System.EventHandler(this.编辑所选_Click);
             // 
-            // button3
+            // 生成图层文件
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button3.Location = new System.Drawing.Point(634, 604);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 35);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "生成图层文件";
-            this.button3.UseVisualStyleBackColor = true;
+            this.生成图层文件.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.生成图层文件.Location = new System.Drawing.Point(634, 604);
+            this.生成图层文件.Name = "生成图层文件";
+            this.生成图层文件.Size = new System.Drawing.Size(150, 35);
+            this.生成图层文件.TabIndex = 3;
+            this.生成图层文件.Text = "生成图层文件";
+            this.生成图层文件.UseVisualStyleBackColor = true;
+            this.生成图层文件.Click += new System.EventHandler(this.生成图层文件_Click);
             // 
             // tabPage9
             // 
@@ -95,7 +94,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 28);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(902, 545);
+            this.tabPage9.Size = new System.Drawing.Size(902, 554);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "图幅信息数据";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -118,7 +117,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(902, 545);
+            this.tabPage5.Size = new System.Drawing.Size(902, 554);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "褶皱采集点";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -141,7 +140,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(902, 545);
+            this.tabPage4.Size = new System.Drawing.Size(902, 554);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "断层采集点";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -164,7 +163,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(902, 545);
+            this.tabPage3.Size = new System.Drawing.Size(902, 554);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "地层界限点";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -187,7 +186,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(902, 545);
+            this.tabPage2.Size = new System.Drawing.Size(902, 554);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "地质路线";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -204,56 +203,32 @@
             this.routeDataGridView.Size = new System.Drawing.Size(902, 516);
             this.routeDataGridView.TabIndex = 0;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage9);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(910, 586);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // peopleDataGridView
-            // 
-            this.peopleDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.peopleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.peopleDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.peopleDataGridView.Name = "peopleDataGridView";
-            this.peopleDataGridView.RowTemplate.Height = 30;
-            this.peopleDataGridView.Size = new System.Drawing.Size(890, 541);
-            this.peopleDataGridView.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.peopleDataGridView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(902, 554);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "采集人员";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
+            this.tabControl.Controls.Add(this.tabPage9);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Multiline = true;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(910, 586);
+            this.tabControl.TabIndex = 0;
             // 
             // DataCollect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 643);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.生成图层文件);
+            this.Controls.Add(this.编辑所选);
+            this.Controls.Add(this.删除所选);
+            this.Controls.Add(this.tabControl);
             this.Name = "DataCollect";
             this.Text = "数据管理";
             this.tabPage9.ResumeLayout(false);
@@ -266,18 +241,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.geoboundarypointDataGridView)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.routeDataGridView)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.peopleDataGridView)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button 删除所选;
+        private System.Windows.Forms.Button 编辑所选;
+        private System.Windows.Forms.Button 生成图层文件;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.DataGridView mapDataGridView;
         private System.Windows.Forms.TabPage tabPage5;
@@ -288,8 +261,6 @@
         private System.Windows.Forms.DataGridView geoboundarypointDataGridView;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView routeDataGridView;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView peopleDataGridView;
+        private System.Windows.Forms.TabControl tabControl;
     }
 }
