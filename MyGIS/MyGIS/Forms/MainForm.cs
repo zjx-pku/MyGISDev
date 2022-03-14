@@ -424,7 +424,8 @@ namespace MyGIS.Forms
             }
         }
 
-        #region 菜单选项
+
+        #region 数据采集菜单选项
         private void 图幅数据录入ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Map map = new Map();
@@ -455,12 +456,17 @@ namespace MyGIS.Forms
             foldPoint.Show();
         }
 
+        #endregion
+
+        #region 数据管理菜单选项
         private void 数据管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataCollect dataCollect = new DataCollect();
             dataCollect.Show();
         }
+        #endregion
 
+        #region 帮助菜单选项
         private void 帮助主题ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help help = new Help();
@@ -473,6 +479,9 @@ namespace MyGIS.Forms
             about.Show();
         }
 
+        #endregion
+
+        #region 目录右键菜单选项
         private void 属性表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable formTable = new AttributeTable(pGlobalFeatureLayer);
@@ -493,5 +502,59 @@ namespace MyGIS.Forms
             axMapControl1.ActiveView.Refresh();
         }
         #endregion
+
+        #region 编辑成图菜单选项
+        private void 编辑状态ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (编辑状态ToolStripMenuItem.Text == "开始编辑")
+            {
+                绘制地层线ToolStripMenuItem.Enabled = true;
+                绘制断层线ToolStripMenuItem.Enabled = true;
+                绘制标注ToolStripMenuItem.Enabled = true;
+                绘制一般图形ToolStripMenuItem.Enabled = true;
+                编辑状态ToolStripMenuItem.Text = "停止编辑";
+            }
+            else if (编辑状态ToolStripMenuItem.Text == "停止编辑")
+            {
+                绘制地层线ToolStripMenuItem.Enabled = false;
+                绘制断层线ToolStripMenuItem.Enabled = false;
+                绘制标注ToolStripMenuItem.Enabled = false;
+                绘制一般图形ToolStripMenuItem.Enabled = false;
+                编辑状态ToolStripMenuItem.Text = "开始编辑";
+            }
+        }
+
+
+        private void 绘制地层线ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 绘制断层线ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 绘制标注ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 点ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 线ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 面ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
     }
 }
