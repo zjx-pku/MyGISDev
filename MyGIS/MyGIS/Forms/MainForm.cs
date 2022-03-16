@@ -13,8 +13,6 @@ namespace MyGIS.Forms
     {
         private ILayer pGlobalFeatureLayer;
         private Operation oprFlag;
-        private PolylineClass geoCollection;
-        private PolylineClass ptCollection;
         private object missing;
         private IGeometry pGeometry;
         private ILayer relayer;//存储最终获取的图层
@@ -36,114 +34,22 @@ namespace MyGIS.Forms
             Nothing
         }
 
-        private void 点ToolStripMenuItem_Click(object sender, EventArgs e)
+        #region 调整操作状态（编辑点、线、面）
+        private void EditPoint()
         {
             oprFlag = Operation.ConstructionPoint;
         }
 
-
-        private void 折线ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditPolyline()
         {
             oprFlag = Operation.ConstructionPolyLine;
-            geoCollection = new PolylineClass();
-            ptCollection = new PolylineClass();
         }
 
-        private void 面ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditPolygon()
         {
             oprFlag = Operation.ConstructionPolygon;
         }
-
-        /// <summary>
-        /// axMapContol控件的鼠标单击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
-        {
-            //表示 System.Type 信息中的缺少值。 此字段为只读。
-            missing = Type.Missing;
-            //若为添加点的事件
-            if (oprFlag == Operation.ConstructionPoint)
-            {
-                //axMapControl1控件的当前地图工具为空
-                axMapControl1.CurrentTool = null;
-                //通过AddPointByStore函数, 获取绘制点的图层——Cities
-                //从GetPoint函数获取点的坐标
-                AddPointByStore("Cities", GetPoint(e.mapX, e.mapY) as IPoint);
-                //点添加完之后结束编辑状态
-                oprFlag = Operation.Nothing;
-            }
-            //若为添加折线的事件
-            if (oprFlag == Operation.ConstructionPolyLine)
-            {
-                //axMapControl1控件的当前地图工具为空
-                axMapControl1.CurrentTool = null;
-                //获取鼠标单击的坐标
-                //ref参数能够将一个变量带入一个方法中进行改变, 改变完成后, 再将改变后的值带出方法
-                //ref参数要求在方法外必须为其赋值, 而方法内可以不赋值
-                ptCollection.AddPoint(GetPoint(e.mapX, e.mapY), ref missing, ref missing);
-                //定义集合类型绘制折线的方法
-                pGeometry = axMapControl1.TrackLine();
-
-                //通过addFeature函数的两个参数, Highways——绘制折线的图层; Geometry——绘制的几何折线
-                AddFeature("Highways", pGeometry);
-
-                //折线添加完之后结束编辑状态
-                oprFlag = Operation.Nothing;
-            }
-            //若为添加面的事件
-            if (oprFlag == Operation.ConstructionPolygon)
-            {
-                //axMapControl1控件的当前地图工具为空
-                axMapControl1.CurrentTool = null;
-                //
-                CreateDrawPolygon(axMapControl1.ActiveView, "Counties");
-                //面添加完之后结束编辑状态
-                oprFlag = Operation.Nothing;
-            }
-        }
-
-        /// <summary>
-        /// 获取绘制点的图层——Cities, 保存点绘制的函数
-        /// </summary>
-        /// <param name="pointLayerName"></param>
-        /// <param name="point"></param>
-        private void AddPointByStore(string pointLayerName, IPoint pt)
-        {
-            //得到要添加地物的图层
-            IFeatureLayer pFeatureLayer = GetLayerByName(pointLayerName) as IFeatureLayer;
-            if (pFeatureLayer != null)
-            {
-                //定义一个地物类, 把要编辑的图层转化为定义的地物类
-                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
-                //先定义一个编辑的工作空间, 然后将其转化为数据集, 最后转化为编辑工作空间
-                IWorkspaceEdit w = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
-                IFeature pFeature;
-                //开始事务操作
-                w.StartEditing(false);
-                //开始编辑
-                w.StartEditOperation();
-                //创建一个(点)要素
-                pFeature = pFeatureClass.CreateFeature();
-                //赋值该要素的Shape属性
-                pFeature.Shape = pt;
-
-                //保存要素, 完成点要素生成
-                //此时生成的点要素只要集合特征(shape/Geometry), 无普通属性
-                pFeature.Store();
-
-                //结束编辑
-                w.StopEditOperation();
-                //结束事务操作
-                w.StopEditing(true);
-
-            }
-            //屏幕刷新
-            this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pFeatureLayer, null);
-
-        }
-
+        #endregion
 
         #region 用于绘制点、线、面的主要函数
         private IPoint CreatePoint(double x, double y)
@@ -213,12 +119,38 @@ namespace MyGIS.Forms
             }
         }
 
-        private void DrawPolygon(IActiveView activeView, string layerName)
+        private void AddPointByStore(String pointLayerName, IPoint point)
         {
-            //绘制多边形事件
-            pGeometry = axMapControl1.TrackPolygon();
-            //通过AddFeature函数的两个参数, sLayer——绘制折线的图层; pGeometry——绘制几何的图层
-            AddFeatureOnLayer(layerName, pGeometry);
+            // 根据名称得到要添加地物的图层并转换为要素层
+            IFeatureLayer pFeatureLayer = GetLayerByNameFromMap(pointLayerName) as IFeatureLayer;
+
+            if (pFeatureLayer != null)
+            {
+                // 定义一个地物类，把要编辑的图层转化为定义的地物类
+                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+                // 先定义一个编辑的工作空间，然后将上述地物类转化为数据集，最后转化为编辑工作空间
+                IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
+
+                // 开始事务操作
+                pWorkspaceEdit.StartEditing(false);
+                // 开始编辑操作
+                pWorkspaceEdit.StartEditOperation();
+
+                // 创建一个点要素
+                IFeature pFeature = pFeatureClass.CreateFeature();
+                pFeature.Shape = point;
+
+                // 保存点要素，完成编辑。此时生成的点要素只有集合特征(shape/Geometry), 无普通属性
+                pFeature.Store();
+
+                // 结束编辑操作
+                pWorkspaceEdit.StopEditOperation();
+
+                // 结束事务操作
+                pWorkspaceEdit.StopEditing(true);
+            }
+
+            this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pFeatureLayer, null);
         }
 
         #endregion
@@ -360,18 +292,19 @@ namespace MyGIS.Forms
                 绘制标注ToolStripMenuItem.Enabled = false;
                 绘制一般图形ToolStripMenuItem.Enabled = false;
                 编辑状态ToolStripMenuItem.Text = "开始编辑";
+                oprFlag = Operation.Nothing;
             }
         }
 
 
         private void 绘制地层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditPolyline();
         }
 
         private void 绘制断层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditPolyline();
         }
 
         private void 绘制标注ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -381,17 +314,17 @@ namespace MyGIS.Forms
 
         private void 点ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            EditPoint();
         }
 
         private void 线ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            EditPolyline();
         }
 
         private void 面ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            EditPolygon();
         }
         #endregion
 
@@ -550,6 +483,49 @@ namespace MyGIS.Forms
                 MessageBox.Show(exception.Message);
             }
 
+        }
+        #endregion
+
+        #region MapControl触发的事件函数
+        private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (oprFlag == Operation.ConstructionPoint)
+            {
+                // 设置axMapControl控件的当前地图工具为空
+                axMapControl1.CurrentTool = null;
+                // 指定图层名称，将点要素绘制其上
+                AddPointByStore("point", CreatePoint(e.mapX, e.mapY) as IPoint);
+            }
+            else if (oprFlag == Operation.ConstructionPolyLine)
+            {
+                try
+                {
+                    axMapControl1.CurrentTool = null;
+                    //定义集合类型绘制折线的方法
+                    pGeometry = axMapControl1.TrackLine();
+
+                    //通过addFeature函数的两个参数, Highways——绘制折线的图层; Geometry——绘制的几何折线
+                    AddFeatureOnLayer("polyline", pGeometry);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+            else if (oprFlag == Operation.ConstructionPolygon)
+            {
+                try
+                {
+                    //axMapControl1控件的当前地图工具为空
+                    axMapControl1.CurrentTool = null;
+                    pGeometry = axMapControl1.TrackPolygon();
+                    AddFeatureOnLayer("polygon", pGeometry);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
         }
         #endregion
     }

@@ -84,6 +84,7 @@
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
             this.axMapControl1.Size = new System.Drawing.Size(573, 375);
             this.axMapControl1.TabIndex = 0;
+            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
             // 
             // axMapControl2
             // 
@@ -279,21 +280,21 @@
             // 点ToolStripMenuItem1
             // 
             this.点ToolStripMenuItem1.Name = "点ToolStripMenuItem1";
-            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
             this.点ToolStripMenuItem1.Text = "点";
             this.点ToolStripMenuItem1.Click += new System.EventHandler(this.点ToolStripMenuItem1_Click);
             // 
             // 线ToolStripMenuItem1
             // 
             this.线ToolStripMenuItem1.Name = "线ToolStripMenuItem1";
-            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(152, 28);
+            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
             this.线ToolStripMenuItem1.Text = "线";
             this.线ToolStripMenuItem1.Click += new System.EventHandler(this.线ToolStripMenuItem1_Click);
             // 
             // 面ToolStripMenuItem
             // 
             this.面ToolStripMenuItem.Name = "面ToolStripMenuItem";
-            this.面ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.面ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
             this.面ToolStripMenuItem.Text = "面";
             this.面ToolStripMenuItem.Click += new System.EventHandler(this.面ToolStripMenuItem_Click_1);
             // 
