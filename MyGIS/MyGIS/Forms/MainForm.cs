@@ -25,158 +25,15 @@ namespace MyGIS.Forms
             InitializeComponent();
         }
 
-        private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
-        {
-            // 得到新范围
-            IEnvelope pEnvelope = (IEnvelope)e.newEnvelope;
-
-            IGraphicsContainer pGraphicsContainer = axMapControl2.Map as IGraphicsContainer;
-
-            IActiveView pActiveView = pGraphicsContainer as IActiveView;
-
-            //在绘制前,清除axMapControl2中的任何图形元素 
-            pGraphicsContainer.DeleteAllElements();
-
-            IRectangleElement pRectangleEle = new RectangleElementClass();
-            IElement pElement = pRectangleEle as IElement;
-            pElement.Geometry = pEnvelope;
-
-            //设置鹰眼图中的红线框
-
-            IRgbColor pColor = new RgbColorClass();
-            pColor.Red = 255;
-            pColor.Green = 0;
-            pColor.Blue = 0;
-            pColor.Transparency = 255;
-
-            //产生一个线符号对象
-
-            ILineSymbol pOutline = new SimpleLineSymbolClass();
-            pOutline.Width = 3;
-            pOutline.Color = pColor;
-
-            //设置颜色属性
-
-            pColor = new RgbColorClass();
-            pColor.Red = 255;
-            pColor.Green = 0;
-            pColor.Blue = 0;
-            pColor.Transparency = 0;
-
-            //设置填充符号的属性
-
-            IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
-            pFillSymbol.Color = pColor;
-            pFillSymbol.Outline = pOutline;
-            IFillShapeElement pFillShapeEle = pElement as IFillShapeElement;
-            pFillShapeEle.Symbol = pFillSymbol;
-            pGraphicsContainer.AddElement((IElement)pFillShapeEle, 0);
-
-            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
-
-        }
-
-        private void axMapControl1_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
-        {
-            if (axMapControl1.LayerCount > 0)
-            {
-                axMapControl2.Map = new MapClass();
-                for (int i = 0; i <= axMapControl1.Map.LayerCount - 1; i++)
-                {
-                    axMapControl2.AddLayer(axMapControl1.get_Layer(i));
-                }
-                axMapControl2.Extent = axMapControl1.Extent;
-                axMapControl2.Refresh();
-            }
-        }
-
-        private void axMapControl2_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
-        {
-            if (e.button == 1)
-            {
-                IPoint pPoint = new PointClass();
-                pPoint.PutCoords(e.mapX, e.mapY);
-                axMapControl1.CenterAt(pPoint);
-                axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
-            }
-        }
-
-        private void axMapControl2_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
-        {
-            if (axMapControl2.Map.LayerCount > 0)
-            {
-                if (e.button == 1)
-                {
-                    IPoint pPoint = new PointClass();
-                    pPoint.PutCoords(e.mapX, e.mapY);
-                    axMapControl1.CenterAt(pPoint);
-                    axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
-                }
-                else if (e.button == 2)
-                {
-                    IEnvelope pEnv = axMapControl2.TrackRectangle();
-                    axMapControl1.Extent = pEnv;
-                    axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
-                }
-            }
-        }
-
-        private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
-        {
-            if (e.button == 2)
-            {
-                esriTOCControlItem pTOCControlItem = esriTOCControlItem.esriTOCControlItemNone;
-                IBasicMap pBasicMap = new MapClass();
-                pGlobalFeatureLayer = new FeatureLayerClass();
-                object pOther = new object();
-                object pIndex = new object();
-                axTOCControl1.HitTest(e.x, e.y, ref pTOCControlItem, ref pBasicMap, ref pGlobalFeatureLayer, ref pOther, ref pIndex);
-
-                if (pTOCControlItem == esriTOCControlItem.esriTOCControlItemLayer)
-                {
-                    contextMenuStrip1.Show(axTOCControl1, new System.Drawing.Point(e.x, e.y));
-                }
-
-            }
-        }
-
-        private void MainForm_ResizeEnd(object sender, EventArgs e)
-        {
-            if (this.Width <= 828)
-            {
-                this.Width = 828;
-            }
-
-            if (this.Height <= 506)
-            {
-                this.Height = 506;
-            }
-        }
-
-
-        //定义一个Operation枚举
+        /// <summary>
+        /// 定义一个操作的枚举，分别是新建点、线、面
+        /// </summary>
         enum Operation
         {
-            ConstructionPoint,//绘制点
-            ConstructionPolyLine,//绘制线
-            ConstructionPolygon,//绘制面
+            ConstructionPoint,      // 新建点
+            ConstructionPolyLine,   // 新建折线
+            ConstructionPolygon,    // 新建面
             Nothing
-        }
-
-        /// <summary>
-        /// 鼠标移动的函数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void axMapControl1_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
-        {
-            try
-            {
-                toolStripStatusLabel1.Text = string.Format("{0},{1}  {2}", e.mapX.ToString("#######.##"), e.mapY.ToString("#######.##"), axMapControl1.MapUnits.ToString().Substring(4));
-            }
-            catch
-            { }
-
         }
 
         private void 点ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -287,143 +144,125 @@ namespace MyGIS.Forms
 
         }
 
-        /// <summary>
-        /// 获取鼠标单击时的坐标位置信息
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        private IPoint GetPoint(double x, double y)
+
+        #region 用于绘制点、线、面的主要函数
+        private IPoint CreatePoint(double x, double y)
         {
-            IPoint pt = new PointClass();
-            pt.PutCoords(x, y);
-            return pt;
+            IPoint point = new PointClass();
+            point.PutCoords(x, y);
+            return point;
         }
 
-        /// <summary>
-        /// 添加实体对象到地图图层(添加线、面要素)
-        /// </summary>
-        /// <param name="layerName">图层名称</param>
-        /// <param name="pGeometry">绘制形状(线、面)</param>
-        private void AddFeature(string layerName, IGeometry pGeometry)
+        private void AddFeatureOnLayer(String layerName, IGeometry pGrometry)
         {
-            ILayer pLayer = GetLayerByName(layerName);
-            //得到要添加地物的图层
+            // 根据图层名称，从当前地图中获取该图层并转换为要素层
+            ILayer pLayer = GetLayerByNameFromMap(layerName);
             IFeatureLayer pFeatureLayer = pLayer as IFeatureLayer;
+            
+            // 如果成功获取，则进行如下编辑，将几何对象添加到地图图层之上
             if (pFeatureLayer != null)
             {
-                //定义一个地物类, 把要编辑的图层转化为定义的地物类
-                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
-                //先定义一个编辑的工作空间, 然后将其转化为数据集, 最后转化为编辑工作空间
-                IWorkspaceEdit w = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
-                IFeature pFeature;
-
-                //开始事务操作
-                w.StartEditing(true);
-                //开始编辑
-                w.StartEditOperation();
-
-                //在内存创建一个用于暂时存放编辑数据的要素(FeatureBuffer)
+                // 定义一个地物类，将要编辑的图层转化为定义的地物类
+                IFeatureClass pFeatureClass = pFeatureLayer as IFeatureClass;
+                // 将上述地物类转化为数据集，然后转化为可编辑的工作空间
+                IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
+                // 开始事务操作
+                pWorkspaceEdit.StartEditing(true);
+                // 开始编辑操作
+                pWorkspaceEdit.StartEditOperation();
+                // 在内存中创建一个用于暂时存放编辑数据的要素
                 IFeatureBuffer pFeatureBuffer = pFeatureClass.CreateFeatureBuffer();
-                //定义游标
-                IFeatureCursor pFtCursor;
-                //查找到最后一条记录, 游标指向该记录后再进行插入操作
-                pFtCursor = pFeatureClass.Search(null, true);
-                pFeature = pFtCursor.NextFeature();
-                //开始插入新的实体对象(插入对象要使用Insert游标)
-                pFtCursor = pFeatureClass.Insert(true);
+                // 定义游标并指向最后一条记录
+                IFeatureCursor pFeatureCursor = pFeatureClass.Search(null, true);
+                IFeature pFeature = pFeatureCursor.NextFeature();
+                // 使用insert游标插入新的实体对象
+                pFeatureCursor = pFeatureClass.Insert(true);
                 try
                 {
-                    //向缓存游标的Shape属性赋值
+                    // 向缓存游标的shp属性赋值
                     pFeatureBuffer.Shape = pGeometry;
                 }
-                catch (COMException ex)
+                catch (Exception exception)
                 {
-                    MessageBox.Show("绘制的几何图形超出了边界！");
-                    return;
+                    MessageBox.Show(exception.Message);
                 }
-                //判断:几何图形是否为多边形
+
+                // 判断是否为多边形
                 if (pGeometry.GeometryType.ToString() == "esriGeometryPolygon")
                 {
                     int index = pFeatureBuffer.Fields.FindField("STATE_NAME");
                     pFeatureBuffer.set_Value(index, "California");
                 }
-                object featureOID = pFtCursor.InsertFeature(pFeatureBuffer);
-                //保存实体
-                pFtCursor.Flush();
 
-                //结束编辑
-                w.StopEditOperation();
-                //结束事务操作
-                w.StopEditing(true);
+                object featureOid = pFeatureCursor.InsertFeature(pFeatureBuffer);
 
-                //释放游标
-                Marshal.ReleaseComObject(pFtCursor);
+                // 保存实体
+                pFeatureCursor.Flush();
+
+                // 结束操作
+                pWorkspaceEdit.StopEditOperation();
+                pWorkspaceEdit.StopEditOperation();
+
+                // 释放游标
+                Marshal.ReleaseComObject(pFeatureCursor);
                 axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pLayer, null);
             }
             else
             {
-                MessageBox.Show("未发现" + layerName + "图层");
+                MessageBox.Show("未找到名为" + layerName + "的图层");
             }
         }
 
-        /// <summary>
-        /// 添加面事件
-        /// </summary>
-        /// <param name="activeView"></param>
-        /// <param name="v"></param>
-        private void CreateDrawPolygon(IActiveView activeView, string sLayer)
+        private void DrawPolygon(IActiveView activeView, string layerName)
         {
             //绘制多边形事件
             pGeometry = axMapControl1.TrackPolygon();
             //通过AddFeature函数的两个参数, sLayer——绘制折线的图层; pGeometry——绘制几何的图层
-            AddFeature(sLayer, pGeometry);
+            AddFeatureOnLayer(layerName, pGeometry);
         }
 
-        //根据图层名称获取图层
-        private ILayer GetLayerByName(string LayerName)
+        #endregion
+
+        #region 从图层列表中根据图层名称获取相应图层
+        private ILayer GetLayerByNameFromMap(String layerName)
         {
-            relayer = null;
-            ICompositeLayer pCompositeLayer;
-            for (int i = 0; i < axMapControl1.LayerCount; i++)//遍历所有图层
+            for (int i = 0; i < axMapControl1.LayerCount; ++i)
             {
                 if (axMapControl1.get_Layer(i) is ICompositeLayer)
                 {
-                    string test = axMapControl1.get_Layer(i).Name;
-                    pCompositeLayer = axMapControl1.get_Layer(i) as ICompositeLayer;
-                    Togetlayer(pCompositeLayer, LayerName);
-                    if (relayer != null)
+                    return GetLayerByNameFromCom(axMapControl1.get_Layer(i) as ICompositeLayer, layerName);
+                }
+                else
+                {
+                    if (axMapControl1.get_Layer(i).Name == layerName)
                     {
-                        return relayer;
+                        return axMapControl1.get_Layer(i);
                     }
                 }
-                else if (axMapControl1.get_Layer(i).Name == LayerName)
+            }
+
+            return null;
+        }
+
+        private ILayer GetLayerByNameFromCom(ICompositeLayer pCompositeLayer, String layerName)
+        {
+            for (int i = 0; i < pCompositeLayer.Count; ++i)
+            {
+                if (pCompositeLayer.get_Layer(i) is ICompositeLayer)
                 {
-                    return axMapControl1.get_Layer(i);
+                    return GetLayerByNameFromCom(pCompositeLayer.get_Layer(i) as ICompositeLayer, layerName);
+                }
+                else
+                {
+                    if (pCompositeLayer.get_Layer(i).Name == layerName)
+                    {
+                        return pCompositeLayer.get_Layer(i);
+                    }
                 }
             }
             return null;
         }
-
-        //遍历要素集下的所有图层
-        private void Togetlayer(ICompositeLayer pCompositeLayer, string name)
-        {
-            ICompositeLayer icolayer;
-            for (int i = 0; i < pCompositeLayer.Count; i++)
-            {
-                string test = pCompositeLayer.get_Layer(i).Name;
-                if (pCompositeLayer.get_Layer(i) is ICompositeLayer)
-                {
-                    icolayer = pCompositeLayer.get_Layer(i) as ICompositeLayer;
-                    Togetlayer(icolayer, name);
-                }
-                if (pCompositeLayer.get_Layer(i).Name == name)
-                {
-                    relayer = pCompositeLayer.get_Layer(i);
-                }
-            }
-        }
-
+        #endregion
 
         #region 数据采集菜单选项
         private void 图幅数据录入ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -556,5 +395,162 @@ namespace MyGIS.Forms
         }
         #endregion
 
+        #region 控制窗口的最小尺寸
+        /// <summary>
+        /// 窗口尺寸变化后触发的事件：若长宽小于最小值后就自动调整到该最小值
+        /// </summary>
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width <= 828)
+            {
+                this.Width = 828;
+            }
+
+            if (this.Height <= 506)
+            {
+                this.Height = 506;
+            }
+        }
+        #endregion
+
+        #region 缩略图功能（有bug，需要后续完善）
+        private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
+        {
+            // 得到新范围
+            IEnvelope pEnvelope = (IEnvelope)e.newEnvelope;
+
+            IGraphicsContainer pGraphicsContainer = axMapControl2.Map as IGraphicsContainer;
+
+            IActiveView pActiveView = pGraphicsContainer as IActiveView;
+
+            //在绘制前,清除axMapControl2中的任何图形元素 
+            pGraphicsContainer.DeleteAllElements();
+
+            IRectangleElement pRectangleEle = new RectangleElementClass();
+            IElement pElement = pRectangleEle as IElement;
+            pElement.Geometry = pEnvelope;
+
+            //设置鹰眼图中的红线框
+
+            IRgbColor pColor = new RgbColorClass();
+            pColor.Red = 255;
+            pColor.Green = 0;
+            pColor.Blue = 0;
+            pColor.Transparency = 255;
+
+            //产生一个线符号对象
+
+            ILineSymbol pOutline = new SimpleLineSymbolClass();
+            pOutline.Width = 3;
+            pOutline.Color = pColor;
+
+            //设置颜色属性
+
+            pColor = new RgbColorClass();
+            pColor.Red = 255;
+            pColor.Green = 0;
+            pColor.Blue = 0;
+            pColor.Transparency = 0;
+
+            //设置填充符号的属性
+
+            IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
+            pFillSymbol.Color = pColor;
+            pFillSymbol.Outline = pOutline;
+            IFillShapeElement pFillShapeEle = pElement as IFillShapeElement;
+            pFillShapeEle.Symbol = pFillSymbol;
+            pGraphicsContainer.AddElement((IElement)pFillShapeEle, 0);
+
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+
+        }
+
+        private void axMapControl1_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
+        {
+            if (axMapControl1.LayerCount > 0)
+            {
+                axMapControl2.Map = new MapClass();
+                for (int i = 0; i <= axMapControl1.Map.LayerCount - 1; i++)
+                {
+                    axMapControl2.AddLayer(axMapControl1.get_Layer(i));
+                }
+                axMapControl2.Extent = axMapControl1.Extent;
+                axMapControl2.Refresh();
+            }
+        }
+        #endregion
+
+        #region 缩略图与主窗口的互动（有bug，需要后续完善）
+        private void axMapControl2_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (e.button == 1)
+            {
+                IPoint pPoint = new PointClass();
+                pPoint.PutCoords(e.mapX, e.mapY);
+                axMapControl1.CenterAt(pPoint);
+                axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+            }
+        }
+
+        private void axMapControl2_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (axMapControl2.Map.LayerCount > 0)
+            {
+                if (e.button == 1)
+                {
+                    IPoint pPoint = new PointClass();
+                    pPoint.PutCoords(e.mapX, e.mapY);
+                    axMapControl1.CenterAt(pPoint);
+                    axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+                else if (e.button == 2)
+                {
+                    IEnvelope pEnv = axMapControl2.TrackRectangle();
+                    axMapControl1.Extent = pEnv;
+                    axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+            }
+        }
+        #endregion
+
+        #region 目录处右键查看要素属性表（代码copy，后续需要理解）
+        private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+            if (e.button == 2)
+            {
+                esriTOCControlItem pTOCControlItem = esriTOCControlItem.esriTOCControlItemNone;
+                IBasicMap pBasicMap = new MapClass();
+                pGlobalFeatureLayer = new FeatureLayerClass();
+                object pOther = new object();
+                object pIndex = new object();
+                axTOCControl1.HitTest(e.x, e.y, ref pTOCControlItem, ref pBasicMap, ref pGlobalFeatureLayer, ref pOther, ref pIndex);
+
+                if (pTOCControlItem == esriTOCControlItem.esriTOCControlItemLayer)
+                {
+                    contextMenuStrip1.Show(axTOCControl1, new System.Drawing.Point(e.x, e.y));
+                }
+            }
+        }
+        #endregion
+
+        #region 界面左下角显示鼠标位置
+        /// <summary>
+        /// 鼠标移动的函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void axMapControl1_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            try
+            {
+                toolStripStatusLabel1.Text = string.Format("{0},{1}  {2}", e.mapX.ToString("#######.##"), e.mapY.ToString("#######.##"), axMapControl1.MapUnits.ToString().Substring(4));
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+        }
+        #endregion
     }
 }
