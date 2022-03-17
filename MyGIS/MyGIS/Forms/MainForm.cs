@@ -14,15 +14,13 @@ namespace MyGIS.Forms
     {
         private ILayer pGlobalFeatureLayer;
         private Operation oprFlag;
-        private object missing;
+        private String oprLayerName;
         private IGeometry pGeometry;
-        private int ShpFolderName;
 
 
         public MainForm()
         {
             InitializeComponent();
-            ShpFolderName = 1;
         }
 
         /// <summary>
@@ -42,9 +40,10 @@ namespace MyGIS.Forms
             oprFlag = Operation.ConstructionPoint;
         }
 
-        private void EditPolyline()
+        private void EditPolyline(String layerName)
         {
             oprFlag = Operation.ConstructionPolyLine;
+            oprLayerName = layerName;
         }
 
         private void EditPolygon()
@@ -65,6 +64,7 @@ namespace MyGIS.Forms
         {
             // 根据图层名称，从当前地图中获取该图层并转换为要素层
             ILayer pLayer = GetLayerByNameFromMap(layerName);
+            
             IFeatureLayer pFeatureLayer = pLayer as IFeatureLayer;
 
             // 如果成功获取，则进行如下编辑，将几何对象添加到地图图层之上
@@ -72,19 +72,25 @@ namespace MyGIS.Forms
             {
                 // 定义一个地物类，将要编辑的图层转化为定义的地物类
                 IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+
                 // 将上述地物类转化为数据集，然后转化为可编辑的工作空间
                 IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
+
                 // 开始事务操作
                 pWorkspaceEdit.StartEditing(true);
+
                 // 开始编辑操作
                 pWorkspaceEdit.StartEditOperation();
+
                 // 在内存中创建一个用于暂时存放编辑数据的要素
                 IFeatureBuffer pFeatureBuffer = pFeatureClass.CreateFeatureBuffer();
                 // 定义游标并指向最后一条记录
                 IFeatureCursor pFeatureCursor = pFeatureClass.Search(null, true);
                 IFeature pFeature = pFeatureCursor.NextFeature();
+
                 // 使用insert游标插入新的实体对象
                 pFeatureCursor = pFeatureClass.Insert(true);
+
                 try
                 {
                     // 向缓存游标的shp属性赋值
@@ -190,58 +196,149 @@ namespace MyGIS.Forms
             return null;
         }
 
-        public void CreatShpFile(String shpFullFilePath, String shpFileName, ISpatialReference spatialReference, esriGeometryType pGeometryType)
+        public static void CreateShpFile(string strShapeFolder, string strShapeName)
         {
-            string pFileName = shpFullFilePath + shpFileName + ".shp";
-            MessageBox.Show(pFileName);
-            try
+            //打开工作空间
+            const string strShapeFieldName = "shape";
+
+            IWorkspaceFactory pWSF = new ShapefileWorkspaceFactoryClass();
+            IFeatureWorkspace pWS = (IFeatureWorkspace)pWSF.OpenFromFile(strShapeFolder, 0);
+
+            //设置字段集
+            IFields pFields = new FieldsClass();
+            IFieldsEdit pFieldsEdit = (IFieldsEdit)pFields;
+
+            //设置字段
+            IField pField = new FieldClass();
+            IFieldEdit pFieldEdit = (IFieldEdit)pField;
+
+
+            //创建类型为几何类型的字段
+            pFieldEdit.Name_2 = strShapeFieldName;
+            pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
+
+            //为esriFieldTypeGeometry类型的字段创建几何定义，包括类型和空间参照
+            IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
+            IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
+            pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
+            pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
+
+            pFieldEdit.GeometryDef_2 = pGeoDef;
+            pFieldsEdit.AddField(pField);
+
+
+            if (strShapeName == "地层线")
             {
-                string shpFolder = System.IO.Path.GetDirectoryName(shpFullFilePath);
-                IWorkspaceFactory pWorkspaceFac = new ShapefileWorkspaceFactoryClass();
-                IWorkspace pWorkSpace = pWorkspaceFac.OpenFromFile(shpFolder, 0);
-                IFeatureWorkspace pFeatureWorkSpace = pWorkSpace as IFeatureWorkspace;
-                //如果文件已存在               
-                if (System.IO.File.Exists(pFileName))
-                {
-                    if (MessageBox.Show("文件已存在，是否覆盖？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
-                    {
-                        IFeatureClass pFCChecker = pFeatureWorkSpace.OpenFeatureClass(shpFileName);
-                        if (pFCChecker != null)
-                        {
-                            IDataset pds = pFCChecker as IDataset;
-                            pds.Delete();
-                        }
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                IFeatureClassDescription fcDescription = new FeatureClassDescriptionClass();
-                IObjectClassDescription pObjectDescription = (IObjectClassDescription)fcDescription;
-                IFields fields = pObjectDescription.RequiredFields;
-                int shapeFieldIndex = fields.FindField(fcDescription.ShapeFieldName);
-                IField field = fields.get_Field(shapeFieldIndex);
-                IGeometryDef geometryDef = field.GeometryDef;
-                IGeometryDefEdit geometryDefEdit = (IGeometryDefEdit)geometryDef;
-                //线
-                geometryDefEdit.GeometryType_2 = pGeometryType; //geometry类型
-                geometryDefEdit.HasZ_2 = true;                  //使图层具有Z值(无，则创建一个二维文件，不具备Z值)
+                IField contactRelaField = new FieldClass();
+                IFieldEdit contactRelaFieldEdit = contactRelaField as IFieldEdit;
+                contactRelaFieldEdit.Name_2 = "ContactRela";
+                contactRelaFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(contactRelaField);
 
-                geometryDefEdit.SpatialReference_2 = spatialReference;
+                IField leftBodyField = new FieldClass();
+                IFieldEdit leftBodyFieldEdit = leftBodyField as IFieldEdit;
+                leftBodyFieldEdit.Name_2 = "LeftBody";
+                leftBodyFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(leftBodyField);
 
-                IFieldChecker fieldChecker = new FieldCheckerClass();
-                IEnumFieldError enumFieldError = null;
-                IFields validatedFields = null; //将传入字段 转成 validatedFields
-                fieldChecker.ValidateWorkspace = pWorkSpace;
-                fieldChecker.Validate(fields, out enumFieldError, out validatedFields);
+                IField rightBodyField = new FieldClass();
+                IFieldEdit rightBodyFieldEdit = rightBodyField as IFieldEdit;
+                rightBodyFieldEdit.Name_2 = "RightBody";
+                rightBodyFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(rightBodyField);
 
-                pFeatureWorkSpace.CreateFeatureClass(shpFileName, validatedFields, pObjectDescription.InstanceCLSID, pObjectDescription.ClassExtensionCLSID, esriFeatureType.esriFTSimple, fcDescription.ShapeFieldName, "");
+                IField strikeField = new FieldClass();
+                IFieldEdit strikeFieldEdit = strikeField as IFieldEdit;
+                strikeFieldEdit.Name_2 = "Strike";
+                strikeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(strikeField);
+
+                IField dipField = new FieldClass();
+                IFieldEdit dipFieldEdit = dipField as IFieldEdit;
+                dipFieldEdit.Name_2 = "Dip";
+                dipFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipField);
+
+                IField dipAngleField = new FieldClass();
+                IFieldEdit dipAngleFieldEdit = dipAngleField as IFieldEdit;
+                dipAngleFieldEdit.Name_2 = "DipAngle";
+                dipAngleFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipAngleField);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
+
+
             }
-            catch (Exception ex)
+            else if (strShapeName == "断层线")
             {
-                MessageBox.Show(ex.Message);
+                IField faultIdField = new FieldClass();
+                IFieldEdit faultIdFieldEdit = faultIdField as IFieldEdit;
+                faultIdFieldEdit.Name_2 = "FaultID";
+                faultIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultIdField);
+
+                IField faultNameField = new FieldClass();
+                IFieldEdit faultNameFieldEdit = faultNameField as IFieldEdit;
+                faultNameFieldEdit.Name_2 = "FaultName";
+                faultNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultNameField);
+
+                IField faultTypeField = new FieldClass();
+                IFieldEdit faultTypeFieldEdit = faultTypeField as IFieldEdit;
+                faultTypeFieldEdit.Name_2 = "FaultType";
+                faultTypeFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultTypeField);
+
+                IField faultDistField = new FieldClass();
+                IFieldEdit faultDistFieldEdit = faultDistField as IFieldEdit;
+                faultDistFieldEdit.Name_2 = "FaultDist";
+                faultDistFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultDistField);
+
+                IField faultAgeField = new FieldClass();
+                IFieldEdit faultAgeFieldEdit = faultAgeField as IFieldEdit;
+                faultAgeFieldEdit.Name_2 = "FaultAge";
+                faultAgeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultAgeField);
+
+                IField faultRockField = new FieldClass();
+                IFieldEdit faultRockFieldEdit = faultRockField as IFieldEdit;
+                faultRockFieldEdit.Name_2 = "FaultRock";
+                faultRockFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultRockField);
+
+                IField strikeField = new FieldClass();
+                IFieldEdit strikeFieldEdit = strikeField as IFieldEdit;
+                strikeFieldEdit.Name_2 = "Strike";
+                strikeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(strikeField);
+
+                IField dipField = new FieldClass();
+                IFieldEdit dipFieldEdit = dipField as IFieldEdit;
+                dipFieldEdit.Name_2 = "Dip";
+                dipFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipField);
+
+                IField dipAngleField = new FieldClass();
+                IFieldEdit dipAngleFieldEdit = dipAngleField as IFieldEdit;
+                dipAngleFieldEdit.Name_2 = "DipAngle";
+                dipAngleFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipAngleField);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
             }
+
+            //创建shapefile
+            pWS.CreateFeatureClass(strShapeName, pFields, null, null, esriFeatureType.esriFTSimple, strShapeFieldName, "");
+
         }
 
         private void AddShpToMxd(String shapefileLocation)
@@ -311,14 +408,15 @@ namespace MyGIS.Forms
         #region 文件菜单选项
         private void 新建图层文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String folderPath = Application.StartupPath + "\\ShpFile\\" + ShpFolderName.ToString() + "\\";
-            String prjFilePath = "E:\\2022GIS\\MyGISDev\\Data\\等高线.prj";
-            ISpatialReferenceFactory pSpatialReferenceFactory = new SpatialReferenceEnvironmentClass();
-            ISpatialReference pSpatialReference = pSpatialReferenceFactory.CreateESRISpatialReferenceFromPRJFile(prjFilePath); 
-            CreatShpFile(folderPath, "地层线", pSpatialReference, esriGeometryType.esriGeometryLine);
-            CreatShpFile(folderPath, "断层线", pSpatialReference, esriGeometryType.esriGeometryLine);
+            String folderPath = Application.StartupPath + "\\ShpFile\\" + DateTime.Now.ToString().Replace('/','.').Replace(':','.') + "\\";
+            System.IO.Directory.CreateDirectory(folderPath);
+            CreateShpFile(folderPath, "地层线");
+            CreateShpFile(folderPath, "断层线");
             AddShpToMxd(folderPath + "地层线.shp");
             AddShpToMxd(folderPath + "断层线.shp");
+            //String prjFilePath = "E:\\2022GIS\\MyGISDev\\Data\\等高线.prj";
+            //ISpatialReferenceFactory pSpatialReferenceFactory = new SpatialReferenceEnvironmentClass();
+            //ISpatialReference pSpatialReference = pSpatialReferenceFactory.CreateESRISpatialReferenceFromPRJFile(prjFilePath); 
         }
         #endregion
 
@@ -420,12 +518,12 @@ namespace MyGIS.Forms
 
         private void 绘制地层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditPolyline();
+            EditPolyline("地层线");
         }
 
         private void 绘制断层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditPolyline();
+            EditPolyline("断层线");
         }
         #endregion
 
@@ -600,15 +698,14 @@ namespace MyGIS.Forms
             {
                 try
                 {
-                    missing = Type.Missing;
-
                     //axMapControl1控件的当前地图工具为空
                     axMapControl1.CurrentTool = null;
 
                     //定义集合类型绘制折线的方法
                     pGeometry = axMapControl1.TrackLine();
 
-                    AddFeatureOnLayer("polyline", pGeometry);
+                    AddFeatureOnLayer(oprLayerName, pGeometry);
+
                 }
                 catch (Exception exception)
                 {
