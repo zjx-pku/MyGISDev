@@ -15,7 +15,6 @@ namespace MyGIS.Forms
         private Operation oprFlag;
         private object missing;
         private IGeometry pGeometry;
-        private ILayer relayer;//存储最终获取的图层
 
 
         public MainForm()
@@ -64,12 +63,12 @@ namespace MyGIS.Forms
             // 根据图层名称，从当前地图中获取该图层并转换为要素层
             ILayer pLayer = GetLayerByNameFromMap(layerName);
             IFeatureLayer pFeatureLayer = pLayer as IFeatureLayer;
-            
+
             // 如果成功获取，则进行如下编辑，将几何对象添加到地图图层之上
             if (pFeatureLayer != null)
             {
                 // 定义一个地物类，将要编辑的图层转化为定义的地物类
-                IFeatureClass pFeatureClass = pFeatureLayer as IFeatureClass;
+                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
                 // 将上述地物类转化为数据集，然后转化为可编辑的工作空间
                 IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
                 // 开始事务操作
@@ -93,13 +92,6 @@ namespace MyGIS.Forms
                     MessageBox.Show(exception.Message);
                 }
 
-                // 判断是否为多边形
-                if (pGeometry.GeometryType.ToString() == "esriGeometryPolygon")
-                {
-                    int index = pFeatureBuffer.Fields.FindField("STATE_NAME");
-                    pFeatureBuffer.set_Value(index, "California");
-                }
-
                 object featureOid = pFeatureCursor.InsertFeature(pFeatureBuffer);
 
                 // 保存实体
@@ -107,7 +99,7 @@ namespace MyGIS.Forms
 
                 // 结束操作
                 pWorkspaceEdit.StopEditOperation();
-                pWorkspaceEdit.StopEditOperation();
+                pWorkspaceEdit.StopEditing(true);
 
                 // 释放游标
                 Marshal.ReleaseComObject(pFeatureCursor);
@@ -500,11 +492,14 @@ namespace MyGIS.Forms
             {
                 try
                 {
+                    missing = Type.Missing;
+
+                    //axMapControl1控件的当前地图工具为空
                     axMapControl1.CurrentTool = null;
+
                     //定义集合类型绘制折线的方法
                     pGeometry = axMapControl1.TrackLine();
 
-                    //通过addFeature函数的两个参数, Highways——绘制折线的图层; Geometry——绘制的几何折线
                     AddFeatureOnLayer("polyline", pGeometry);
                 }
                 catch (Exception exception)
