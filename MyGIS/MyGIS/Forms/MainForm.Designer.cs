@@ -51,11 +51,6 @@
             this.编辑状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制地层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制断层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.绘制标注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.绘制一般图形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.点ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.线ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.空间分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图查属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.属性查图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +59,8 @@
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新建图层文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -85,6 +82,7 @@
             this.axMapControl1.Size = new System.Drawing.Size(573, 375);
             this.axMapControl1.TabIndex = 0;
             this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
             // 
             // axMapControl2
             // 
@@ -150,6 +148,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
             this.数据采集ToolStripMenuItem,
             this.数据管理ToolStripMenuItem,
             this.编辑成图ToolStripMenuItem,
@@ -228,9 +227,7 @@
             this.编辑成图ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编辑状态ToolStripMenuItem,
             this.绘制地层线ToolStripMenuItem,
-            this.绘制断层线ToolStripMenuItem,
-            this.绘制标注ToolStripMenuItem,
-            this.绘制一般图形ToolStripMenuItem});
+            this.绘制断层线ToolStripMenuItem});
             this.编辑成图ToolStripMenuItem.Name = "编辑成图ToolStripMenuItem";
             this.编辑成图ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.编辑成图ToolStripMenuItem.Text = "编辑成图";
@@ -257,46 +254,6 @@
             this.绘制断层线ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
             this.绘制断层线ToolStripMenuItem.Text = "绘制断层线";
             this.绘制断层线ToolStripMenuItem.Click += new System.EventHandler(this.绘制断层线ToolStripMenuItem_Click);
-            // 
-            // 绘制标注ToolStripMenuItem
-            // 
-            this.绘制标注ToolStripMenuItem.Enabled = false;
-            this.绘制标注ToolStripMenuItem.Name = "绘制标注ToolStripMenuItem";
-            this.绘制标注ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.绘制标注ToolStripMenuItem.Text = "绘制标注";
-            this.绘制标注ToolStripMenuItem.Click += new System.EventHandler(this.绘制标注ToolStripMenuItem_Click);
-            // 
-            // 绘制一般图形ToolStripMenuItem
-            // 
-            this.绘制一般图形ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.点ToolStripMenuItem1,
-            this.线ToolStripMenuItem1,
-            this.面ToolStripMenuItem});
-            this.绘制一般图形ToolStripMenuItem.Enabled = false;
-            this.绘制一般图形ToolStripMenuItem.Name = "绘制一般图形ToolStripMenuItem";
-            this.绘制一般图形ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.绘制一般图形ToolStripMenuItem.Text = "绘制一般图形";
-            // 
-            // 点ToolStripMenuItem1
-            // 
-            this.点ToolStripMenuItem1.Name = "点ToolStripMenuItem1";
-            this.点ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
-            this.点ToolStripMenuItem1.Text = "点";
-            this.点ToolStripMenuItem1.Click += new System.EventHandler(this.点ToolStripMenuItem1_Click);
-            // 
-            // 线ToolStripMenuItem1
-            // 
-            this.线ToolStripMenuItem1.Name = "线ToolStripMenuItem1";
-            this.线ToolStripMenuItem1.Size = new System.Drawing.Size(98, 28);
-            this.线ToolStripMenuItem1.Text = "线";
-            this.线ToolStripMenuItem1.Click += new System.EventHandler(this.线ToolStripMenuItem1_Click);
-            // 
-            // 面ToolStripMenuItem
-            // 
-            this.面ToolStripMenuItem.Name = "面ToolStripMenuItem";
-            this.面ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
-            this.面ToolStripMenuItem.Text = "面";
-            this.面ToolStripMenuItem.Click += new System.EventHandler(this.面ToolStripMenuItem_Click_1);
             // 
             // 空间分析ToolStripMenuItem
             // 
@@ -358,6 +315,21 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 24);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // 文件ToolStripMenuItem
+            // 
+            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.新建图层文件ToolStripMenuItem});
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(58, 28);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 新建图层文件ToolStripMenuItem
+            // 
+            this.新建图层文件ToolStripMenuItem.Name = "新建图层文件ToolStripMenuItem";
+            this.新建图层文件ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.新建图层文件ToolStripMenuItem.Text = "新建图层文件";
+            this.新建图层文件ToolStripMenuItem.Click += new System.EventHandler(this.新建图层文件ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -409,11 +381,6 @@
         private System.Windows.Forms.ToolStripMenuItem 编辑成图ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 绘制地层线ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 绘制断层线ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 绘制标注ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 绘制一般图形ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 点ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 线ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 面ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 地质路线录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 地层界线点数据ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 断层采集点数据ToolStripMenuItem;
@@ -424,6 +391,8 @@
         private System.Windows.Forms.ToolStripMenuItem 数据管理ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 图幅数据录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 编辑状态ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 新建图层文件ToolStripMenuItem;
 
 
     }

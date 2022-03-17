@@ -3,6 +3,7 @@ using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.DataSourcesFile;
 using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -15,11 +16,13 @@ namespace MyGIS.Forms
         private Operation oprFlag;
         private object missing;
         private IGeometry pGeometry;
+        private int ShpFolderName;
 
 
         public MainForm()
         {
             InitializeComponent();
+            ShpFolderName = 1;
         }
 
         /// <summary>
@@ -186,6 +189,137 @@ namespace MyGIS.Forms
             }
             return null;
         }
+
+        public void CreatShpFile(String shpFullFilePath, String shpFileName, ISpatialReference spatialReference, esriGeometryType pGeometryType)
+        {
+            string pFileName = shpFullFilePath + shpFileName + ".shp";
+            MessageBox.Show(pFileName);
+            try
+            {
+                string shpFolder = System.IO.Path.GetDirectoryName(shpFullFilePath);
+                IWorkspaceFactory pWorkspaceFac = new ShapefileWorkspaceFactoryClass();
+                IWorkspace pWorkSpace = pWorkspaceFac.OpenFromFile(shpFolder, 0);
+                IFeatureWorkspace pFeatureWorkSpace = pWorkSpace as IFeatureWorkspace;
+                //如果文件已存在               
+                if (System.IO.File.Exists(pFileName))
+                {
+                    if (MessageBox.Show("文件已存在，是否覆盖？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                    {
+                        IFeatureClass pFCChecker = pFeatureWorkSpace.OpenFeatureClass(shpFileName);
+                        if (pFCChecker != null)
+                        {
+                            IDataset pds = pFCChecker as IDataset;
+                            pds.Delete();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                IFeatureClassDescription fcDescription = new FeatureClassDescriptionClass();
+                IObjectClassDescription pObjectDescription = (IObjectClassDescription)fcDescription;
+                IFields fields = pObjectDescription.RequiredFields;
+                int shapeFieldIndex = fields.FindField(fcDescription.ShapeFieldName);
+                IField field = fields.get_Field(shapeFieldIndex);
+                IGeometryDef geometryDef = field.GeometryDef;
+                IGeometryDefEdit geometryDefEdit = (IGeometryDefEdit)geometryDef;
+                //线
+                geometryDefEdit.GeometryType_2 = pGeometryType; //geometry类型
+                geometryDefEdit.HasZ_2 = true;                  //使图层具有Z值(无，则创建一个二维文件，不具备Z值)
+
+                geometryDefEdit.SpatialReference_2 = spatialReference;
+
+                IFieldChecker fieldChecker = new FieldCheckerClass();
+                IEnumFieldError enumFieldError = null;
+                IFields validatedFields = null; //将传入字段 转成 validatedFields
+                fieldChecker.ValidateWorkspace = pWorkSpace;
+                fieldChecker.Validate(fields, out enumFieldError, out validatedFields);
+
+                pFeatureWorkSpace.CreateFeatureClass(shpFileName, validatedFields, pObjectDescription.InstanceCLSID, pObjectDescription.ClassExtensionCLSID, esriFeatureType.esriFTSimple, fcDescription.ShapeFieldName, "");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddShpToMxd(String shapefileLocation)
+        {
+            if (shapefileLocation != "")
+            {
+                IWorkspaceFactory workspaceFactory = new ShapefileWorkspaceFactoryClass();
+                IFeatureWorkspace featureWorkspace = (IFeatureWorkspace)workspaceFactory.OpenFromFile(System.IO.Path.GetDirectoryName(shapefileLocation), 0);
+                IFeatureClass featureClass = featureWorkspace.OpenFeatureClass(System.IO.Path.GetFileNameWithoutExtension(shapefileLocation));
+                IFeatureLayer featureLayer = new FeatureLayerClass();
+                featureLayer.FeatureClass = featureClass;
+                featureLayer.Name = featureClass.AliasName;
+                featureLayer.Visible = true;
+                IActiveView activeView = axMapControl1.ActiveView;
+                activeView.FocusMap.AddLayer(featureLayer);
+                activeView.Extent = activeView.FullExtent;
+                activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("No shapefile chosen", "No Choice #1",
+                                                    System.Windows.Forms.MessageBoxButtons.OK,
+                                                    System.Windows.Forms.MessageBoxIcon.Exclamation);
+            }            
+        }
+        #endregion
+
+        #region 给要素添加字段
+        private void AddField(IFeatureClass pFeatureClass, String fieldName, esriFieldType fieldType)
+        {
+            IFields pFields = pFeatureClass.Fields;
+            IClass pClass = pFeatureClass as IClass;
+            IFieldsEdit pFieldsEdit = pFields as IFieldsEdit;
+            IField pField = new FieldClass();
+            IFieldEdit pFieldEdit = pField as IFieldEdit;
+            pFieldEdit.Name_2 = fieldName;
+            pFieldEdit.Type_2 = fieldType;
+            pClass.AddField(pField);
+        }
+
+        private void GeoBoundaryAddFields(IFeatureClass pFeatureClass)
+        {
+            AddField(pFeatureClass, "ContactRela", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "LeftBody", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "RightBody", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "Strike", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "Dip", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "DipAngle", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "Remark", esriFieldType.esriFieldTypeString);
+        }
+
+        private void FaultAddFields(IFeatureClass pFeatureClass)
+        {
+            AddField(pFeatureClass, "FaultID", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "FaultName", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "FaultType", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "FaultDist", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "FaultAge", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "FaultRock", esriFieldType.esriFieldTypeString);
+            AddField(pFeatureClass, "Strike", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "Dip", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "DipAngle", esriFieldType.esriFieldTypeInteger);
+            AddField(pFeatureClass, "Remark", esriFieldType.esriFieldTypeString);
+        }
+        #endregion
+
+        #region 文件菜单选项
+        private void 新建图层文件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String folderPath = Application.StartupPath + "\\ShpFile\\" + ShpFolderName.ToString() + "\\";
+            String prjFilePath = "E:\\2022GIS\\MyGISDev\\Data\\等高线.prj";
+            ISpatialReferenceFactory pSpatialReferenceFactory = new SpatialReferenceEnvironmentClass();
+            ISpatialReference pSpatialReference = pSpatialReferenceFactory.CreateESRISpatialReferenceFromPRJFile(prjFilePath); 
+            CreatShpFile(folderPath, "地层线", pSpatialReference, esriGeometryType.esriGeometryLine);
+            CreatShpFile(folderPath, "断层线", pSpatialReference, esriGeometryType.esriGeometryLine);
+            AddShpToMxd(folderPath + "地层线.shp");
+            AddShpToMxd(folderPath + "断层线.shp");
+        }
         #endregion
 
         #region 数据采集菜单选项
@@ -273,21 +407,16 @@ namespace MyGIS.Forms
             {
                 绘制地层线ToolStripMenuItem.Enabled = true;
                 绘制断层线ToolStripMenuItem.Enabled = true;
-                绘制标注ToolStripMenuItem.Enabled = true;
-                绘制一般图形ToolStripMenuItem.Enabled = true;
                 编辑状态ToolStripMenuItem.Text = "停止编辑";
             }
             else if (编辑状态ToolStripMenuItem.Text == "停止编辑")
             {
                 绘制地层线ToolStripMenuItem.Enabled = false;
                 绘制断层线ToolStripMenuItem.Enabled = false;
-                绘制标注ToolStripMenuItem.Enabled = false;
-                绘制一般图形ToolStripMenuItem.Enabled = false;
                 编辑状态ToolStripMenuItem.Text = "开始编辑";
                 oprFlag = Operation.Nothing;
             }
         }
-
 
         private void 绘制地层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -297,26 +426,6 @@ namespace MyGIS.Forms
         private void 绘制断层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditPolyline();
-        }
-
-        private void 绘制标注ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 点ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            EditPoint();
-        }
-
-        private void 线ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            EditPolyline();
-        }
-
-        private void 面ToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            EditPolygon();
         }
         #endregion
 
@@ -458,7 +567,7 @@ namespace MyGIS.Forms
         }
         #endregion
 
-        #region 界面左下角显示鼠标位置
+        #region MapControl1事件函数
         /// <summary>
         /// 鼠标移动的函数
         /// </summary>
@@ -476,9 +585,8 @@ namespace MyGIS.Forms
             }
 
         }
-        #endregion
 
-        #region MapControl触发的事件函数
+
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
             if (oprFlag == Operation.ConstructionPoint)

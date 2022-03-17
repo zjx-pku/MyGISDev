@@ -20,6 +20,7 @@ namespace MyGIS.Forms
         {
             IFeatureLayer pFeatureLayer = mLayer as IFeatureLayer;
             IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+
             DataTable dataTable = new DataTable();
             if (pFeatureClass != null)
             {
