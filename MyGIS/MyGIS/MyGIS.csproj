@@ -150,6 +150,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AttributeTable.resx">
       <DependentUpon>AttributeTable.cs</DependentUpon>
     </EmbeddedResource>

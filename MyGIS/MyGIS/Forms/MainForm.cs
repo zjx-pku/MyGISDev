@@ -4,6 +4,7 @@ using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesFile;
+using ESRI.ArcGIS.SystemUI;
 using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -212,6 +213,15 @@ namespace MyGIS.Forms
             IField pField = new FieldClass();
             IFieldEdit pFieldEdit = (IFieldEdit)pField;
 
+            IFeatureClassDescription fcDesc = new FeatureClassDescriptionClass();
+            IObjectClassDescription ocDesc = (IObjectClassDescription)fcDesc;
+
+            // Use IFieldChecker to create a validated fields collection.
+            IFieldChecker fieldChecker = new FieldCheckerClass();
+            IEnumFieldError enumFieldError = null;
+            IFields validatedFields = null;
+            fieldChecker.ValidateWorkspace = pWS as IWorkspace;
+            fieldChecker.Validate(pFields, out enumFieldError, out validatedFields);
 
             //创建类型为几何类型的字段
             pFieldEdit.Name_2 = strShapeFieldName;
@@ -337,7 +347,7 @@ namespace MyGIS.Forms
             }
 
             //创建shapefile
-            pWS.CreateFeatureClass(strShapeName, pFields, null, null, esriFeatureType.esriFTSimple, strShapeFieldName, "");
+            pWS.CreateFeatureClass(strShapeName, pFields, ocDesc.InstanceCLSID, ocDesc.ClassExtensionCLSID, esriFeatureType.esriFTSimple, strShapeFieldName, "");
 
         }
 
@@ -410,6 +420,8 @@ namespace MyGIS.Forms
         {
             String folderPath = Application.StartupPath + "\\ShpFile\\" + DateTime.Now.ToString().Replace('/','.').Replace(':','.') + "\\";
             System.IO.Directory.CreateDirectory(folderPath);
+            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(folderPath);
+            directoryInfo.Attributes = System.IO.FileAttributes.Normal;
             CreateShpFile(folderPath, "地层线");
             CreateShpFile(folderPath, "断层线");
             AddShpToMxd(folderPath + "地层线.shp");
@@ -418,6 +430,13 @@ namespace MyGIS.Forms
             //ISpatialReferenceFactory pSpatialReferenceFactory = new SpatialReferenceEnvironmentClass();
             //ISpatialReference pSpatialReference = pSpatialReferenceFactory.CreateESRISpatialReferenceFromPRJFile(prjFilePath); 
         }
+
+
+        private void 退出系统ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         #endregion
 
         #region 数据采集菜单选项
@@ -524,6 +543,19 @@ namespace MyGIS.Forms
         private void 绘制断层线ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditPolyline("断层线");
+        }
+        #endregion
+
+        #region 空间分析菜单选项
+        private void 图查属性ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand pCommand = axToolbarControl1.CommandPool.get_Command(14);
+            pCommand.OnClick();
+        }
+
+        private void 属性查图ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
