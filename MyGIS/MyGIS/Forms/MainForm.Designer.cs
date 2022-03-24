@@ -41,6 +41,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建图层文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据采集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图幅数据录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.地质路线录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.退出系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -177,6 +177,13 @@
             this.新建图层文件ToolStripMenuItem.Text = "新建图层文件";
             this.新建图层文件ToolStripMenuItem.Click += new System.EventHandler(this.新建图层文件ToolStripMenuItem_Click);
             // 
+            // 退出系统ToolStripMenuItem
+            // 
+            this.退出系统ToolStripMenuItem.Name = "退出系统ToolStripMenuItem";
+            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
+            this.退出系统ToolStripMenuItem.Text = "退出系统";
+            this.退出系统ToolStripMenuItem.Click += new System.EventHandler(this.退出系统ToolStripMenuItem_Click);
+            // 
             // 数据采集ToolStripMenuItem
             // 
             this.数据采集ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -286,7 +293,6 @@
             this.图查属性ToolStripMenuItem.Name = "图查属性ToolStripMenuItem";
             this.图查属性ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.图查属性ToolStripMenuItem.Text = "图查属性";
-            this.图查属性ToolStripMenuItem.Click += new System.EventHandler(this.图查属性ToolStripMenuItem_Click);
             // 
             // 属性查图ToolStripMenuItem
             // 
@@ -334,13 +340,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 24);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // 退出系统ToolStripMenuItem
-            // 
-            this.退出系统ToolStripMenuItem.Name = "退出系统ToolStripMenuItem";
-            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(188, 28);
-            this.退出系统ToolStripMenuItem.Text = "退出系统";
-            this.退出系统ToolStripMenuItem.Click += new System.EventHandler(this.退出系统ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -373,7 +372,7 @@
 
         #endregion
 
-        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
+        public ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl2;
         private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl1;
         private ESRI.ArcGIS.Controls.AxToolbarControl axToolbarControl1;

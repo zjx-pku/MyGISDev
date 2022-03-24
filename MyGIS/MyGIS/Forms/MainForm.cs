@@ -17,11 +17,12 @@ namespace MyGIS.Forms
         private Operation oprFlag;
         private String oprLayerName;
         private IGeometry pGeometry;
-
+        public static MainForm form;
 
         public MainForm()
         {
             InitializeComponent();
+            form = this;
         }
 
         /// <summary>
@@ -29,10 +30,10 @@ namespace MyGIS.Forms
         /// </summary>
         enum Operation
         {
+            Nothing,
             ConstructionPoint,      // 新建点
             ConstructionPolyLine,   // 新建折线
             ConstructionPolygon,    // 新建面
-            Nothing
         }
 
         #region 调整操作状态（编辑点、线、面）
@@ -197,12 +198,14 @@ namespace MyGIS.Forms
             return null;
         }
 
-        public static void CreateShpFile(string strShapeFolder, string strShapeName)
+
+        private void CreateShpFile(string strShapeFolder, string strShapeName)
         {
+            #region 暂时不用的代码
             //打开工作空间
             const string strShapeFieldName = "shape";
 
-            IWorkspaceFactory pWSF = new ShapefileWorkspaceFactoryClass();
+            IWorkspaceFactory pWSF = new ShapefileWorkspaceFactory();
             IFeatureWorkspace pWS = (IFeatureWorkspace)pWSF.OpenFromFile(strShapeFolder, 0);
 
             //设置字段集
@@ -347,33 +350,46 @@ namespace MyGIS.Forms
             }
 
             //创建shapefile
-            pWS.CreateFeatureClass(strShapeName, pFields, ocDesc.InstanceCLSID, ocDesc.ClassExtensionCLSID, esriFeatureType.esriFTSimple, strShapeFieldName, "");
+            IFeatureClass featureClass = pWS.CreateFeatureClass(strShapeName, pFields, ocDesc.InstanceCLSID, ocDesc.ClassExtensionCLSID, esriFeatureType.esriFTSimple, strShapeFieldName, "");
 
+            IFeatureLayer featureLayer = new FeatureLayerClass();
+            featureLayer.FeatureClass = featureClass;
+            featureLayer.Name = featureClass.AliasName;
+            featureLayer.Visible = true;
+
+            IActiveView activeView = axMapControl1.ActiveView;
+            activeView.FocusMap.AddLayer(featureLayer);
+            activeView.Extent = activeView.FullExtent;
+            activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+
+            #endregion
         }
 
-        private void AddShpToMxd(String shapefileLocation)
-        {
-            if (shapefileLocation != "")
-            {
-                IWorkspaceFactory workspaceFactory = new ShapefileWorkspaceFactoryClass();
-                IFeatureWorkspace featureWorkspace = (IFeatureWorkspace)workspaceFactory.OpenFromFile(System.IO.Path.GetDirectoryName(shapefileLocation), 0);
-                IFeatureClass featureClass = featureWorkspace.OpenFeatureClass(System.IO.Path.GetFileNameWithoutExtension(shapefileLocation));
-                IFeatureLayer featureLayer = new FeatureLayerClass();
-                featureLayer.FeatureClass = featureClass;
-                featureLayer.Name = featureClass.AliasName;
-                featureLayer.Visible = true;
-                IActiveView activeView = axMapControl1.ActiveView;
-                activeView.FocusMap.AddLayer(featureLayer);
-                activeView.Extent = activeView.FullExtent;
-                activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("No shapefile chosen", "No Choice #1",
-                                                    System.Windows.Forms.MessageBoxButtons.OK,
-                                                    System.Windows.Forms.MessageBoxIcon.Exclamation);
-            }            
-        }
+       
+
+        //private void AddShpToMxd(String shapefileLocation)
+        //{
+        //    if (shapefileLocation != "")
+        //    {
+        //        IWorkspaceFactory workspaceFactory = new ShapefileWorkspaceFactoryClass();
+        //        IFeatureWorkspace featureWorkspace = (IFeatureWorkspace)workspaceFactory.OpenFromFile(System.IO.Path.GetDirectoryName(shapefileLocation), 0);
+        //        IFeatureClass featureClass = featureWorkspace.OpenFeatureClass(System.IO.Path.GetFileNameWithoutExtension(shapefileLocation));
+        //        IFeatureLayer featureLayer = new FeatureLayerClass();
+        //        featureLayer.FeatureClass = featureClass;
+        //        featureLayer.Name = featureClass.AliasName;
+        //        featureLayer.Visible = true;
+        //        IActiveView activeView = axMapControl1.ActiveView;
+        //        activeView.FocusMap.AddLayer(featureLayer);
+        //        activeView.Extent = activeView.FullExtent;
+        //        activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+        //    }
+        //    else
+        //    {
+        //        System.Windows.Forms.MessageBox.Show("No shapefile chosen", "No Choice #1",
+        //                                            System.Windows.Forms.MessageBoxButtons.OK,
+        //                                            System.Windows.Forms.MessageBoxIcon.Exclamation);
+        //    }            
+        //}
         #endregion
 
         #region 给要素添加字段
@@ -424,8 +440,9 @@ namespace MyGIS.Forms
             directoryInfo.Attributes = System.IO.FileAttributes.Normal;
             CreateShpFile(folderPath, "地层线");
             CreateShpFile(folderPath, "断层线");
-            AddShpToMxd(folderPath + "地层线.shp");
-            AddShpToMxd(folderPath + "断层线.shp");
+            //AddShpToMxd(folderPath + "地层线.shp");
+            //AddShpToMxd(folderPath + "断层线.shp");
+
             //String prjFilePath = "E:\\2022GIS\\MyGISDev\\Data\\等高线.prj";
             //ISpatialReferenceFactory pSpatialReferenceFactory = new SpatialReferenceEnvironmentClass();
             //ISpatialReference pSpatialReference = pSpatialReferenceFactory.CreateESRISpatialReferenceFromPRJFile(prjFilePath); 
@@ -547,11 +564,18 @@ namespace MyGIS.Forms
         #endregion
 
         #region 空间分析菜单选项
-        private void 图查属性ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ICommand pCommand = axToolbarControl1.CommandPool.get_Command(14);
-            pCommand.OnClick();
-        }
+        //private void 图查属性ToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    ICommand pCommand = axToolbarControl1.CommandPool.get_Command(14);
+        //    if (pCommand.Enabled)
+        //    {
+        //        pCommand.OnClick();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Command is not enabled!");
+        //    }
+        //}
 
         private void 属性查图ToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -1,12 +1,14 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.DataSourcesFile;
+using ESRI.ArcGIS.SystemUI;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MyGIS.Forms
@@ -303,8 +305,362 @@ namespace MyGIS.Forms
 
         private void 生成图层文件_Click(object sender, EventArgs e)
         {
+            int selectedIndex = tabControl.SelectedIndex;
+            // 地层界线点
+            if (selectedIndex == 1)
+            {
 
+            }
+            // 断层采集点
+            else if (selectedIndex == 2)
+            {
+
+            }
+            // 褶皱采集点
+            else if (selectedIndex == 3)
+            {
+
+            }
         }
+
+        private void CreateShpFile(string strShapeFolder, string strShapeName)
+        {
+            //打开工作空间
+            const string strShapeFieldName = "shape";
+
+            IWorkspaceFactory pWSF = new ShapefileWorkspaceFactory();
+            IFeatureWorkspace pWS = (IFeatureWorkspace)pWSF.OpenFromFile(strShapeFolder, 0);
+
+            //设置字段集
+            IFields pFields = new FieldsClass();
+            IFieldsEdit pFieldsEdit = (IFieldsEdit)pFields;
+
+            //设置字段
+            IField pField = new FieldClass();
+            IFieldEdit pFieldEdit = (IFieldEdit)pField;
+
+            IFeatureClassDescription fcDesc = new FeatureClassDescriptionClass();
+            IObjectClassDescription ocDesc = (IObjectClassDescription)fcDesc;
+
+            // Use IFieldChecker to create a validated fields collection.
+            IFieldChecker fieldChecker = new FieldCheckerClass();
+            IEnumFieldError enumFieldError = null;
+            IFields validatedFields = null;
+            fieldChecker.ValidateWorkspace = pWS as IWorkspace;
+            fieldChecker.Validate(pFields, out enumFieldError, out validatedFields);
+
+            //创建类型为几何类型的字段
+            pFieldEdit.Name_2 = strShapeFieldName;
+            pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
+
+            //为esriFieldTypeGeometry类型的字段创建几何定义，包括类型和空间参照
+            IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
+            IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
+            pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
+            pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
+
+            pFieldEdit.GeometryDef_2 = pGeoDef;
+            pFieldsEdit.AddField(pField);
+
+            if (strShapeName == "地层界线点")
+            {
+                IField mapIdField = new FieldClass();
+                IFieldEdit mapIdFieldEdit = mapIdField as IFieldEdit;
+                mapIdFieldEdit.Name_2 = "MapID";
+                mapIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapIdField);
+
+                IField mapNameField = new FieldClass();
+                IFieldEdit mapNameFieldEdit = mapNameField as IFieldEdit;
+                mapNameFieldEdit.Name_2 = "MapName";
+                mapNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapNameField);
+
+                IField routeIdField = new FieldClass();
+                IFieldEdit routeIdFieldEdit = routeIdField as IFieldEdit;
+                routeIdFieldEdit.Name_2 = "RouteID";
+                routeIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(routeIdField);
+
+                IField pointIdField = new FieldClass();
+                IFieldEdit pointIdFieldEdit = pointIdField as IFieldEdit;
+                pointIdFieldEdit.Name_2 = "PointID";
+                pointIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(pointIdField);
+
+
+                IField longitudeField = new FieldClass();
+                IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
+                longitudeFieldEdit.Name_2 = "Longitude";
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(longitudeField);
+
+
+                IField latitudeField = new FieldClass();
+                IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
+                latitudeFieldEdit.Name_2 = "Latitude";
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(latitudeField);
+
+
+                IField altitudeField = new FieldClass();
+                IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
+                altitudeFieldEdit.Name_2 = "Altitude";
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(altitudeField);
+
+                IField contactRelaField = new FieldClass();
+                IFieldEdit contactRelaFieldEdit = contactRelaField as IFieldEdit;
+                contactRelaFieldEdit.Name_2 = "ContactRela";
+                contactRelaFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(contactRelaField);
+
+                IField leftBodyField = new FieldClass();
+                IFieldEdit leftBodyFieldEdit = leftBodyField as IFieldEdit;
+                leftBodyFieldEdit.Name_2 = "LeftBody";
+                leftBodyFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(leftBodyField);
+
+                IField rightBodyField = new FieldClass();
+                IFieldEdit rightBodyFieldEdit = rightBodyField as IFieldEdit;
+                rightBodyFieldEdit.Name_2 = "RightBody";
+                rightBodyFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(rightBodyField);
+
+                IField strikeField = new FieldClass();
+                IFieldEdit strikeFieldEdit = strikeField as IFieldEdit;
+                strikeFieldEdit.Name_2 = "Strike";
+                strikeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(strikeField);
+
+                IField dipField = new FieldClass();
+                IFieldEdit dipFieldEdit = dipField as IFieldEdit;
+                dipFieldEdit.Name_2 = "Dip";
+                dipFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipField);
+
+                IField dipAngleField = new FieldClass();
+                IFieldEdit dipAngleFieldEdit = dipAngleField as IFieldEdit;
+                dipAngleFieldEdit.Name_2 = "DipAngle";
+                dipAngleFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipAngleField);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
+            }
+            else if (strShapeName == "断层采集点")
+            {
+                IField mapIdField = new FieldClass();
+                IFieldEdit mapIdFieldEdit = mapIdField as IFieldEdit;
+                mapIdFieldEdit.Name_2 = "MapID";
+                mapIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapIdField);
+
+                IField mapNameField = new FieldClass();
+                IFieldEdit mapNameFieldEdit = mapNameField as IFieldEdit;
+                mapNameFieldEdit.Name_2 = "MapName";
+                mapNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapNameField);
+
+                IField routeIdField = new FieldClass();
+                IFieldEdit routeIdFieldEdit = routeIdField as IFieldEdit;
+                routeIdFieldEdit.Name_2 = "RouteID";
+                routeIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(routeIdField);
+
+                IField pointIdField = new FieldClass();
+                IFieldEdit pointIdFieldEdit = pointIdField as IFieldEdit;
+                pointIdFieldEdit.Name_2 = "PointID";
+                pointIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(pointIdField);
+
+                IField faultIdField = new FieldClass();
+                IFieldEdit faultIdFieldEdit = faultIdField as IFieldEdit;
+                faultIdFieldEdit.Name_2 = "FaultID";
+                faultIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultIdField);
+
+                IField longitudeField = new FieldClass();
+                IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
+                longitudeFieldEdit.Name_2 = "Longitude";
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(longitudeField);
+
+
+                IField latitudeField = new FieldClass();
+                IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
+                latitudeFieldEdit.Name_2 = "Latitude";
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(latitudeField);
+
+
+                IField altitudeField = new FieldClass();
+                IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
+                altitudeFieldEdit.Name_2 = "Altitude";
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(altitudeField);
+
+                IField faultTypeField = new FieldClass();
+                IFieldEdit faultTypeFieldEdit = faultTypeField as IFieldEdit;
+                faultTypeFieldEdit.Name_2 = "FaultType";
+                faultTypeFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultTypeField);
+
+                IField faultNameField = new FieldClass();
+                IFieldEdit faultNameFieldEdit = faultNameField as IFieldEdit;
+                faultNameFieldEdit.Name_2 = "FaultName";
+                faultNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultNameField);
+
+                IField faultDistField = new FieldClass();
+                IFieldEdit faultDistFieldEdit = faultDistField as IFieldEdit;
+                faultDistFieldEdit.Name_2 = "FaultDist";
+                faultDistFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultDistField);
+
+                IField faultAgeField = new FieldClass();
+                IFieldEdit faultAgeFieldEdit = faultAgeField as IFieldEdit;
+                faultAgeFieldEdit.Name_2 = "FaultAge";
+                faultAgeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(faultAgeField);
+
+                IField faultRockField = new FieldClass();
+                IFieldEdit faultRockFieldEdit = faultRockField as IFieldEdit;
+                faultRockFieldEdit.Name_2 = "FaultRock";
+                faultRockFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(faultRockField);
+
+                IField strikeField = new FieldClass();
+                IFieldEdit strikeFieldEdit = strikeField as IFieldEdit;
+                strikeFieldEdit.Name_2 = "FaultStrike";
+                strikeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(strikeField);
+
+                IField dipField = new FieldClass();
+                IFieldEdit dipFieldEdit = dipField as IFieldEdit;
+                dipFieldEdit.Name_2 = "FaultDip";
+                dipFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipField);
+
+                IField dipAngleField = new FieldClass();
+                IFieldEdit dipAngleFieldEdit = dipAngleField as IFieldEdit;
+                dipAngleFieldEdit.Name_2 = "DipAngle";
+                dipAngleFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(dipAngleField);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
+            }
+            else if (strShapeName == "褶皱采集点")
+            {
+                IField mapIdField = new FieldClass();
+                IFieldEdit mapIdFieldEdit = mapIdField as IFieldEdit;
+                mapIdFieldEdit.Name_2 = "MapID";
+                mapIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapIdField);
+
+                IField mapNameField = new FieldClass();
+                IFieldEdit mapNameFieldEdit = mapNameField as IFieldEdit;
+                mapNameFieldEdit.Name_2 = "MapName";
+                mapNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(mapNameField);
+
+                IField routeIdField = new FieldClass();
+                IFieldEdit routeIdFieldEdit = routeIdField as IFieldEdit;
+                routeIdFieldEdit.Name_2 = "RouteID";
+                routeIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(routeIdField);
+
+                IField pointIdField = new FieldClass();
+                IFieldEdit pointIdFieldEdit = pointIdField as IFieldEdit;
+                pointIdFieldEdit.Name_2 = "PointID";
+                pointIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(pointIdField);
+
+                IField foldIdField = new FieldClass();
+                IFieldEdit foldIdFieldEdit = foldIdField as IFieldEdit;
+                foldIdFieldEdit.Name_2 = "FoldID";
+                foldIdFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(foldIdField);
+
+                IField longitudeField = new FieldClass();
+                IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
+                longitudeFieldEdit.Name_2 = "Longitude";
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(longitudeField);
+
+
+                IField latitudeField = new FieldClass();
+                IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
+                latitudeFieldEdit.Name_2 = "Latitude";
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(latitudeField);
+
+
+                IField altitudeField = new FieldClass();
+                IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
+                altitudeFieldEdit.Name_2 = "Altitude";
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(altitudeField);
+
+
+                IField foldNameField = new FieldClass();
+                IFieldEdit foldNameFieldEdit = foldNameField as IFieldEdit;
+                foldNameFieldEdit.Name_2 = "FoldName";
+                foldNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(foldNameField);
+
+                IField foldTypeField = new FieldClass();
+                IFieldEdit foldTypeFieldEdit = foldTypeField as IFieldEdit;
+                foldTypeFieldEdit.Name_2 = "FoldType";
+                foldTypeFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(foldTypeField);
+
+                IField foldAxTrend = new FieldClass();
+                IFieldEdit foldAxTrendEdit = foldAxTrend as IFieldEdit;
+                foldAxTrendEdit.Name_2 = "FoldAxTrend";
+                foldAxTrendEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(foldAxTrend);
+
+                IField foldAxRegDip = new FieldClass();
+                IFieldEdit foldAxRegDipEdit = foldAxRegDip as IFieldEdit;
+                foldAxRegDipEdit.Name_2 = "FoldAxRegDip";
+                foldAxRegDipEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(foldAxRegDip);
+
+                IField foldAxRegAng = new FieldClass();
+                IFieldEdit foldAxRegAngEdit = foldAxRegAng as IFieldEdit;
+                foldAxRegAngEdit.Name_2 = "FoldAxRegDip";
+                foldAxRegAngEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(foldAxRegAng);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
+            }
+
+            //创建shapefile
+            IFeatureClass featureClass = pWS.CreateFeatureClass(strShapeName, pFields, ocDesc.InstanceCLSID, ocDesc.ClassExtensionCLSID, esriFeatureType.esriFTSimple, strShapeFieldName, "");
+            
+            IFeatureLayer featureLayer = new FeatureLayerClass();
+            featureLayer.FeatureClass = featureClass;
+            featureLayer.Name = featureClass.AliasName;
+            featureLayer.Visible = true;
+
+            IActiveView activeView = MainForm.form.axMapControl1.ActiveView;
+            activeView.FocusMap.AddLayer(featureLayer);
+            activeView.Extent = activeView.FullExtent;
+            activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+        }
+
     }
 
 }
