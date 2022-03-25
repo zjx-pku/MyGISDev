@@ -37,9 +37,10 @@ namespace MyGIS.Forms
         }
 
         #region 调整操作状态（编辑点、线、面）
-        private void EditPoint()
+        private void EditPoint(String layerName)
         {
             oprFlag = Operation.ConstructionPoint;
+            oprLayerName = layerName;
         }
 
         private void EditPolyline(String layerName)
@@ -48,9 +49,10 @@ namespace MyGIS.Forms
             oprLayerName = layerName;
         }
 
-        private void EditPolygon()
+        private void EditPolygon(String layerName)
         {
             oprFlag = Operation.ConstructionPolygon;
+            oprLayerName = layerName;
         }
         #endregion
 
@@ -122,44 +124,44 @@ namespace MyGIS.Forms
             }
         }
 
-        private void AddPointByStore(String pointLayerName, IPoint point)
-        {
-            // 根据名称得到要添加地物的图层并转换为要素层
-            IFeatureLayer pFeatureLayer = GetLayerByNameFromMap(pointLayerName) as IFeatureLayer;
+        //private void AddPointByStore(String pointLayerName, IPoint point)
+        //{
+        //    // 根据名称得到要添加地物的图层并转换为要素层
+        //    IFeatureLayer pFeatureLayer = GetLayerByNameFromMap(pointLayerName) as IFeatureLayer;
 
-            if (pFeatureLayer != null)
-            {
-                // 定义一个地物类，把要编辑的图层转化为定义的地物类
-                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
-                // 先定义一个编辑的工作空间，然后将上述地物类转化为数据集，最后转化为编辑工作空间
-                IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
+        //    if (pFeatureLayer != null)
+        //    {
+        //        // 定义一个地物类，把要编辑的图层转化为定义的地物类
+        //        IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+        //        // 先定义一个编辑的工作空间，然后将上述地物类转化为数据集，最后转化为编辑工作空间
+        //        IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
 
-                // 开始事务操作
-                pWorkspaceEdit.StartEditing(false);
-                // 开始编辑操作
-                pWorkspaceEdit.StartEditOperation();
+        //        // 开始事务操作
+        //        pWorkspaceEdit.StartEditing(false);
+        //        // 开始编辑操作
+        //        pWorkspaceEdit.StartEditOperation();
 
-                // 创建一个点要素
-                IFeature pFeature = pFeatureClass.CreateFeature();
-                pFeature.Shape = point;
+        //        // 创建一个点要素
+        //        IFeature pFeature = pFeatureClass.CreateFeature();
+        //        pFeature.Shape = point;
 
-                // 保存点要素，完成编辑。此时生成的点要素只有集合特征(shape/Geometry), 无普通属性
-                pFeature.Store();
+        //        // 保存点要素，完成编辑。此时生成的点要素只有集合特征(shape/Geometry), 无普通属性
+        //        pFeature.Store();
 
-                // 结束编辑操作
-                pWorkspaceEdit.StopEditOperation();
+        //        // 结束编辑操作
+        //        pWorkspaceEdit.StopEditOperation();
 
-                // 结束事务操作
-                pWorkspaceEdit.StopEditing(true);
-            }
+        //        // 结束事务操作
+        //        pWorkspaceEdit.StopEditing(true);
+        //    }
 
-            this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pFeatureLayer, null);
-        }
+        //    this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pFeatureLayer, null);
+        //}
 
         #endregion
 
         #region 从图层列表中根据图层名称获取相应图层
-        private ILayer GetLayerByNameFromMap(String layerName)
+        public ILayer GetLayerByNameFromMap(String layerName)
         {
             for (int i = 0; i < axMapControl1.LayerCount; ++i)
             {
@@ -201,7 +203,6 @@ namespace MyGIS.Forms
 
         private void CreateShpFile(string strShapeFolder, string strShapeName)
         {
-            #region 暂时不用的代码
             //打开工作空间
             const string strShapeFieldName = "shape";
 
@@ -233,7 +234,16 @@ namespace MyGIS.Forms
             //为esriFieldTypeGeometry类型的字段创建几何定义，包括类型和空间参照
             IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
             IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
-            pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
+
+            if (strShapeName == "地质体")
+            {
+                pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolygon;
+            }
+            else
+            {
+                pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
+            }
+            
             pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
 
             pFieldEdit.GeometryDef_2 = pGeoDef;
@@ -348,6 +358,26 @@ namespace MyGIS.Forms
                 remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
                 pFieldsEdit.AddField(remarkField);
             }
+            else if (strShapeName == "地质体")
+            {
+                IField straNameField = new FieldClass();
+                IFieldEdit straNameFieldEdit = straNameField as IFieldEdit;
+                straNameFieldEdit.Name_2 = "StraName";
+                straNameFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(straNameField);
+
+                IField straCodeField = new FieldClass();
+                IFieldEdit straCodeFieldEdit = straCodeField as IFieldEdit;
+                straCodeFieldEdit.Name_2 = "StraCode";
+                straCodeFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(straCodeField);
+
+                IField remarkField = new FieldClass();
+                IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
+                remarkFieldEdit.Name_2 = "Remark";
+                remarkFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+                pFieldsEdit.AddField(remarkField);
+            }
 
             //创建shapefile
             IFeatureClass featureClass = pWS.CreateFeatureClass(strShapeName, pFields, ocDesc.InstanceCLSID, ocDesc.ClassExtensionCLSID, esriFeatureType.esriFTSimple, strShapeFieldName, "");
@@ -361,8 +391,6 @@ namespace MyGIS.Forms
             activeView.FocusMap.AddLayer(featureLayer);
             activeView.Extent = activeView.FullExtent;
             activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
-
-            #endregion
         }
 
        
@@ -440,6 +468,7 @@ namespace MyGIS.Forms
             directoryInfo.Attributes = System.IO.FileAttributes.Normal;
             CreateShpFile(folderPath, "地层线");
             CreateShpFile(folderPath, "断层线");
+            CreateShpFile(folderPath, "地质体");
             //AddShpToMxd(folderPath + "地层线.shp");
             //AddShpToMxd(folderPath + "断层线.shp");
 
@@ -541,12 +570,14 @@ namespace MyGIS.Forms
             {
                 绘制地层线ToolStripMenuItem.Enabled = true;
                 绘制断层线ToolStripMenuItem.Enabled = true;
+                绘制地质体ToolStripMenuItem.Enabled = true;
                 编辑状态ToolStripMenuItem.Text = "停止编辑";
             }
             else if (编辑状态ToolStripMenuItem.Text == "停止编辑")
             {
                 绘制地层线ToolStripMenuItem.Enabled = false;
                 绘制断层线ToolStripMenuItem.Enabled = false;
+                绘制地质体ToolStripMenuItem.Enabled = false;
                 编辑状态ToolStripMenuItem.Text = "开始编辑";
                 oprFlag = Operation.Nothing;
             }
@@ -561,6 +592,12 @@ namespace MyGIS.Forms
         {
             EditPolyline("断层线");
         }
+
+        private void 绘制地质体ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditPolygon("地质体");
+        }
+
         #endregion
 
         #region 空间分析菜单选项
@@ -745,10 +782,11 @@ namespace MyGIS.Forms
         {
             if (oprFlag == Operation.ConstructionPoint)
             {
-                // 设置axMapControl控件的当前地图工具为空
-                axMapControl1.CurrentTool = null;
-                // 指定图层名称，将点要素绘制其上
-                AddPointByStore("point", CreatePoint(e.mapX, e.mapY) as IPoint);
+                //// 设置axMapControl控件的当前地图工具为空
+                //axMapControl1.CurrentTool = null;
+                //// 指定图层名称，将点要素绘制其上
+                //AddPointByStore("point", CreatePoint(e.mapX, e.mapY) as IPoint);
+                MessageBox.Show("方法暂时隐藏");
             }
             else if (oprFlag == Operation.ConstructionPolyLine)
             {
@@ -775,7 +813,7 @@ namespace MyGIS.Forms
                     //axMapControl1控件的当前地图工具为空
                     axMapControl1.CurrentTool = null;
                     pGeometry = axMapControl1.TrackPolygon();
-                    AddFeatureOnLayer("polygon", pGeometry);
+                    AddFeatureOnLayer(oprLayerName, pGeometry);
                 }
                 catch (Exception exception)
                 {

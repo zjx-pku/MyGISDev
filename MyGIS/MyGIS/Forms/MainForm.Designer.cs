@@ -62,6 +62,7 @@
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.绘制地质体ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -251,7 +252,8 @@
             this.编辑成图ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编辑状态ToolStripMenuItem,
             this.绘制地层线ToolStripMenuItem,
-            this.绘制断层线ToolStripMenuItem});
+            this.绘制断层线ToolStripMenuItem,
+            this.绘制地质体ToolStripMenuItem});
             this.编辑成图ToolStripMenuItem.Name = "编辑成图ToolStripMenuItem";
             this.编辑成图ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.编辑成图ToolStripMenuItem.Text = "编辑成图";
@@ -340,6 +342,14 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 24);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // 绘制地质体ToolStripMenuItem
+            // 
+            this.绘制地质体ToolStripMenuItem.Enabled = false;
+            this.绘制地质体ToolStripMenuItem.Name = "绘制地质体ToolStripMenuItem";
+            this.绘制地质体ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.绘制地质体ToolStripMenuItem.Text = "绘制地质体";
+            this.绘制地质体ToolStripMenuItem.Click += new System.EventHandler(this.绘制地质体ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -404,6 +414,7 @@
         private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新建图层文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出系统ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制地质体ToolStripMenuItem;
 
 
     }

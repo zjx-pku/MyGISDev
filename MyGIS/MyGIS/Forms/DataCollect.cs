@@ -306,21 +306,63 @@ namespace MyGIS.Forms
         private void 生成图层文件_Click(object sender, EventArgs e)
         {
             int selectedIndex = tabControl.SelectedIndex;
+
+            String folderPath = Application.StartupPath + "\\ShpFile\\" + DateTime.Now.ToString().Replace('/', '.').Replace(':', '.') + "\\";
+            System.IO.Directory.CreateDirectory(folderPath);
+            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(folderPath);
+            directoryInfo.Attributes = System.IO.FileAttributes.Normal;
+
             // 地层界线点
             if (selectedIndex == 1)
             {
-
+                CreateShpFile(folderPath, "地层界线点");
+                IPoint point = new PointClass();
+                AddPointByStore("地层界线点",)
             }
             // 断层采集点
             else if (selectedIndex == 2)
             {
-
+                CreateShpFile(folderPath, "断层采集点");
             }
             // 褶皱采集点
             else if (selectedIndex == 3)
             {
-
+                CreateShpFile(folderPath, "褶皱采集点");
             }
+        }
+
+        private void AddPointByStore(String pointLayerName, IPoint point)
+        {
+            // 根据名称得到要添加地物的图层并转换为要素层
+            IFeatureLayer pFeatureLayer = GetLayerByNameFromMap(pointLayerName) as IFeatureLayer;
+
+            if (pFeatureLayer != null)
+            {
+                // 定义一个地物类，把要编辑的图层转化为定义的地物类
+                IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+                // 先定义一个编辑的工作空间，然后将上述地物类转化为数据集，最后转化为编辑工作空间
+                IWorkspaceEdit pWorkspaceEdit = (pFeatureClass as IDataset).Workspace as IWorkspaceEdit;
+
+                // 开始事务操作
+                pWorkspaceEdit.StartEditing(false);
+                // 开始编辑操作
+                pWorkspaceEdit.StartEditOperation();
+
+                // 创建一个点要素
+                IFeature pFeature = pFeatureClass.CreateFeature();
+                pFeature.Shape = point;
+
+                // 保存点要素，完成编辑。此时生成的点要素只有集合特征(shape/Geometry), 无普通属性
+                pFeature.Store();
+
+                // 结束编辑操作
+                pWorkspaceEdit.StopEditOperation();
+
+                // 结束事务操作
+                pWorkspaceEdit.StopEditing(true);
+            }
+
+            MainForm.form.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, pFeatureLayer, null);
         }
 
         private void CreateShpFile(string strShapeFolder, string strShapeName)
@@ -356,7 +398,7 @@ namespace MyGIS.Forms
             //为esriFieldTypeGeometry类型的字段创建几何定义，包括类型和空间参照
             IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
             IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
-            pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
+            pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPoint;
             pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
 
             pFieldEdit.GeometryDef_2 = pGeoDef;
@@ -661,6 +703,43 @@ namespace MyGIS.Forms
             activeView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
         }
 
-    }
+        public ILayer GetLayerByNameFromMap(String layerName)
+        {
+            for (int i = 0; i < MainForm.form.axMapControl1.LayerCount; ++i)
+            {
+                if (MainForm.form.axMapControl1.get_Layer(i) is ICompositeLayer)
+                {
+                    return GetLayerByNameFromCom(MainForm.form.axMapControl1.get_Layer(i) as ICompositeLayer, layerName);
+                }
+                else
+                {
+                    if (MainForm.form.axMapControl1.get_Layer(i).Name == layerName)
+                    {
+                        return MainForm.form.axMapControl1.get_Layer(i);
+                    }
+                }
+            }
 
+            return null;
+        }
+
+        private ILayer GetLayerByNameFromCom(ICompositeLayer pCompositeLayer, String layerName)
+        {
+            for (int i = 0; i < pCompositeLayer.Count; ++i)
+            {
+                if (pCompositeLayer.get_Layer(i) is ICompositeLayer)
+                {
+                    return GetLayerByNameFromCom(pCompositeLayer.get_Layer(i) as ICompositeLayer, layerName);
+                }
+                else
+                {
+                    if (pCompositeLayer.get_Layer(i).Name == layerName)
+                    {
+                        return pCompositeLayer.get_Layer(i);
+                    }
+                }
+            }
+            return null;
+        }
+    }
 }
