@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EditButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,15 +41,28 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(526, 620);
+            this.dataGridView1.Size = new System.Drawing.Size(526, 635);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // EditButton
+            // 
+            this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EditButton.Location = new System.Drawing.Point(154, 653);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(188, 58);
+            this.EditButton.TabIndex = 1;
+            this.EditButton.Text = "开始编辑";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AttributeTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 644);
+            this.ClientSize = new System.Drawing.Size(550, 710);
+            this.Controls.Add(this.EditButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AttributeTable";
             this.Text = "AttributeTable";
@@ -61,5 +75,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button EditButton;
     }
 }

@@ -298,10 +298,6 @@ namespace MyGIS.Forms
             }
         }
 
-        private void 编辑所选_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void 生成图层文件_Click(object sender, EventArgs e)
         {
@@ -317,7 +313,7 @@ namespace MyGIS.Forms
             {
                 CreateShpFile(folderPath, "地层界线点");
                 IPoint point = new PointClass();
-                AddPointByStore("地层界线点",)
+                AddPointByStore("地层界线点", point);
             }
             // 断层采集点
             else if (selectedIndex == 2)
@@ -740,6 +736,260 @@ namespace MyGIS.Forms
                 }
             }
             return null;
+        }
+
+        private void 编辑_Click(object sender, EventArgs e)
+        {
+            int selectIndex = tabControl.SelectedIndex;
+
+            if (编辑.Text == "开始编辑")
+            {
+                编辑.Text = "保存并停止编辑";
+
+                if (selectIndex == 0)
+                {
+                    routeDataGridView.ReadOnly = false;
+                }
+                else if (selectIndex == 1)
+                {
+                    geoboundarypointDataGridView.ReadOnly = false;
+                }
+                else if (selectIndex == 2)
+                {
+                    faultpointDataGridView.ReadOnly = false;
+                }
+                else if (selectIndex == 3)
+                {
+                    foldpointDataGridView.ReadOnly = false;
+                }
+                else if (selectIndex == 4)
+                {
+                    mapDataGridView.ReadOnly = false;
+                }
+            }
+            else if (编辑.Text == "保存并停止编辑")
+            {
+                编辑.Text = "开始编辑";
+
+                if (selectIndex == 0)
+                {
+                    routeDataGridView.ReadOnly = true;
+                    int rowsCount = routeDataGridView.Rows.Count;
+                    for(int i = 0; i < rowsCount - 1; ++i)
+                    {
+                        DataGridViewRow row = routeDataGridView.Rows[i];
+                        try
+                        {
+                            string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                            MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                            mySqlConnection.Open();
+
+                            string commandText = "update route set " +
+                                                 "MapID = '" + row.Cells[0].Value.ToString() +
+                                                 "', MapName = '" + row.Cells[1].Value.ToString() +
+                                                 "', RouteName = '" + row.Cells[3].Value.ToString() +
+                                                 "', RouteDir = '" + row.Cells[4].Value.ToString() +
+                                                 "', RouteDes = '" + row.Cells[5].Value.ToString() +
+                                                 "', Date = '" + row.Cells[6].Value.ToString() +
+                                                 "', Weather = '" + row.Cells[7].Value.ToString() +
+                                                 "', LongStar = " + row.Cells[8].Value.ToString() +
+                                                 ", LatiStar = " + row.Cells[9].Value.ToString() +
+                                                 ", AltitudeStar = " + row.Cells[10].Value.ToString() +
+                                                 ", LongEnd = " + row.Cells[11].Value.ToString() +
+                                                 ", LatiEnd = " + row.Cells[12].Value.ToString() +
+                                                 ", AltitudeEnd = " + row.Cells[13].Value.ToString() +
+                                                 ", Remark = '" + row.Cells[14].Value.ToString() +
+                                                 "' where RouteID = '" + row.Cells[2].Value.ToString() + "';";
+                                                 
+
+                            MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlConnection.Close();
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+                        }
+                    }
+                    TableConnetcDB();
+                }
+                else if (selectIndex == 1)
+                {
+                    geoboundarypointDataGridView.ReadOnly = true;
+                    int rowsCount = geoboundarypointDataGridView.Rows.Count;
+                    for (int i = 0; i < rowsCount - 1; ++i)
+                    {
+                        DataGridViewRow row = geoboundarypointDataGridView.Rows[i];
+                        try
+                        {
+                            string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                            MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                            mySqlConnection.Open();
+
+                            string commandText = "update geoboundarypoint set " +
+                                                 "MapID = '" + row.Cells[0].Value.ToString() +
+                                                 "', MapName = '" + row.Cells[1].Value.ToString() +
+                                                 "', RouteID = '" + row.Cells[2].Value.ToString() +
+                                                 "', Longitude = " + row.Cells[4].Value.ToString() +
+                                                 ", Latitude = " + row.Cells[5].Value.ToString() +
+                                                 ", Altitude = " + row.Cells[6].Value.ToString() +
+                                                 ", ContactRela = '" + row.Cells[7].Value.ToString() + 
+                                                 "', LeftBody = '" + row.Cells[8].Value.ToString() + 
+                                                 "', RightBody = '" + row.Cells[9].Value.ToString() + 
+                                                 "', Strike = " + row.Cells[10].Value.ToString() + 
+                                                 ", Dip = " + row.Cells[11].Value.ToString() + 
+                                                 ", DipAngle = " + row.Cells[12].Value.ToString() + 
+                                                 ", Remark = '" + row.Cells[13].Value.ToString() +
+                                                 "' where PointID = '" + row.Cells[3].Value.ToString() + "';";
+
+
+                            MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlConnection.Close();
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+                        }
+                    }
+                    TableConnetcDB();
+
+                }
+                else if (selectIndex == 2)
+                {
+                    faultpointDataGridView.ReadOnly = true;
+                    int rowsCount = faultpointDataGridView.Rows.Count;
+                    for (int i = 0; i < rowsCount - 1; ++i)
+                    {
+                        DataGridViewRow row = faultpointDataGridView.Rows[i];
+                        try
+                        {
+                            string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                            MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                            mySqlConnection.Open();
+
+                            string commandText = "update faultpoint set " +
+                                                 "MapID = '" + row.Cells[0].Value.ToString() +
+                                                 "', MapName = '" + row.Cells[1].Value.ToString() +
+                                                 "', RouteID = '" + row.Cells[2].Value.ToString() +
+                                                 "', PointID = '" + row.Cells[3].Value.ToString() +
+                                                 "', Longitude = " + row.Cells[5].Value.ToString() +
+                                                 ", Latitude = " + row.Cells[6].Value.ToString() +
+                                                 ", Altitude = " + row.Cells[7].Value.ToString() +
+                                                 ", FaultType = '" + row.Cells[8].Value.ToString() +
+                                                 "', FaultName = '" + row.Cells[9].Value.ToString() +
+                                                 "', FaultDist = " + row.Cells[10].Value.ToString() +
+                                                 ", FaultAge = '" + row.Cells[11].Value.ToString() +
+                                                 "', FaultRock = '" + row.Cells[12].Value.ToString() +
+                                                 "', FaultStrike = " + row.Cells[13].Value.ToString() +
+                                                 ", FaultDip = " + row.Cells[14].Value.ToString() + 
+                                                 ", DipAngle = " + row.Cells[15].Value.ToString() + 
+                                                 ", Remark = '" + row.Cells[16].Value.ToString() +
+                                                 "' where FaultID = '" + row.Cells[4].Value.ToString() + "';";
+
+
+                            MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlConnection.Close();
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+                        }
+                    }
+                    TableConnetcDB();
+
+                }
+                else if (selectIndex == 3)
+                {
+                    foldpointDataGridView.ReadOnly = true;
+                    int rowsCount = foldpointDataGridView.Rows.Count;
+                    for (int i = 0; i < rowsCount - 1; ++i)
+                    {
+                        DataGridViewRow row = foldpointDataGridView.Rows[i];
+                        try
+                        {
+                            string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                            MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                            mySqlConnection.Open();
+
+                            string commandText = "update foldpoint set " +
+                                                 "MapID = '" + row.Cells[0].Value.ToString() +
+                                                 "', MapName = '" + row.Cells[1].Value.ToString() +
+                                                 "', RouteID = '" + row.Cells[2].Value.ToString() +
+                                                 "', PointID = '" + row.Cells[3].Value.ToString() +
+                                                 "', Longitude = " + row.Cells[5].Value.ToString() +
+                                                 ", Latitude = " + row.Cells[6].Value.ToString() +
+                                                 ", Altitude = " + row.Cells[7].Value.ToString() +
+                                                 ", FoldType = '" + row.Cells[8].Value.ToString() +
+                                                 "', FoldName = '" + row.Cells[9].Value.ToString() +
+                                                 "', FoldAxTrend = " + row.Cells[10].Value.ToString() +
+                                                 ", FoldAxRegDip = " + row.Cells[11].Value.ToString() +
+                                                 ", FoldAxRegAng = " + row.Cells[12].Value.ToString() +
+                                                 ", FoldAge = " + row.Cells[13].Value.ToString() +
+                                                 ", Remark = '" + row.Cells[14].Value.ToString() +
+                                                 "' where FoldID = '" + row.Cells[4].Value.ToString() + "';";
+
+
+                            MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlConnection.Close();
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+                        }
+                    }
+                    TableConnetcDB();
+
+                }
+                else if (selectIndex == 4)
+                {
+                    mapDataGridView.ReadOnly = true;
+                    int rowsCount = mapDataGridView.Rows.Count;
+                    for (int i = 0; i < rowsCount - 1; ++i)
+                    {
+                        DataGridViewRow row = mapDataGridView.Rows[i];
+                        try
+                        {
+                            string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
+                            MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
+                            mySqlConnection.Open();
+
+                            string commandText = "update map set " +
+                                                 "MapName = '" + row.Cells[1].Value.ToString() +
+                                                 "', LeftLongX = " + row.Cells[2].Value.ToString() +
+                                                 ", LeftLatiY = " + row.Cells[3].Value.ToString() +
+                                                 ", RightLongX = " + row.Cells[4].Value.ToString() +
+                                                 ", RightLatiY = " + row.Cells[5].Value.ToString() +
+                                                 ", CoorSys = '" + row.Cells[6].Value.ToString() +
+                                                 "', AltitudeSys = '" + row.Cells[7].Value.ToString() +
+                                                 "', MappingUnit = '" + row.Cells[8].Value.ToString() +
+                                                 "', MappingS = '" + row.Cells[9].Value.ToString() +
+                                                 "', MappingE = '" + row.Cells[10].Value.ToString() +
+                                                 "', Remark = '" + row.Cells[11].Value.ToString() +
+                                                 "' where MapID = '" + row.Cells[0].Value.ToString() + "';";
+
+
+                            MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlConnection.Close();
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+                        }
+                    }
+                    TableConnetcDB();
+
+                }
+
+            }
         }
     }
 }

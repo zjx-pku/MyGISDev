@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.删除所选 = new System.Windows.Forms.Button();
-            this.编辑所选 = new System.Windows.Forms.Button();
+            this.编辑 = new System.Windows.Forms.Button();
             this.生成图层文件 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.mapDataGridView = new System.Windows.Forms.DataGridView();
@@ -66,16 +66,16 @@
             this.删除所选.UseVisualStyleBackColor = true;
             this.删除所选.Click += new System.EventHandler(this.删除所选_Click);
             // 
-            // 编辑所选
+            // 编辑
             // 
-            this.编辑所选.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.编辑所选.Location = new System.Drawing.Point(382, 604);
-            this.编辑所选.Name = "编辑所选";
-            this.编辑所选.Size = new System.Drawing.Size(150, 35);
-            this.编辑所选.TabIndex = 2;
-            this.编辑所选.Text = "编辑所选";
-            this.编辑所选.UseVisualStyleBackColor = true;
-            this.编辑所选.Click += new System.EventHandler(this.编辑所选_Click);
+            this.编辑.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.编辑.Location = new System.Drawing.Point(353, 604);
+            this.编辑.Name = "编辑";
+            this.编辑.Size = new System.Drawing.Size(198, 35);
+            this.编辑.TabIndex = 2;
+            this.编辑.Text = "开始编辑";
+            this.编辑.UseVisualStyleBackColor = true;
+            this.编辑.Click += new System.EventHandler(this.编辑_Click);
             // 
             // 生成图层文件
             // 
@@ -107,6 +107,7 @@
             this.mapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mapDataGridView.Location = new System.Drawing.Point(8, 8);
             this.mapDataGridView.Name = "mapDataGridView";
+            this.mapDataGridView.ReadOnly = true;
             this.mapDataGridView.RowTemplate.Height = 30;
             this.mapDataGridView.Size = new System.Drawing.Size(902, 516);
             this.mapDataGridView.TabIndex = 1;
@@ -130,6 +131,7 @@
             this.foldpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.foldpointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.foldpointDataGridView.Name = "foldpointDataGridView";
+            this.foldpointDataGridView.ReadOnly = true;
             this.foldpointDataGridView.RowTemplate.Height = 30;
             this.foldpointDataGridView.Size = new System.Drawing.Size(902, 516);
             this.foldpointDataGridView.TabIndex = 1;
@@ -153,6 +155,7 @@
             this.faultpointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.faultpointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.faultpointDataGridView.Name = "faultpointDataGridView";
+            this.faultpointDataGridView.ReadOnly = true;
             this.faultpointDataGridView.RowTemplate.Height = 30;
             this.faultpointDataGridView.Size = new System.Drawing.Size(902, 516);
             this.faultpointDataGridView.TabIndex = 1;
@@ -176,6 +179,7 @@
             this.geoboundarypointDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.geoboundarypointDataGridView.Location = new System.Drawing.Point(8, 8);
             this.geoboundarypointDataGridView.Name = "geoboundarypointDataGridView";
+            this.geoboundarypointDataGridView.ReadOnly = true;
             this.geoboundarypointDataGridView.RowTemplate.Height = 30;
             this.geoboundarypointDataGridView.Size = new System.Drawing.Size(902, 516);
             this.geoboundarypointDataGridView.TabIndex = 1;
@@ -199,6 +203,7 @@
             this.routeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.routeDataGridView.Location = new System.Drawing.Point(0, 0);
             this.routeDataGridView.Name = "routeDataGridView";
+            this.routeDataGridView.ReadOnly = true;
             this.routeDataGridView.RowTemplate.Height = 30;
             this.routeDataGridView.Size = new System.Drawing.Size(902, 516);
             this.routeDataGridView.TabIndex = 0;
@@ -226,7 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 643);
             this.Controls.Add(this.生成图层文件);
-            this.Controls.Add(this.编辑所选);
+            this.Controls.Add(this.编辑);
             this.Controls.Add(this.删除所选);
             this.Controls.Add(this.tabControl);
             this.Name = "DataCollect";
@@ -249,7 +254,7 @@
         #endregion
 
         private System.Windows.Forms.Button 删除所选;
-        private System.Windows.Forms.Button 编辑所选;
+        private System.Windows.Forms.Button 编辑;
         private System.Windows.Forms.Button 生成图层文件;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.DataGridView mapDataGridView;
