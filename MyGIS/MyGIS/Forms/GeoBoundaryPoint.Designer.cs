@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeoBoundaryPoint));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RouteID = new System.Windows.Forms.ComboBox();
             this.MapID = new System.Windows.Forms.ComboBox();
@@ -413,6 +414,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeoBoundaryPoint";
             this.Text = "地质界线采集点信息表";
             this.groupBox1.ResumeLayout(false);

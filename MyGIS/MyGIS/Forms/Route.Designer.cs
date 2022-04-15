@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Route));
             this.AltitudeStar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.LatiStar = new System.Windows.Forms.TextBox();
@@ -420,6 +421,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Route";
             this.Text = "地质路线信息采集表";
             this.groupBox4.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,11 +92,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(121, 177);
+            this.label6.Location = new System.Drawing.Point(125, 177);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(299, 30);
+            this.label6.Size = new System.Drawing.Size(265, 30);
             this.label6.TabIndex = 5;
-            this.label6.Text = "1900012406@pku.edu.cn";
+            this.label6.Text = "jx.zhang@pku.edu.cn";
             // 
             // label7
             // 
@@ -119,6 +120,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "About";
             this.Text = "关于软件";
             this.ResumeLayout(false);

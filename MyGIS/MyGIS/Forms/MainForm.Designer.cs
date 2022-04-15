@@ -54,6 +54,7 @@
             this.编辑状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制地层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制断层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制地质体ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.空间分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图查属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.属性查图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,6 @@
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.绘制地质体ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -281,6 +281,14 @@
             this.绘制断层线ToolStripMenuItem.Text = "绘制断层线";
             this.绘制断层线ToolStripMenuItem.Click += new System.EventHandler(this.绘制断层线ToolStripMenuItem_Click);
             // 
+            // 绘制地质体ToolStripMenuItem
+            // 
+            this.绘制地质体ToolStripMenuItem.Enabled = false;
+            this.绘制地质体ToolStripMenuItem.Name = "绘制地质体ToolStripMenuItem";
+            this.绘制地质体ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.绘制地质体ToolStripMenuItem.Text = "绘制地质体";
+            this.绘制地质体ToolStripMenuItem.Click += new System.EventHandler(this.绘制地质体ToolStripMenuItem_Click);
+            // 
             // 空间分析ToolStripMenuItem
             // 
             this.空间分析ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -342,14 +350,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 24);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // 绘制地质体ToolStripMenuItem
-            // 
-            this.绘制地质体ToolStripMenuItem.Enabled = false;
-            this.绘制地质体ToolStripMenuItem.Name = "绘制地质体ToolStripMenuItem";
-            this.绘制地质体ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.绘制地质体ToolStripMenuItem.Text = "绘制地质体";
-            this.绘制地质体ToolStripMenuItem.Click += new System.EventHandler(this.绘制地质体ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -362,6 +362,7 @@
             this.Controls.Add(this.axTOCControl1);
             this.Controls.Add(this.axMapControl2);
             this.Controls.Add(this.axMapControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "区域地质调查填图辅助系统";
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);

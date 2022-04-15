@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataCollect));
             this.删除所选 = new System.Windows.Forms.Button();
             this.编辑 = new System.Windows.Forms.Button();
             this.生成图层文件 = new System.Windows.Forms.Button();
@@ -234,6 +235,7 @@
             this.Controls.Add(this.编辑);
             this.Controls.Add(this.删除所选);
             this.Controls.Add(this.tabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataCollect";
             this.Text = "数据管理";
             this.tabPage9.ResumeLayout(false);

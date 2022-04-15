@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FoldPoint));
             this.确定提交 = new System.Windows.Forms.Button();
             this.RouteID = new System.Windows.Forms.ComboBox();
             this.MapID = new System.Windows.Forms.ComboBox();
@@ -434,6 +435,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.取消);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FoldPoint";
             this.Text = "褶皱采集点信息表";
             this.groupBox2.ResumeLayout(false);
