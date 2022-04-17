@@ -10,25 +10,37 @@ using MySql.Data.MySqlClient;
 
 namespace MyGIS.Forms
 {
+    /// <summary>
+    /// 地质路线信息采集表
+    /// </summary>
     public partial class Route : Form
     {
+        #region 构造函数
         public Route()
         {
-            InitializeComponent();
-            GetMapID();
+            InitializeComponent();  // 初始化控件
+            GetMapID();             // 获取MapID
         }
+        #endregion
 
+        #region 函数
+        /// <summary>
+        /// 获取MapID
+        /// </summary>
         private void GetMapID()
         {
             try
             {
+                // 建立数据库连接
                 string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
                 MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
                 mySqlConnection.Open();
 
+                // 执行查询语句
                 string commandText = "select MapID from map";
                 MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
 
+                // 读取查询结果并写入名为MapID的下拉框中
                 MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
@@ -38,6 +50,7 @@ namespace MyGIS.Forms
                     }
                 }
 
+                // 断开数据库连接
                 mySqlConnection.Close();
             }
             catch (Exception exception)
@@ -45,7 +58,14 @@ namespace MyGIS.Forms
                 MessageBox.Show(exception.Message);
             }
         }
+        #endregion
 
+        #region 事件
+        /// <summary>
+        /// “确认提交”按钮点击后触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 确定提交_Click(object sender, EventArgs e)
         {
             /// <summary>
@@ -251,22 +271,35 @@ namespace MyGIS.Forms
 
         }
 
+        /// <summary>
+        /// “取消”按钮点击后触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 取消_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// MapID选中文本改变后触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MapID_TextChanged(object sender, EventArgs e)
         {
             try
             {
+                // 建立数据库连接
                 string connectionStr = string.Format("server={0};user id = {1};port = {2};password={3};database=mygis;pooling = false;", "localhost", "root", 3306, "123456");
                 MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
                 mySqlConnection.Open();
 
+                // 执行查询语句
                 string commandText = "select MapName from map where MapID = " + MapID.Text;
                 MySqlCommand mySqlCommand = new MySqlCommand(commandText, mySqlConnection);
 
+                // 读取查询结果并写入MapName文本框中
                 MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
@@ -276,6 +309,7 @@ namespace MyGIS.Forms
                     }
                 }
 
+                // 断开数据库连接
                 mySqlConnection.Close();
             }
             catch (Exception exception)
@@ -283,5 +317,6 @@ namespace MyGIS.Forms
                 MessageBox.Show(exception.Message);
             }
         }
+        #endregion
     }
 }

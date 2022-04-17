@@ -7,7 +7,6 @@ E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.pdb
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.MainForm.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.AttributeTable.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\bin\Debug\MyGIS.exe.config
-E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.DataCollect.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.GeoBoundaryPoint.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.Map.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.FaultPoint.resources
@@ -16,3 +15,4 @@ E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.Route.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.csprojResolveAssemblyReference.cache
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.About.resources
 E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.Help.resources
+E:\2022GIS\MyGISDev\MyGIS\MyGIS\obj\Debug\MyGIS.Forms.DataManager.resources

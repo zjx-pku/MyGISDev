@@ -10,13 +10,24 @@ using MySql.Data.MySqlClient;
 
 namespace MyGIS.Forms
 {
+    /// <summary>
+    /// 图幅信息数据
+    /// </summary>
     public partial class Map : Form
     {
+        #region 构造函数
         public Map()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region 事件
+        /// <summary>
+        /// 点击“确定提交”按钮后触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 确定提交_Click(object sender, EventArgs e)
         {
             /// <summary>
@@ -187,9 +198,15 @@ namespace MyGIS.Forms
 
         }
 
+        /// <summary>
+        /// 点击“取消”按钮后触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 取消_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
     }
 }

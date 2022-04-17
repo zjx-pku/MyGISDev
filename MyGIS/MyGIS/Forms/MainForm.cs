@@ -11,20 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace MyGIS.Forms
 {
+    /// <summary>
+    /// 程序主界面
+    /// </summary>
     public partial class MainForm : Form
     {
+        #region 成员变量
         private ILayer pGlobalFeatureLayer;
         private Operation oprFlag;
         private String oprLayerName;
         private IGeometry pGeometry;
         public static MainForm form;
-
-        public MainForm()
-        {
-            InitializeComponent();
-            form = this;
-        }
-
         /// <summary>
         /// 定义一个操作的枚举，分别是新建点、线、面
         /// </summary>
@@ -35,6 +32,15 @@ namespace MyGIS.Forms
             ConstructionPolyLine,   // 新建折线
             ConstructionPolygon,    // 新建面
         }
+        #endregion
+
+        #region 构造函数
+        public MainForm()
+        {
+            InitializeComponent();
+            form = this;
+        }
+        #endregion
 
         #region 调整操作状态（编辑点、线、面）
         private void EditPoint(String layerName)
@@ -524,7 +530,7 @@ namespace MyGIS.Forms
         #region 数据管理菜单选项
         private void 数据管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataCollect dataCollect = new DataCollect();
+            DataManager dataCollect = new DataManager();
             dataCollect.Show();
         }
         #endregion
