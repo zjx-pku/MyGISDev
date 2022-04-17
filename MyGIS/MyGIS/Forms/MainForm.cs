@@ -234,6 +234,7 @@ namespace MyGIS.Forms
             //为esriFieldTypeGeometry类型的字段创建几何定义，包括类型和空间参照
             IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
             IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
+            
 
             if (strShapeName == "地质体")
             {
@@ -243,8 +244,10 @@ namespace MyGIS.Forms
             {
                 pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPolyline;
             }
-            
-            pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
+
+            ISpatialReferenceFactory pSpatialReferFac = new SpatialReferenceEnvironmentClass();
+            ISpatialReference pSpatialRefer = pSpatialReferFac.CreateGeographicCoordinateSystem((int)esriSRGeoCSType.esriSRGeoCS_WGS1984);
+            pGeoDefEdit.SpatialReference_2 = pSpatialRefer;
 
             pFieldEdit.GeometryDef_2 = pGeoDef;
             pFieldsEdit.AddField(pField);

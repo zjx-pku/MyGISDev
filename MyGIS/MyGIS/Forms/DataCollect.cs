@@ -312,18 +312,184 @@ namespace MyGIS.Forms
             if (selectedIndex == 1)
             {
                 CreateShpFile(folderPath, "地层界线点");
-                IPoint point = new PointClass();
-                AddPointByStore("地层界线点", point);
+                // 3. 获取表格的行列数
+                int columnCount = geoboundarypointDataGridView.Columns.Count;
+                int rowCount = geoboundarypointDataGridView.Rows.Count;
+
+                // 4. 遍历每一行（除去最后一个空行），对该行对应的要素进行属性更新
+                for (int i = 0; i < rowCount - 1; ++i)
+                {
+                    IPoint point = new PointClass();
+                    point.PutCoords(double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[4].Value)),
+                        double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[5].Value)));
+                    AddPointByStore("地层界线点", point);
+
+                    // (1) 
+                    IFeatureLayer pFeatureLayer = GetLayerByNameFromMap("地层界线点") as IFeatureLayer;
+                    IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+                    IFeature pFeature = pFeatureClass.GetFeature(i);
+
+                    // (2) 遍历每一列
+                    for (int j = 0; j < columnCount; ++j)
+                    {
+                        // 获取该列的列名
+                        string fieldName = geoboundarypointDataGridView.Columns[j].Name;
+                        if (fieldName == "ContactRela")
+                        {
+                            fieldName = "ContactRel";
+                        }
+                        // 根据列名获取该字段的索引
+                        int fieldIndex = pFeature.Fields.FindField(fieldName);
+                        // 根据该字段的索引获取该字段对象，进而获得其类型
+                        esriFieldType fieldType = pFeature.Fields.get_Field(fieldIndex).Type;
+                        // 新建一个object对象用来存储字段值，系统中涉及到的字段类型包括int和string
+                        object fieldValue = new object();
+                        // 如果字段类型为string，则将该单元格内的值转换为string
+                        if (fieldType == esriFieldType.esriFieldTypeString)
+                        {
+                            fieldValue = (string)geoboundarypointDataGridView.Rows[i].Cells[j].Value;
+                        }
+                        // 如果字段类型为int，则将该单元格内的值转换为string并用int类型进行解析
+                        else if (fieldType == esriFieldType.esriFieldTypeInteger)
+                        {
+                            fieldValue = int.Parse(Convert.ToString(geoboundarypointDataGridView.Rows[i].Cells[j].Value));
+                        }
+                        else if(fieldType == esriFieldType.esriFieldTypeDouble)
+                        {
+                            fieldValue = double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[j].Value));
+                        }
+
+
+                        // 根据字段索引和单元格内的值类更新该要素的属性
+                        pFeature.set_Value(fieldIndex, fieldValue);
+                        // 保存
+                        pFeature.Store();
+                    }
+                }
             }
             // 断层采集点
             else if (selectedIndex == 2)
             {
                 CreateShpFile(folderPath, "断层采集点");
+                // 3. 获取表格的行列数
+                int columnCount = faultpointDataGridView.Columns.Count;
+                int rowCount = faultpointDataGridView.Rows.Count;
+
+                // 4. 遍历每一行（除去最后一个空行），对该行对应的要素进行属性更新
+                for (int i = 0; i < rowCount - 1; ++i)
+                {
+                    IPoint point = new PointClass();
+                    point.PutCoords(double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[5].Value)),
+                                double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[6].Value)));
+                    AddPointByStore("断层采集点", point);
+
+                    // (1) 
+                    IFeatureLayer pFeatureLayer = GetLayerByNameFromMap("断层采集点") as IFeatureLayer;
+                    IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+                    IFeature pFeature = pFeatureClass.GetFeature(i);
+
+                    // (2) 遍历每一列
+                    for (int j = 0; j < columnCount; ++j)
+                    {
+                        // 获取该列的列名
+                        string fieldName = faultpointDataGridView.Columns[j].Name;
+                        if (fieldName == "FaultStrike")
+                        {
+                            fieldName = "FaultStrik";
+                        }
+                        // 根据列名获取该字段的索引
+                        int fieldIndex = pFeature.Fields.FindField(fieldName);
+                        // 根据该字段的索引获取该字段对象，进而获得其类型
+                        esriFieldType fieldType = pFeature.Fields.get_Field(fieldIndex).Type;
+                        // 新建一个object对象用来存储字段值，系统中涉及到的字段类型包括int和string
+                        object fieldValue = new object();
+                        // 如果字段类型为string，则将该单元格内的值转换为string
+                        if (fieldType == esriFieldType.esriFieldTypeString)
+                        {
+                            fieldValue = (string)faultpointDataGridView.Rows[i].Cells[j].Value;
+                        }
+                        // 如果字段类型为int，则将该单元格内的值转换为string并用int类型进行解析
+                        else if (fieldType == esriFieldType.esriFieldTypeInteger)
+                        {
+                            fieldValue = int.Parse(Convert.ToString(faultpointDataGridView.Rows[i].Cells[j].Value));
+                        }
+                        else if(fieldType == esriFieldType.esriFieldTypeDouble)
+                        {
+                            fieldValue = double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[j].Value));
+                        }
+
+                        // 根据字段索引和单元格内的值类更新该要素的属性
+                        pFeature.set_Value(fieldIndex, fieldValue);
+                        // 保存
+                        pFeature.Store();
+                    }
+                }
             }
             // 褶皱采集点
             else if (selectedIndex == 3)
             {
                 CreateShpFile(folderPath, "褶皱采集点");
+                // 3. 获取表格的行列数
+                int columnCount = foldpointDataGridView.Columns.Count;
+                int rowCount = foldpointDataGridView.Rows.Count;
+
+                // 4. 遍历每一行（除去最后一个空行），对该行对应的要素进行属性更新
+                for (int i = 0; i < rowCount - 1; ++i)
+                {
+                    IPoint point = new PointClass();
+                    point.PutCoords(double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[5].Value)),
+                                double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[6].Value)));
+                    AddPointByStore("褶皱采集点", point);
+
+                    // (1) 
+                    IFeatureLayer pFeatureLayer = GetLayerByNameFromMap("褶皱采集点") as IFeatureLayer;
+                    IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+                    IFeature pFeature = pFeatureClass.GetFeature(i);
+
+                    // (2) 遍历每一列
+                    for (int j = 0; j < columnCount; ++j)
+                    {
+                        // 获取该列的列名
+                        string fieldName = foldpointDataGridView.Columns[j].Name;
+                        if (fieldName == "FoldAxTrend")
+                        {
+                            fieldName = "FoldAxTren";
+                        }
+                        else if (fieldName == "FoldAxRegDip")
+                        {
+                            fieldName = "FoldAxRegD";
+                        }
+                        else if (fieldName == "FoldAxRegAng")
+                        {
+                            fieldName = "FoldAxRegA";
+                        }
+                        // 根据列名获取该字段的索引
+                        int fieldIndex = pFeature.Fields.FindField(fieldName);
+                        // 根据该字段的索引获取该字段对象，进而获得其类型
+                        esriFieldType fieldType = pFeature.Fields.get_Field(fieldIndex).Type;
+                        // 新建一个object对象用来存储字段值，系统中涉及到的字段类型包括int和string
+                        object fieldValue = new object();
+                        // 如果字段类型为string，则将该单元格内的值转换为string
+                        if (fieldType == esriFieldType.esriFieldTypeString)
+                        {
+                            fieldValue = (string)foldpointDataGridView.Rows[i].Cells[j].Value;
+                        }
+                        // 如果字段类型为int，则将该单元格内的值转换为string并用int类型进行解析
+                        else if (fieldType == esriFieldType.esriFieldTypeInteger)
+                        {
+                            fieldValue = int.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[j].Value));
+                        }
+                        else if(fieldType == esriFieldType.esriFieldTypeDouble)
+                        {
+                            fieldValue = double.Parse(Convert.ToString(foldpointDataGridView.Rows[i].Cells[j].Value));
+                        }
+                        // 根据字段索引和单元格内的值类更新该要素的属性
+                        pFeature.set_Value(fieldIndex, fieldValue);
+                        // 保存
+                        pFeature.Store();
+                    }
+                }
+
             }
         }
 
@@ -395,7 +561,10 @@ namespace MyGIS.Forms
             IGeometryDef pGeoDef = new GeometryDefClass(); //The geometry definition for the field if IsGeometry is TRUE.
             IGeometryDefEdit pGeoDefEdit = (IGeometryDefEdit)pGeoDef;
             pGeoDefEdit.GeometryType_2 = esriGeometryType.esriGeometryPoint;
-            pGeoDefEdit.SpatialReference_2 = new UnknownCoordinateSystemClass();
+
+            ISpatialReferenceFactory pSpatialReferFac = new SpatialReferenceEnvironmentClass();
+            ISpatialReference pSpatialRefer = pSpatialReferFac.CreateGeographicCoordinateSystem((int)esriSRGeoCSType.esriSRGeoCS_WGS1984);
+            pGeoDefEdit.SpatialReference_2 = pSpatialRefer;
 
             pFieldEdit.GeometryDef_2 = pGeoDef;
             pFieldsEdit.AddField(pField);
@@ -430,21 +599,21 @@ namespace MyGIS.Forms
                 IField longitudeField = new FieldClass();
                 IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
                 longitudeFieldEdit.Name_2 = "Longitude";
-                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(longitudeField);
 
 
                 IField latitudeField = new FieldClass();
                 IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
                 latitudeFieldEdit.Name_2 = "Latitude";
-                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(latitudeField);
 
 
                 IField altitudeField = new FieldClass();
                 IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
                 altitudeFieldEdit.Name_2 = "Altitude";
-                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(altitudeField);
 
                 IField contactRelaField = new FieldClass();
@@ -524,21 +693,21 @@ namespace MyGIS.Forms
                 IField longitudeField = new FieldClass();
                 IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
                 longitudeFieldEdit.Name_2 = "Longitude";
-                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(longitudeField);
 
 
                 IField latitudeField = new FieldClass();
                 IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
                 latitudeFieldEdit.Name_2 = "Latitude";
-                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(latitudeField);
 
 
                 IField altitudeField = new FieldClass();
                 IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
                 altitudeFieldEdit.Name_2 = "Altitude";
-                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(altitudeField);
 
                 IField faultTypeField = new FieldClass();
@@ -630,21 +799,21 @@ namespace MyGIS.Forms
                 IField longitudeField = new FieldClass();
                 IFieldEdit longitudeFieldEdit = longitudeField as IFieldEdit;
                 longitudeFieldEdit.Name_2 = "Longitude";
-                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                longitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(longitudeField);
 
 
                 IField latitudeField = new FieldClass();
                 IFieldEdit latitudeFieldEdit = latitudeField as IFieldEdit;
                 latitudeFieldEdit.Name_2 = "Latitude";
-                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                latitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(latitudeField);
 
 
                 IField altitudeField = new FieldClass();
                 IFieldEdit altitudeFieldEdit = altitudeField as IFieldEdit;
                 altitudeFieldEdit.Name_2 = "Altitude";
-                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                altitudeFieldEdit.Type_2 = esriFieldType.esriFieldTypeDouble;
                 pFieldsEdit.AddField(altitudeField);
 
 
@@ -674,9 +843,15 @@ namespace MyGIS.Forms
 
                 IField foldAxRegAng = new FieldClass();
                 IFieldEdit foldAxRegAngEdit = foldAxRegAng as IFieldEdit;
-                foldAxRegAngEdit.Name_2 = "FoldAxRegDip";
+                foldAxRegAngEdit.Name_2 = "FoldAxRegAng";
                 foldAxRegAngEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
                 pFieldsEdit.AddField(foldAxRegAng);
+
+                IField foldAge = new FieldClass();
+                IFieldEdit foldAgeEdit = foldAge as IFieldEdit;
+                foldAgeEdit.Name_2 = "FoldAge";
+                foldAgeEdit.Type_2 = esriFieldType.esriFieldTypeInteger;
+                pFieldsEdit.AddField(foldAge);
 
                 IField remarkField = new FieldClass();
                 IFieldEdit remarkFieldEdit = remarkField as IFieldEdit;
