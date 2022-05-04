@@ -538,8 +538,8 @@ namespace MyGIS.Forms
         #region 帮助菜单选项
         private void 帮助主题ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Help help = new Help();
-            help.Show();
+            string helpFile = "help.chm";
+            Help.ShowHelp(this, helpFile);
         }
 
         private void 关于软件ToolStripMenuItem_Click(object sender, EventArgs e)

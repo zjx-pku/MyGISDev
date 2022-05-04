@@ -55,9 +55,6 @@
             this.绘制地层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制断层线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制地质体ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.空间分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.图查属性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.属性查图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助主题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -154,7 +151,6 @@
             this.数据采集ToolStripMenuItem,
             this.数据管理ToolStripMenuItem,
             this.编辑成图ToolStripMenuItem,
-            this.空间分析ToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -289,28 +285,6 @@
             this.绘制地质体ToolStripMenuItem.Text = "绘制地质体";
             this.绘制地质体ToolStripMenuItem.Click += new System.EventHandler(this.绘制地质体ToolStripMenuItem_Click);
             // 
-            // 空间分析ToolStripMenuItem
-            // 
-            this.空间分析ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.图查属性ToolStripMenuItem,
-            this.属性查图ToolStripMenuItem});
-            this.空间分析ToolStripMenuItem.Name = "空间分析ToolStripMenuItem";
-            this.空间分析ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
-            this.空间分析ToolStripMenuItem.Text = "空间分析";
-            // 
-            // 图查属性ToolStripMenuItem
-            // 
-            this.图查属性ToolStripMenuItem.Name = "图查属性ToolStripMenuItem";
-            this.图查属性ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.图查属性ToolStripMenuItem.Text = "图查属性";
-            // 
-            // 属性查图ToolStripMenuItem
-            // 
-            this.属性查图ToolStripMenuItem.Name = "属性查图ToolStripMenuItem";
-            this.属性查图ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.属性查图ToolStripMenuItem.Text = "属性查图";
-            this.属性查图ToolStripMenuItem.Click += new System.EventHandler(this.属性查图ToolStripMenuItem_Click);
-            // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -393,7 +367,6 @@
         private System.Windows.Forms.ToolStripMenuItem 移除图层ToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 数据采集ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 空间分析ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助主题ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于软件ToolStripMenuItem;
@@ -406,8 +379,6 @@
         private System.Windows.Forms.ToolStripMenuItem 地层界线点数据ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 断层采集点数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 褶皱采集点数据ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 图查属性ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 属性查图ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据管理ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 图幅数据录入ToolStripMenuItem;

@@ -121,12 +121,6 @@
     <Compile Include="Forms\FoldPoint.Designer.cs">
       <DependentUpon>FoldPoint.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Help.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Help.Designer.cs">
-      <DependentUpon>Help.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,9 +161,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FoldPoint.resx">
       <DependentUpon>FoldPoint.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Help.resx">
-      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
