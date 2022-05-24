@@ -101,7 +101,7 @@
             this.axTOCControl1.Location = new System.Drawing.Point(8, 71);
             this.axTOCControl1.Name = "axTOCControl1";
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(209, 182);
+            this.axTOCControl1.Size = new System.Drawing.Size(209, 375);
             this.axTOCControl1.TabIndex = 2;
             this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
